@@ -20,7 +20,6 @@ export const FormBox = styled(Box)`
   display: flex;
   align-items: center;
   opacity: 0.7;
-  /*  justify-content: center; */
   flex-direction: column;
   &:hover {
     opacity: 0.9;

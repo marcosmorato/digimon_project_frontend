@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Box, Button, Dialog, DialogContent, TextField } from "@mui/material";
 
 export const Container = styled(Box)`
-  width: 60%;
+  width: 15%;
   height: 80%;
   background-color: #fff;
   box-shadow: 1px 1px 4px 4px black;
@@ -11,7 +11,6 @@ export const Container = styled(Box)`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   opacity: 0.7;
   &:hover {
     opacity: 0.9;

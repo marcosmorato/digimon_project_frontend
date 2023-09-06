@@ -8,5 +8,14 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   background-color: #ccc;
-  padding: 16px;
+  padding: 32px;
+`;
+
+export const ContainerBody = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ccc;
 `;
