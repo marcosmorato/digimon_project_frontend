@@ -1,30 +1,20 @@
-// store.ts
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
-import { persistStore, persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage";
 import counterReducer from "./counter/reducers"; // Importe seus reducers aqui
 import UsersReducer from "./user/reducers";
-
-const persistConfig = {
-  key: "root",
-  storage,
-};
+import WikipediaReducer from "./wikipedia/reducers";
 
 const rootReducer = combineReducers({
   user: UsersReducer,
+  wikipedia: WikipediaReducer,
   // Adicione outros reducers, se houver
 });
 
-const persistedReducer = persistReducer(persistConfig, rootReducer);
-
 const store = configureStore({
-  reducer: persistedReducer,
+  reducer: rootReducer,
   // Outras configurações da store, se necessário
 });
 
-const persistor = persistStore(store);
-
-export { store, persistor };
+export { store };
 
 export type AppDispatch = typeof store.dispatch;
 // Defina o tipo RootState

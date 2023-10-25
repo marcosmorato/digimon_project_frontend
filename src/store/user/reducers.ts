@@ -1,5 +1,10 @@
 import { AnyAction, Reducer } from "redux";
-import { UPDATE_USERS, LOGIN_FAILED, LOGIN_SUCCESS } from "./actionsType";
+import {
+  UPDATE_USERS,
+  LOGIN_FAILED,
+  LOGIN_SUCCESS,
+  UPDATE_FAVORITE,
+} from "./actionsType";
 
 interface LoggedUser {
   user: {
@@ -9,6 +14,7 @@ interface LoggedUser {
     id: string;
     password: string;
     token: string;
+    favorite: string[] | [];
   };
 }
 
@@ -18,7 +24,11 @@ interface UsersState {
 }
 
 interface UpdateUsersAction {
-  type: typeof UPDATE_USERS | typeof LOGIN_FAILED | typeof LOGIN_SUCCESS;
+  type:
+    | typeof UPDATE_USERS
+    | typeof LOGIN_FAILED
+    | typeof LOGIN_SUCCESS
+    | typeof UPDATE_FAVORITE;
   newState: UsersState;
 }
 
@@ -31,6 +41,7 @@ const initialState: UsersState = {
       password: "",
       email: "",
       id: "",
+      favorite: [],
     },
   },
   isLogged: false,
@@ -42,12 +53,23 @@ const UsersReducer: Reducer<UsersState, UpdateUsersAction> = (
 ) => {
   switch (action.type) {
     case UPDATE_USERS:
-      console.log(action.newState);
-      return action.newState;
+      return { ...state, ...action.newState };
     case LOGIN_FAILED:
-      return action.newState;
+      return { ...state, ...action.newState };
     case LOGIN_SUCCESS:
-      return action.newState;
+      return { ...state, ...action.newState };
+    case UPDATE_FAVORITE:
+      const updatedFavoriteState: UsersState = {
+        ...state,
+        loggedUser: {
+          ...state.loggedUser,
+          user: {
+            ...state.loggedUser.user,
+            favorite: action.newState,
+          },
+        },
+      };
+      return updatedFavoriteState;
     default:
       return state;
   }

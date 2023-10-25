@@ -2,33 +2,38 @@ import styled from "styled-components";
 import { Box, Button, Dialog, DialogContent, TextField } from "@mui/material";
 
 export const Container = styled.div`
-  width: 50%;
-  height: 100%;
+  width: 582px;
+  height: 470px;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  background-color: #ddd;
+  /*   justify-content: flex-end; */
+  flex-direction: column;
+  justify-content: center;
+  /*   background-color: #ddd; */
+  @media (max-width: 426px) {
+    width: 360px;
+    padding: 12px;
+    border-bottom: 1px solid #acf;
+  }
 `;
 
 export const FormBox = styled(Box)`
-  width: 75%;
-  height: 70%;
-  background-color: #fff;
+  width: 582px;
+  height: 354px;
   color: black;
-  box-shadow: 1px 1px 4px 4px #acf;
-  border-radius: 10px;
   display: flex;
   align-items: center;
-  opacity: 0.7;
-  /*  justify-content: center; */
+  border-right: 1px solid #acf;
   flex-direction: column;
-  &:hover {
-    opacity: 0.9;
+  text-align: center;
+  @media (max-width: 426px) {
+    width: 338px;
+    border-right: 0px;
   }
 `;
 
 export const DialogContentMui = styled(DialogContent)`
-  height: 80%;
+  height: 100%;
   width: 100%;
   padding: 0.5rem;
   overflow: hidden;
@@ -38,49 +43,68 @@ export const DialogContentMui = styled(DialogContent)`
 `;
 
 export const Form = styled.form`
-  background-color: rgba(255, 255, 255, 0.883);
-  box-shadow: 1px 1px 4px 4px #acf;
-  padding: 30px 5px;
-  min-width: 250px;
-  height: 100%;
-  max-height: 100%;
-
+  /*   background-color: rgba(255, 255, 255, 0.883); */
+  height: 380px;
+  width: 540px;
   overflow: auto;
-  border-radius: 1rem;
 
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
 
   font-style: italic;
 
-  /* @media (min-width: 700px) {
-    height: 100%;
-    margin: 1rem;
-  } */
+  @media (max-width: 426px) {
+    width: 338px;
+  }
+`;
+
+export const Inputs = styled.div`
+  display: flex;
+  width: 540px;
+  margin-top: 20px;
+  @media (max-width: 426px) {
+    width: 320px;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const inputBox = styled.div`
-  text-align: center;
-  width: 100%;
-  & > div {
-    width: 83%;
-
-    margin-bottom: 1rem;
-
-    @media (min-width: 768px) {
-      margin-bottom: 0.5rem;
+  width: 270px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-image: linear-gradient(180deg, #fff, #acf); */
+  opacity: 0.6;
+  & .MuiTextField-root {
+    width: 220px;
+    @media (max-width: 426px) {
+      width: 270px;
     }
+  }
+  label {
+    font-family: fantasy !important;
+    color: black !important;
+    width: 110px;
+    text-align: left;
+    /* -webkit-text-stroke: 1px #acf; */
+  }
+  & .MuiInputBase-input {
+    color: black;
+    /* -webkit-text-stroke: 1px #acf; */
+    font-family: fantasy !important;
+    border-color: black !important;
+    background-image: linear-gradient(180deg, #fff, #acf);
   }
 `;
 
 export const InputText = styled(TextField)``;
 
 export const CreateUser = styled(Button)`
-  width: 20%;
-  height: 10%;
-  margin-top: 15px !important;
+  width: 220px;
+  height: 56px;
   /* @media (max-width: 900px) {
     width: 150px;
     height: 30px;

@@ -3,12 +3,11 @@ import { Box } from "@mui/material";
 
 export const Container = styled.div`
   width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow-y: auto;
   padding: 32px;
+  overflow-y: auto;
 `;
 
 export const ContainerBody = styled.div`
@@ -16,7 +15,6 @@ export const ContainerBody = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 30px;
   @media (max-width: 426px) {
     flex-direction: column;
   }

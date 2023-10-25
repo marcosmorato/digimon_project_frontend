@@ -1,5 +1,10 @@
 import { AnyAction } from "redux";
-import { UPDATE_USERS, LOGIN_SUCCESS, LOGIN_FAILED } from "./actionsType";
+import {
+  UPDATE_USERS,
+  LOGIN_SUCCESS,
+  LOGIN_FAILED,
+  UPDATE_FAVORITE,
+} from "./actionsType";
 
 interface LoggedUser {
   user: {
@@ -18,12 +23,17 @@ export const updateUsers = (newState: UsersState): AnyAction => ({
   newState: newState,
 });
 
-export const loginSuccess = (data: UsersState): AnyAction => ({
+export const loginSuccess = (newState: UsersState): AnyAction => ({
   type: LOGIN_SUCCESS,
-  payload: data,
+  payload: newState,
 });
 
 export const loginFailed = (error: any): AnyAction => ({
   type: LOGIN_FAILED,
   payload: error,
+});
+
+export const updateFavorite = (newState: string[]): AnyAction => ({
+  type: UPDATE_FAVORITE,
+  newState: newState,
 });

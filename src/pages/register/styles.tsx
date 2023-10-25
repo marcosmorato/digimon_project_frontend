@@ -7,16 +7,29 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background-color: #ccc;
+  padding: 32px;
+  overflow-y: auto;
 `;
 
 export const SignContainer = styled.div`
-  width: 100%;
-  height: 70%;
+  width: 1200px;
+  box-shadow: 1px 1px 4px 4px #acf !important;
+  border: 2px solid #000;
+  border-radius: 10px;
+  color: black;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 60px;
+  @media (max-width: 426px) {
+    /*     height: 470px;
+    width: 100%; */
+    width: 360px;
+    flex-direction: column;
+    & .MuiTypography-h3 {
+      font-size: 2rem;
+    }
+  }
 `;
 
 export const LogoImg = styled(Box)`

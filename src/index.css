@@ -2,13 +2,40 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+    "Helvetica", "Arial", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  width: 100vw;
-  max-width: 100%;
-  height: 100vh;
-  max-height: 100%;
+  position: fixed; /* Define a posição como fixa */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+  letter-spacing: 0.00938em;
+  color: rgba(0, 0, 0, 0.87);
+  background-color: rgba(1, 3, 45, 0.9);
+  background-image: url("https://wallpapers.com/images/hd/digimon-background-ifqffin4g94gi7d2.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(1, 3, 45, 0.7), rgba(1, 3, 45, 0.7)),
+    url("https://wallpapers.com/images/hd/digimon-background-ifqffin4g94gi7d2.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1; /* Certifique-se de que o pseudo-elemento fique por trás do conteúdo */
 }
 
 code {

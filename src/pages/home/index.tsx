@@ -1,7 +1,7 @@
 import React from "react";
 import HeaderBox from "../../components/header";
-import HomeBox from "../../components/home/home";
 import NavBox from "../../components/nav";
+import HomeBox from "../../components/home";
 import * as S from "./styles";
 
 const Home: React.FC = () => {
@@ -11,7 +11,6 @@ const Home: React.FC = () => {
       <S.ContainerBody>
         <NavBox></NavBox>
         <HomeBox></HomeBox>
-        <NavBox></NavBox>
       </S.ContainerBody>
     </S.Container>
   );

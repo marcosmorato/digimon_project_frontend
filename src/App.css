@@ -28,6 +28,29 @@
   color: #61dafb;
 }
 
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body::backdrop {
+  background-color: #fff;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

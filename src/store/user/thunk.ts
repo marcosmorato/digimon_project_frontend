@@ -1,20 +1,23 @@
 import { api } from "../../services/api/index";
 import { AnyAction, Dispatch, Action } from "redux";
-import { updateUsers, loginFailed, loginSuccess } from "./actions";
-import { LOGIN_SUCCESS, LOGIN_FAILED } from "./actionsType";
+import {
+  updateUsers,
+  loginFailed,
+  loginSuccess,
+  updateFavorite,
+} from "./actions";
 import { ThunkAction, ThunkDispatch } from "redux-thunk";
 import { RootState, AppDispatch } from "../store";
-import axios from "axios";
 
 /* const loginSuccess = (data: any): AnyAction => ({
   type: "LOGIN_SUCCESS",
   payload: data,
 }); */
 
-const loginFailure = (error: any): AnyAction => ({
+/* const loginFailure = (error: any): AnyAction => ({
   type: "LOGIN_FAILURE",
   payload: error,
-});
+}); */
 
 interface CustomAction<T = any> extends Action {
   type: string;
@@ -36,6 +39,10 @@ interface registerUserData {
   nickname: string;
   name: string;
   password_confirmation: string;
+}
+
+interface IFavorite {
+  favorite: string[];
 }
 
 export const loginUserThunk = (
@@ -65,11 +72,10 @@ export const loginUserThunk = (
           console.log(error, "error ao fazer a requisição");
           return error;
         });
-      console.log(users);
       dispatch(updateUsers(users));
     } catch (error) {
       console.error(error);
-      dispatch(loginFailure(error));
+      dispatch(loginFailed(error));
     }
   };
 };
@@ -100,11 +106,50 @@ export const registerUserThunk = (
         });
       /* let users = getState().UsersReducer; */
 
-      console.log(response);
       dispatch(loginSuccess(response));
     } catch (error) {
       console.error(error);
-      dispatch(loginFailure(error));
+      dispatch(loginFailed(error));
+    }
+  };
+};
+
+export const updateFavoriteThunk = (
+  digimonId: string,
+  authToken: string
+): ThunkAction<Promise<void>, RootState, unknown, AnyAction> => {
+  return async (
+    dispatch: ThunkDispatch<RootState, unknown, AnyAction>,
+    getState: () => any
+  ) => {
+    try {
+      const headers = {
+        "Content-Type": "application/json",
+        "x-access-token": authToken,
+      };
+
+      const response = await api
+        .patch(
+          "/user/favorite",
+          {
+            digimonId: digimonId,
+          },
+          { headers: headers } // Passa o objeto de configuração com os cabeçalhos
+        )
+        .then((res) => {
+          return res.data;
+        })
+        .catch((error) => {
+          console.log(error, "error ao fazer a requisição");
+          return error;
+        });
+
+      dispatch(updateFavorite(response.favorite));
+      return Promise.resolve(); // Retorne uma promise vazia para cumprir o tipo de retorno Promise<void>
+    } catch (error) {
+      console.error(error);
+      dispatch(loginFailed(error));
+      return Promise.reject(error); // Retorne uma promise rejeitada em caso de erro
     }
   };
 };

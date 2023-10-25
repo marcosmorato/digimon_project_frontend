@@ -34,3 +34,7 @@ export const schemaLogin = yup.object().shape({
     .min(6, "Mínimo 6 dígitos")
     .required("Senha de no Mínimo 6 dígitos deve ser criada"),
 });
+
+export const schemaDigimonFilter = yup.object().shape({
+  name: yup.string().max(30, "Seu Nome deve conter no máximo 30 caracteres"),
+});

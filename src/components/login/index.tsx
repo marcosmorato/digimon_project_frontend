@@ -3,8 +3,9 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import * as yup from "yup";
 import * as S from "./styles";
+import * as GS from "../globalStyles";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { schemaLogin } from "../utils/yup";
+import { schemaLogin } from "../../utils/yup/index";
 import { loginUserThunk } from "../../store/user/thunk";
 import { AppDispatch, RootState } from "../../store/store";
 import { useSelector } from "react-redux";
@@ -36,28 +37,23 @@ const LoginBox: React.FC = () => {
     localStorage.setItem("teste", "testando");
   };
 
-  const aff = localStorage.getItem("teste");
-
   useEffect(() => {
-    console.log("why?");
-    console.log(aff);
     if (userRedux.isLogged) {
-      console.log("entrou no if");
-      navigate("/home");
+      navigate("/wikipedia");
       return;
     }
-    console.log("nao entrou no if");
   }, [navigate, userRedux]);
 
   return (
     <S.Container>
       <S.FormBox>
-        <S.DialogContentMui>
-          <S.Form onSubmit={handleSubmit(handleForm)}>
+        <GS.TitleBox variant="h3">Login</GS.TitleBox>
+        <S.Form onSubmit={handleSubmit(handleForm)}>
+          <S.Inputs>
             <S.inputBox>
               <S.InputText
                 autoComplete="off"
-                variant="outlined"
+                variant="filled"
                 label="Email"
                 margin="dense"
                 type="string"
@@ -69,7 +65,7 @@ const LoginBox: React.FC = () => {
             <S.inputBox>
               <S.InputText
                 autoComplete="off"
-                variant="outlined"
+                variant="filled"
                 label="Senha"
                 margin="dense"
                 type="password"
@@ -78,11 +74,11 @@ const LoginBox: React.FC = () => {
                 helperText={errors.password?.message}
               ></S.InputText>
             </S.inputBox>
-            <S.CreateUser type="submit" color="primary" variant="contained">
-              Login
-            </S.CreateUser>
-          </S.Form>
-        </S.DialogContentMui>
+          </S.Inputs>
+          <S.CreateUser type="submit" color="primary" variant="contained">
+            Login
+          </S.CreateUser>
+        </S.Form>
       </S.FormBox>
     </S.Container>
   );
