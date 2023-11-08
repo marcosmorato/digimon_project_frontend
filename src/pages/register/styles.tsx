@@ -2,18 +2,19 @@ import styled from "styled-components";
 import { Box } from "@mui/material";
 
 export const Container = styled.div`
-  width: 100%;
-  height: 100%;
+  width: 1440px;
+  height: 868px;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 32px;
   overflow-y: auto;
+  justify-content: center;
 `;
 
 export const SignContainer = styled.div`
   width: 1200px;
-  box-shadow: 1px 1px 4px 4px #acf !important;
+  box-shadow: 1px 1px 4px 4px #acf;
   border: 2px solid #000;
   border-radius: 10px;
   color: black;
@@ -30,14 +31,4 @@ export const SignContainer = styled.div`
       font-size: 2rem;
     }
   }
-`;
-
-export const LogoImg = styled(Box)`
-  width: 100%;
-  height: 20%;
-  background-image: url("https://betterstudio.com/wp-content/uploads/2022/11/4-digimon-logo-SVG-betterstudio.com_.svg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  overflow: hidden;
 `;

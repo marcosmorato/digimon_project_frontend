@@ -11,7 +11,17 @@ import {
   CardContent,
   CardMedia,
   IconButton,
+  Typography
 } from "@mui/material";
+
+import CloseIcon from '@mui/icons-material/Close';
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+
+export const Close = styled(CloseIcon)`
+  z-index: 1; /* Para garantir que os ícones estejam acima da imagem */
+  color: black;
+  opacity: 0.9;
+`;
 
 export const Container = styled(Box)`
   width: 1062px;
@@ -19,7 +29,7 @@ export const Container = styled(Box)`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #fff;
+  background-color: #fff !important;
   opacity: 0.7;
   border-radius: 8px;
 `;
@@ -32,6 +42,7 @@ export const ContainerLeft = styled(Box)`
   border-radius: 8px;
   justify-content: center;
   align-items: center;
+    border-right: 1px solid black;
   & .MuiTypography-subtitle1 {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -52,12 +63,11 @@ export const ContainerLeft = styled(Box)`
 
 export const ContainerRight = styled(Box)`
   display: flex;
-  width: 700px;
+  width: 340px;
   height: 514px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-left: 1px solid black;
 `;
 
 export const ImageContainer = styled(Box)`
@@ -89,14 +99,19 @@ export const Image = styled(Box)<{ digimonImage: string }>`
   border-radius: 10px;
 `;
 
+export const descriptionBox = styled.div`
+  border-bottom: 1px solid black;
+  width: 310px;
+`
+
 export const IconContainter = styled.div`
   display: flex;
+  margin-bottom: 10px;
 `;
 
-export const Icon = styled.div<{ digimonImage: string }>`
+export const Icon = styled.img`
   width: 32px;
   height: 32px;
-  background-image: url(${(props) => props.digimonImage});
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -126,4 +141,48 @@ export const ShowInfo = styled(Button)`
     background-color: black !important;
     color: white !important;
   }
+`;
+
+
+export const DescriptionContainer = styled(Box)`
+  width: 310px;
+  height: 40%;
+  /*   background-color: #fff; */
+  box-shadow: 1px 1px 4px 4px black;
+  border-radius: 10px;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  opacity: 0.7;
+  padding: 5px;
+  @media (max-width: 426px) {
+    height: 50%;
+  }
+  &:hover {
+    opacity: 0.9;
+  }
+`;
+
+export const DescriptionNav = styled(Box)`
+  width: 100%;
+  height: 15%;
+  display: flex;
+
+  & .Mui-disabled {
+    color: black !important;
+    background-color: white !important;
+  }
+`;
+
+export const ButtonLanguage = styled(Button)`
+  width: 100%;
+  height: 25%;
+  font-family: fantasy !important;
+  background-color: black !important;
+  color: white !important;
+`;
+
+export const DescriptionText = styled(Typography)`
+  max-height: 80%;
+  overflow-y: auto;
 `;

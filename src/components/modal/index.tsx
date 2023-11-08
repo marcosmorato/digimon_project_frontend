@@ -284,9 +284,3 @@ const ModalBox: React.FC<IModalBox> = ({
 };
 
 export default ModalBox;
-
-{
-  /* <S.ShowInfo onClick={handleClose} color="primary" variant="contained">
-            FECHAR MODAL
-          </S.ShowInfo> */
-}

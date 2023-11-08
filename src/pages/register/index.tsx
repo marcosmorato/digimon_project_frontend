@@ -4,16 +4,16 @@ import LoginBox from "../../components/login";
 import * as S from "./styles";
 import HeaderBox from "../../components/header";
 
-const Register: React.FC = () => {
+const AccountPage: React.FC = () => {
   return (
     <S.Container>
-      <HeaderBox></HeaderBox>
+      <HeaderBox/>
       <S.SignContainer>
-        <LoginBox></LoginBox>
-        <RegisterBox></RegisterBox>
+        <LoginBox/>
+        <RegisterBox/>
       </S.SignContainer>
     </S.Container>
   );
 };
 
-export default Register;
+export default AccountPage;
