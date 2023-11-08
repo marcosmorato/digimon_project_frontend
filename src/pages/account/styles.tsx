@@ -17,7 +17,7 @@ export const SignContainer = styled.div`
   box-shadow: 1px 1px 4px 4px #acf;
   border: 2px solid #000;
   border-radius: 10px;
-  color: black;
+  color: #000;
   display: flex;
   align-items: center;
   justify-content: center;
