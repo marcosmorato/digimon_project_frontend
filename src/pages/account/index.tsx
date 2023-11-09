@@ -1,6 +1,6 @@
 import React from "react";
 import RegisterBox from "../../components/register";
-import LoginBox from "../../components/login";
+import Login from "../../components/login";
 import * as S from "./styles";
 import HeaderBox from "../../components/header";
 
@@ -9,7 +9,8 @@ const AccountPage: React.FC = () => {
     <S.Container>
       <HeaderBox/>
       <S.SignContainer>
-        <LoginBox/>
+        <Login/>
+        <S.Hr></S.Hr>
         <RegisterBox/>
       </S.SignContainer>
     </S.Container>

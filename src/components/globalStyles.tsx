@@ -101,15 +101,9 @@ export const ContainerExtra = styled(Box)`
 export const TitleBox = styled(Typography)`
   height: 60px;
   width: 90%;
-  /* padding-left: 10px; */
-  /* overflow-y: auto; */
-  font-family: fantasy !important;
-  /* background-image: linear-gradient(180deg, #ffeea8, #f6a325);
-  background-clip: text;
-  -webkit-background-clip: text; */
-  color: black;
-  -webkit-text-stroke: 1px #acf; /* Largura e cor da borda */
-
+  color: #000000ee;
+  -webkit-text-stroke: 1px #acf;
+  font-style: italic;
   @media (max-width: 426px) {
     height: 40px;
   }

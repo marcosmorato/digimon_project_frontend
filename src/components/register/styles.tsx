@@ -8,7 +8,6 @@ export const Container = styled.div`
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  /*   background-color: #ddd; */
   @media (max-width: 426px) {
     width: 360px;
     padding: 12px;
@@ -18,9 +17,6 @@ export const Container = styled.div`
 export const FormBox = styled(Box)`
   width: 582px;
   height: 354px;
-  /*   background-color: #fff; */
-  color: black;
-  border-left: 1px solid #acf;
   border-radius: 0px 10px 10px 0;
   display: flex;
   align-items: center;
@@ -77,7 +73,7 @@ export const inputBox = styled.div`
   align-items: center;
   justify-content: center;
   /* background-image: linear-gradient(180deg, #fff, #acf); */
-  opacity: 0.6;
+  opacity: 0.8;
   @media (max-width: 426px) {
     width: 155px;
   }

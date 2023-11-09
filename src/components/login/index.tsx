@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import * as yup from "yup";
 import * as S from "./styles";
 import * as GS from "../globalStyles";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -16,7 +15,7 @@ interface FormData {
   password: string;
 }
 
-const LoginBox: React.FC = () => {
+const Login: React.FC = () => {
   const [LoginSuccess, setLoginSuccess] = useState(false);
   const [LoginFailed, setLoginFailed] = useState(false);
   const {
@@ -46,7 +45,6 @@ const LoginBox: React.FC = () => {
 
   return (
     <S.Container>
-      <S.FormBox>
         <GS.TitleBox variant="h3">Login</GS.TitleBox>
         <S.Form onSubmit={handleSubmit(handleForm)}>
           <S.Inputs>
@@ -79,9 +77,8 @@ const LoginBox: React.FC = () => {
             Login
           </S.CreateUser>
         </S.Form>
-      </S.FormBox>
     </S.Container>
   );
 };
 
-export default LoginBox;
+export default Login;
