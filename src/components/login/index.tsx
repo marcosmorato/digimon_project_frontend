@@ -47,8 +47,8 @@ const Login: React.FC = () => {
     <S.Container>
         <GS.TitleBox variant="h3">Login</GS.TitleBox>
         <S.Form onSubmit={handleSubmit(handleForm)}>
-          <S.Inputs>
-            <S.inputBox>
+          <S.InputBox>
+            <S.Input>
               <S.InputText
                 autoComplete="off"
                 variant="filled"
@@ -59,8 +59,8 @@ const Login: React.FC = () => {
                 error={!!errors.email}
                 helperText={errors.email?.message}
               ></S.InputText>
-            </S.inputBox>
-            <S.inputBox>
+            </S.Input>
+            <S.Input>
               <S.InputText
                 autoComplete="off"
                 variant="filled"
@@ -71,8 +71,8 @@ const Login: React.FC = () => {
                 error={!!errors.password}
                 helperText={errors.password?.message}
               ></S.InputText>
-            </S.inputBox>
-          </S.Inputs>
+            </S.Input>
+          </S.InputBox>
           <S.Login type="submit" color="primary" variant="contained">
             Login
           </S.Login>

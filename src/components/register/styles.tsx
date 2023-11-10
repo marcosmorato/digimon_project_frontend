@@ -31,9 +31,18 @@ export const Form = styled.form`
     width: 338px;
     margin-top: 30px;
   }
+  & button {
+    font-style: italic;
+    &:hover {
+      cursor: pointer;
+      background-color: #000000ee;
+      box-shadow: 0.1em 0.1em 0.2em #acf;
+      
+    }
+  }
 `;
 
-export const InputContainer = styled.div`
+export const InputBox = styled.div`
   width: 540px;
   display: flex;
   align-items: center;
@@ -45,7 +54,7 @@ export const InputContainer = styled.div`
   }
 `;
 
-export const inputBox = styled.div`
+export const Input = styled.div`
   width: 270px;
   height: 75px;
   display: flex;

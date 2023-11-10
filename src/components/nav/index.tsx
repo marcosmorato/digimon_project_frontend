@@ -20,9 +20,14 @@ const NavBox: React.FC = () => {
             <S.ListItemTextMui>Home</S.ListItemTextMui>
           </S.ListItemIconMui>
         </S.ListItemButtonMui>
-        <S.ListItemButtonMui onClick={() => navigate("/register")}>
+        <S.ListItemButtonMui onClick={() => navigate("/account")}>
           <S.ListItemIconMui>
-            <S.ListItemTextMui>Register</S.ListItemTextMui>
+            <S.ListItemTextMui>Login</S.ListItemTextMui>
+          </S.ListItemIconMui>
+        </S.ListItemButtonMui>
+        <S.ListItemButtonMui onClick={() => navigate("/account")}>
+          <S.ListItemIconMui>
+            <S.ListItemTextMui>Cadastro</S.ListItemTextMui>
           </S.ListItemIconMui>
         </S.ListItemButtonMui>
         <S.ListItemButtonMui onClick={() => navigate("/wikipedia")}>

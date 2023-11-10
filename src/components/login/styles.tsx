@@ -44,7 +44,7 @@ export const Form = styled.form`
   }
 `;
 
-export const Inputs = styled.div`
+export const InputBox = styled.div`
   width: 540px;
   display: flex;
   margin-top: 40px;
@@ -57,7 +57,7 @@ export const Inputs = styled.div`
   }
 `;
 
-export const inputBox = styled.div`
+export const Input = styled.div`
   width: 270px;
   height: 75px;
   display: flex;

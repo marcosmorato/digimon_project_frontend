@@ -37,10 +37,10 @@ const Register: React.FC = () => {
 
   return (
     <S.Container>
-        <GS.TitleBox variant="h3">Register</GS.TitleBox>
+        <GS.TitleBox variant="h3">Cadastro</GS.TitleBox>
         <S.Form onSubmit={handleSubmit(handleForm)}>
-          <S.InputContainer>
-            <S.inputBox>
+          <S.InputBox>
+            <S.Input>
               <S.InputText
                 autoComplete="off"
                 variant="filled"
@@ -51,9 +51,8 @@ const Register: React.FC = () => {
                 error={!!errors.name}
                 helperText={errors.name?.message}
               ></S.InputText>
-            </S.inputBox>
-
-            <S.inputBox>
+            </S.Input>
+            <S.Input>
               <S.InputText
                 autoComplete="off"
                 variant="filled"
@@ -64,10 +63,10 @@ const Register: React.FC = () => {
                 error={!!errors.nickname}
                 helperText={errors.nickname?.message}
               ></S.InputText>
-            </S.inputBox>
-          </S.InputContainer>
-          <S.InputContainer>
-            <S.inputBox>
+            </S.Input>
+          </S.InputBox>
+          <S.InputBox>
+            <S.Input>
               <S.InputText
                 autoComplete="off"
                 variant="filled"
@@ -78,8 +77,8 @@ const Register: React.FC = () => {
                 error={!!errors.email}
                 helperText={errors.email?.message}
               ></S.InputText>
-            </S.inputBox>
-            <S.inputBox>
+            </S.Input>
+            <S.Input>
               <S.InputText
                 autoComplete="off"
                 variant="filled"
@@ -90,10 +89,10 @@ const Register: React.FC = () => {
                 error={!!errors.password}
                 helperText={errors.password?.message}
               ></S.InputText>
-            </S.inputBox>
-          </S.InputContainer>
-          <S.InputContainer>
-            <S.inputBox>
+            </S.Input>
+          </S.InputBox>
+          <S.InputBox>
+            <S.Input>
               <S.InputText
                 autoComplete="off"
                 variant="filled"
@@ -104,13 +103,13 @@ const Register: React.FC = () => {
                 error={!!errors.password_confirmation}
                 helperText={errors.password_confirmation?.message}
               ></S.InputText>
-            </S.inputBox>
+            </S.Input>
             <S.ButtonContainer>
               <S.CreateUser type="submit" color="primary" variant="contained">
-                Registrar
+                Cadastrar
               </S.CreateUser>
             </S.ButtonContainer>
-          </S.InputContainer>
+          </S.InputBox>
         </S.Form>
     </S.Container>
   );
