@@ -24,6 +24,7 @@ export const ContainerSide = styled(Box)`
   align-items: center;
   margin-top: 30px;
   padding: 16px;
+  margin-right: 28px;
   @media (max-width: 426px) {
     margin-bottom: 30px;
     height: 350px;
@@ -46,6 +47,7 @@ export const ContainerFilter = styled(Box)`
   align-items: center;
   margin-top: 30px;
   padding: 16px;
+  margin-left: 8px;
   @media (max-width: 426px) {
     margin-bottom: 30px;
     height: 500px;
@@ -68,6 +70,7 @@ export const ContainerCenter = styled(Box)`
   align-items: center;
   padding: 16px;
   margin-top: 30px;
+  margin-right: 20px;
   @media (max-width: 426px) {
     height: 800px;
     width: 100%;

@@ -15,8 +15,7 @@ const HomeBox: React.FC = () => {
 
   return (
     <GS.ContainerExtra>
-      <GS.TitleBox variant="h3">Home</GS.TitleBox>
-      <div>${userRedux.favorite}</div>
+      <GS.TitleBox variant="h3">Informações</GS.TitleBox>
       <S.ShowInfo
         onClick={() => console.log("hommee")}
         color="primary"

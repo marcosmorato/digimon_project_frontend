@@ -15,7 +15,7 @@ export const ContainerBody = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   margin-bottom: 30px;
   @media (max-width: 426px) {
     flex-direction: column;

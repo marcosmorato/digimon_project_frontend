@@ -90,7 +90,7 @@ export const InputText = styled(TextField)`
   & .Mui-focused {
     color: #1976d2;
     font-style: italic;
-    border-color: black !important;
+    border-color: #000 !important;
   }
 `;
   
