@@ -89,7 +89,7 @@ export const inputBox = styled.div`
 export const InputText = styled(TextField)`
 `;
 
-export const CreateUser = styled(Button)`
+export const Login = styled(Button)`
   width: 220px;
   height: 56px;
 `;

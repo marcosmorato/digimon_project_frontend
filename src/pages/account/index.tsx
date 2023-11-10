@@ -1,5 +1,5 @@
 import React from "react";
-import RegisterBox from "../../components/register";
+import Register from "../../components/register";
 import Login from "../../components/login";
 import * as S from "./styles";
 import HeaderBox from "../../components/header";
@@ -11,7 +11,7 @@ const AccountPage: React.FC = () => {
       <S.SignContainer>
         <Login/>
         <S.Hr></S.Hr>
-        <RegisterBox/>
+        <Register/>
       </S.SignContainer>
     </S.Container>
   );

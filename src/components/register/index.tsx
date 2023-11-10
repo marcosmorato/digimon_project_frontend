@@ -17,7 +17,7 @@ interface FormData {
   password_confirmation: string;
 }
 
-const RegisterBox: React.FC = () => {
+const Register: React.FC = () => {
   const usersState = useSelector((state: RootState) => state);
   const [registerSuccess, setRegisterSuccess] = useState(false);
   const [registerFailed, setRegisterFailed] = useState(false);
@@ -37,7 +37,6 @@ const RegisterBox: React.FC = () => {
 
   return (
     <S.Container>
-      <S.FormBox>
         <GS.TitleBox variant="h3">Register</GS.TitleBox>
         <S.Form onSubmit={handleSubmit(handleForm)}>
           <S.InputContainer>
@@ -113,9 +112,8 @@ const RegisterBox: React.FC = () => {
             </S.ButtonContainer>
           </S.InputContainer>
         </S.Form>
-      </S.FormBox>
     </S.Container>
   );
 };
 
-export default RegisterBox;
+export default Register;

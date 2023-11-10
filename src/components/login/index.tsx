@@ -73,9 +73,9 @@ const Login: React.FC = () => {
               ></S.InputText>
             </S.inputBox>
           </S.Inputs>
-          <S.CreateUser type="submit" color="primary" variant="contained">
+          <S.Login type="submit" color="primary" variant="contained">
             Login
-          </S.CreateUser>
+          </S.Login>
         </S.Form>
     </S.Container>
   );
