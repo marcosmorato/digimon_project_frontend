@@ -25,10 +25,15 @@ export const ContainerSide = styled(Box)`
   margin-top: 30px;
   padding: 16px;
   margin-right: 28px;
+  & .MuiTypography-h3 {
+    font-family: fantasy;
+    text-align: center;
+  }
   @media (max-width: 426px) {
     margin-bottom: 30px;
     height: 350px;
     width: 100%;
+    margin-right: 0;
     & .MuiTypography-h3 {
       font-size: 2rem;
     }
@@ -71,12 +76,16 @@ export const ContainerCenter = styled(Box)`
   padding: 16px;
   margin-top: 30px;
   margin-right: 20px;
+  & .MuiTypography-h3 {
+    font-family: fantasy;
+    text-align: center;
+    @media (max-width: 426px) {
+      font-size: 2rem;
+  }}
   @media (max-width: 426px) {
     height: 800px;
     width: 100%;
-    & .MuiTypography-h3 {
-      font-size: 2rem;
-    }
+    margin: 0 0;
   }
 `;
 
@@ -92,6 +101,9 @@ export const ContainerExtra = styled(Box)`
   align-items: center;
   padding: 16px;
   margin-top: 30px;
+  & .MuiTypography-root {
+    font-family: fantasy;
+  }
   @media (max-width: 426px) {
     height: 800px;
     width: 100%;
@@ -106,7 +118,6 @@ export const TitleBox = styled(Typography)`
   width: 90%;
   color: #000000ee;
   -webkit-text-stroke: 1px #acf;
-  font-style: italic;
   @media (max-width: 426px) {
     height: 40px;
   }

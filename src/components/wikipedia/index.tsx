@@ -1,11 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import * as S from "./styles";
 import * as GS from "../globalStyles";
-import { useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../../store/store";
-import { useDispatch } from "react-redux";
 import {
-  wikipediaThunk,
   wikipediaModalThunk,
 } from "../../store/wikipedia/thunk";
 import ModalBox from "../modal/index";
@@ -98,7 +94,7 @@ const WikipediaBox: React.FC<IWikipediaBox> = ({
             open={showModal}
             handleClose={handleClose}
             image={digimonInfo.images[0].href}
-            name={digimonInfo.name as string} // Definir o tipo como string
+            name={digimonInfo.name as string}
             xAntibody={digimonInfo.xAntibody}
             levels={digimonInfo.levels || []}
             releaseDate={digimonInfo.releaseDate}

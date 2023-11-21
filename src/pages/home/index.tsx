@@ -2,6 +2,7 @@ import React from "react";
 import HeaderBox from "../../components/header";
 import NavBox from "../../components/nav";
 import HomeBox from "../../components/home";
+import Register from "../../components/register";
 import * as S from "./styles";
 
 const Home: React.FC = () => {
