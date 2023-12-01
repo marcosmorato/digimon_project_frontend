@@ -20,7 +20,6 @@ const DetailScreen: React.FC<DetailScreenProps> = ({
     " "
   );
 
-  console.log(selectedDetail);
   return (
     <S.Container>
       <S.ContainerLeft>

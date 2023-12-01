@@ -1,10 +1,8 @@
 import React from "react";
-import { SelectChangeEvent, Select } from "@mui/material";
+import { SelectChangeEvent } from "@mui/material";
 
 import * as S from "./styles";
-import { truncate } from "fs/promises";
 
-// Definindo uma interface para as propriedades do componente
 interface SelectProps {
   label: string;
   options: { label: string; value: string }[];

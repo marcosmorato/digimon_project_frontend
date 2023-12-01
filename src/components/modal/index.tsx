@@ -2,8 +2,13 @@ import React, { useState } from "react";
 import CustomSelect from "../select";
 import * as S from "./styles";
 import { updateFavoriteThunk } from "../../store/user/thunk";
-import { AppDispatch, RootState } from "../../store/store";
+import { AppDispatch } from "../../store/store";
 import { useDispatch } from "react-redux";
+
+export interface IFields {
+  field: string;
+  image: string;
+}
 
 interface IModalBox {
   digimonId: string;
@@ -13,6 +18,7 @@ interface IModalBox {
   handleOpen: (name: string) => void;
   image: string;
   xAntibody: boolean;
+  fields: IFields[] | [];
   levels: string[] | [];
   releaseDate: string;
   types: string[] | [];
@@ -50,6 +56,7 @@ const ModalBox: React.FC<IModalBox> = ({
   image,
   name,
   xAntibody,
+  fields,
   levels,
   releaseDate,
   types,
@@ -64,6 +71,7 @@ const ModalBox: React.FC<IModalBox> = ({
   descriptions?.sort((a, b) => (a.language === "en_us" ? -1 : 1));
   const [selectedOption, setSelectedOption] = useState<string>("");
   const isMobile = window.innerWidth <= 426;
+  const [languageDescription, setLanguageDescription] = useState('jap')
 
   const optionsPriorEvolutions = priorEvolutions?.map((el) => {
     return { label: el.digimon, value: el.digimon };
@@ -74,7 +82,7 @@ const ModalBox: React.FC<IModalBox> = ({
   });
 
   const handleSelectChange = (newValue: string) => {
-    setSelectedOption(newValue);
+    setSelectedOption("");
     handleOpen(newValue);
   };
 
@@ -91,24 +99,31 @@ const ModalBox: React.FC<IModalBox> = ({
 
   const changeFavorite = async () => {
     try {
-      // Chame a função de atualização de favoritos usando 'await'
-      await dispatch(updateFavoriteThunk(digimonId, userToken)); // Use 'dispatch' para chamar a ação assíncrona
-
-      // Trate o sucesso aqui, se necessário
+      await dispatch(updateFavoriteThunk(digimonId, userToken));
     } catch (error) {
       console.error("Erro ao fazer a requisição:", error);
     }
   };
+  
+  const urlImage = image
+  .replace(/_/g, " ")
+  .replace(/ /g, "_")
+  .replace(/\(/g, "%28")
+  .replace(/\)/g, "%29")
+  
+  const urlFields = fields.map((el) => el.image.replace(/_/g, " ")
+  .replace(/ /g, "%20")
+  .replace(/\(/g, "%28")
+  .replace(/\)/g, "%29"))
 
   return (
-    <S.ModalInfo open={open} onClose={handleClose}>
+    <S.ModalUi open={open} onClose={handleClose}>
       <S.PaperInfo>
         <S.Name variant="h2">{name}</S.Name>
-
         <S.InfoContainer>
           {isMobile ? (
             <>
-              <S.ImageContainer>
+              <S.ImageContainer> 
                 <S.Image
                   digimonImage={image
                     .replace(/_/g, " ")
@@ -126,72 +141,91 @@ const ModalBox: React.FC<IModalBox> = ({
                   ></S.FavoriteBorderIconMui>
                 )}
               </S.ImageContainer>
-              <S.TextContainerMobile>
-                <S.TextContainerLeft>
-                  <S.Info variant="overline">Levels:</S.Info>
+              <S.detailsMobile>
+                <S.infoContainerMobile>
+                  <S.Info variant="inherit">Levels:</S.Info>
                   <S.Text variant="overline">{levels.join(", ")}</S.Text>
-                </S.TextContainerLeft>
-                <S.TextContainerRight>
-                  <S.Info variant="overline">X-Antibody:</S.Info>
+                </S.infoContainerMobile>
+                <S.infoContainerMobile>
+                  <S.Info variant="inherit">X-Antibody:</S.Info>
                   <S.Text variant="overline">
                     {xAntibody ? "Infectado" : "Não contém"}
                   </S.Text>
-                </S.TextContainerRight>
-              </S.TextContainerMobile>
-              <S.TextContainerMobile>
-                <S.TextContainerLeft>
-                  <S.Info variant="overline">Tipo:</S.Info>
+                </S.infoContainerMobile>
+                <S.infoContainerMobile>
+                  <S.Info variant="inherit">Tipo:</S.Info>
                   <S.Text variant="overline">{types.join(", ")}</S.Text>
-                </S.TextContainerLeft>
-                <S.TextContainerRight>
-                  <S.Info variant="overline">Anunciado:</S.Info>
+                </S.infoContainerMobile>
+                <S.infoContainerMobile>
+                  <S.Info variant="inherit">Anunciado:</S.Info>
                   <S.Text variant="overline">{releaseDate}</S.Text>
-                </S.TextContainerRight>
-              </S.TextContainerMobile>
-              <S.TextContainerMobile>
-                <S.TextContainerLeft>
-                  <S.Info variant="overline">Atributos:</S.Info>
+                </S.infoContainerMobile>
+                <S.infoContainerMobile>
+                  <S.Info variant="inherit">Atributos:</S.Info>
                   <S.Text variant="overline">
                     {attributes.join(", ")
                       ? attributes.join(", ")
                       : "Indefinido"}
                   </S.Text>
-                </S.TextContainerLeft>
-                <S.TextContainerRight>
-                  <S.Info variant="overline">Tipo:</S.Info>
-                  <S.Text variant="overline">{types.join(", ")}</S.Text>
-                </S.TextContainerRight>
-              </S.TextContainerMobile>
-              <S.SelectContainerMobile>
-                <S.TextContainerLeft>
-                  <S.Info variant="overline">Pré-Digievolução:</S.Info>
-                  {optionsPriorEvolutions ? (
-                    <CustomSelect
-                      label="Selecione para voltar!"
-                      options={optionsPriorEvolutions}
-                      onChange={handleSelectChange}
-                      selectedValue={selectedOption}
-                      modalVersion={""}
-                    />
-                  ) : (
-                    <div>teste</div>
-                  )}
-                </S.TextContainerLeft>
-                <S.TextContainerRight>
-                  <S.Info variant="overline">Pós-Digievolução:</S.Info>
-                  {optionsNextEvolutions ? (
-                    <CustomSelect
-                      label="Selecione para avançar!"
-                      options={optionsNextEvolutions}
-                      onChange={handleSelectChange}
-                      selectedValue={selectedOption}
-                      modalVersion={""}
-                    />
-                  ) : (
-                    <div>teste</div>
-                  )}
-                </S.TextContainerRight>
-              </S.SelectContainerMobile>
+                </S.infoContainerMobile>
+                <S.infoContainerMobile>
+                  <S.Info variant="inherit">Campos:</S.Info>
+                    {fields.length > 0 ? 
+                      <S.FieldsContainer>
+                        {urlFields.map((el, idx) => 
+                          <S.FieldImage src={el} alt={fields[idx].field} title={fields[idx].field}></S.FieldImage>
+                        )}
+                      </S.FieldsContainer> : <S.Text variant="overline">nao tem</S.Text>
+                    }
+                </S.infoContainerMobile>
+                <S.DescriptionContainer>
+                    {descriptions ?
+                    <>
+                    <S.DescriptionNav>
+                      <S.ButtonLanguage disabled={languageDescription === 'en_us' ? true : false} onClick={() => setLanguageDescription('en_us')}>EN</S.ButtonLanguage>
+                      <S.ButtonLanguage disabled={languageDescription === 'jap' ? true : false} onClick={() => setLanguageDescription('jap')}>JP</S.ButtonLanguage>
+                    </S.DescriptionNav>
+                    {descriptions.map((el) => 
+                      el.language === languageDescription ? <S.DescriptionText>{el.description}</S.DescriptionText> : null
+                    )}
+                    </>
+                    : <div>Inexistente</div>}
+                </S.DescriptionContainer>
+                <S.SelectContainerMobile>
+                  <S.TextContainerLeft>
+                    <S.Info variant="inherit">Pré-Digievolução:</S.Info>
+                    {optionsPriorEvolutions ? (
+                      <S.SelectContainer>
+                        <CustomSelect
+                          label="Selecione para voltar!"
+                          options={optionsPriorEvolutions}
+                          onChange={handleSelectChange}
+                          selectedValue={selectedOption}
+                          modalVersion={""}
+                        />
+                      </S.SelectContainer>
+                    ) : (
+                      <div>teste</div>
+                    )}
+                  </S.TextContainerLeft>
+                  <S.TextContainerRight>
+                    <S.Info variant="inherit">Pós-Digievolução:</S.Info>
+                    {optionsNextEvolutions ? (
+                      <S.SelectContainer>
+                        <CustomSelect
+                          label="Selecione para avançar!"
+                          options={optionsNextEvolutions}
+                          onChange={handleSelectChange}
+                          selectedValue={selectedOption}
+                          modalVersion={""}
+                        />
+                      </S.SelectContainer>
+                    ) : (
+                      <div>teste</div>
+                    )}
+                  </S.TextContainerRight>
+                </S.SelectContainerMobile>
+              </S.detailsMobile>
             </>
           ) : (
             <>
@@ -201,10 +235,6 @@ const ModalBox: React.FC<IModalBox> = ({
                   <S.Text variant="overline">{levels.join(", ")}</S.Text>
                 </S.TextContainerLeft>
                 <S.TextContainerLeft>
-                  <S.Info variant="overline">Tipo:</S.Info>
-                  <S.Text variant="overline">{types.join(", ")}</S.Text>
-                </S.TextContainerLeft>
-                <S.TextContainerLeft>
                   <S.Info variant="overline">Atributos:</S.Info>
                   <S.Text variant="overline">
                     {attributes.join(", ")
@@ -213,39 +243,60 @@ const ModalBox: React.FC<IModalBox> = ({
                   </S.Text>
                 </S.TextContainerLeft>
                 <S.TextContainerLeft>
+                  <S.Info variant="overline">Ano de Lançamento:</S.Info>
+                  <S.Text variant="overline">{releaseDate}</S.Text>
+                </S.TextContainerLeft>
+                <S.TextContainerLeft>
                   <S.Info variant="overline">Pré-Digievolução:</S.Info>
                   {optionsPriorEvolutions ? (
-                    <CustomSelect
-                      label="Selecione para voltar!"
-                      options={optionsPriorEvolutions}
-                      onChange={handleSelectChange}
-                      selectedValue={selectedOption}
-                      modalVersion={""}
-                    />
+                    <S.SelectContainer>
+                      <CustomSelect
+                        label="Selecione para voltar!"
+                        options={optionsPriorEvolutions}
+                        onChange={handleSelectChange}
+                        selectedValue={selectedOption}
+                        modalVersion={""}
+                      />
+                    </S.SelectContainer>
                   ) : (
                     <div>teste</div>
                   )}
                 </S.TextContainerLeft>
               </S.DescriptionsContainer>
-              <S.ImageContainer>
-                <S.Image
-                  digimonImage={image
-                    .replace(/_/g, " ")
-                    .replace(/ /g, "_")
-                    .replace(/\(/g, "%28")
-                    .replace(/\)/g, "%29")}
-                ></S.Image>
-                {verifyFavorite() ? (
-                  <S.FavoriteIconMui
-                    onClick={() => changeFavorite()}
-                  ></S.FavoriteIconMui>
-                ) : (
-                  <S.FavoriteBorderIconMui
-                    onClick={() => changeFavorite()}
-                  ></S.FavoriteBorderIconMui>
-                )}
-              </S.ImageContainer>
+              <S.ContainerCenter>
+                <S.ImageContainer>
+                  <S.Image
+                    digimonImage={urlImage}
+                  ></S.Image>
+                  {verifyFavorite() ? (
+                    <S.FavoriteIconMui
+                      onClick={() => changeFavorite()}
+                    ></S.FavoriteIconMui>
+                  ) : (
+                    <S.FavoriteBorderIconMui
+                      onClick={() => changeFavorite()}
+                    ></S.FavoriteBorderIconMui>
+                  )}
+                </S.ImageContainer>
+                <S.DescriptionContainer>
+                    {descriptions ?
+                    <>
+                    <S.DescriptionNav>
+                      <S.ButtonLanguage disabled={languageDescription === 'en_us' ? true : false} onClick={() => setLanguageDescription('en_us')}>EN</S.ButtonLanguage>
+                      <S.ButtonLanguage disabled={languageDescription === 'jap' ? true : false} onClick={() => setLanguageDescription('jap')}>JP</S.ButtonLanguage>
+                    </S.DescriptionNav>
+                    {descriptions.map((el) => 
+                      el.language === languageDescription ? <S.DescriptionText>{el.description}</S.DescriptionText> : null
+                    )}
+                    </>
+                    : <div>Inexistente</div>}
+                </S.DescriptionContainer>
+              </S.ContainerCenter>
               <S.DescriptionsContainer>
+                <S.TextContainerRight>
+                  <S.Info variant="overline">Tipo:</S.Info>
+                  <S.Text variant="overline">{types.join(", ")}</S.Text>
+                </S.TextContainerRight>
                 <S.TextContainerRight>
                   <S.Info variant="overline">X-Antibody:</S.Info>
                   <S.Text variant="overline">
@@ -253,23 +304,26 @@ const ModalBox: React.FC<IModalBox> = ({
                   </S.Text>
                 </S.TextContainerRight>
                 <S.TextContainerRight>
-                  <S.Info variant="overline">Tipo:</S.Info>
-                  <S.Text variant="overline">{types.join(", ")}</S.Text>
-                </S.TextContainerRight>
-                <S.TextContainerRight>
-                  <S.Info variant="overline">Ano de Lançamento:</S.Info>
-                  <S.Text variant="overline">{releaseDate}</S.Text>
+                  <S.Info variant="overline">Campos:</S.Info>
+                  {fields.length > 0 ? 
+                    <S.FieldsContainer>
+                      {urlFields.map((el, idx) => 
+                        <S.FieldImage src={el} alt={fields[idx].field} title={fields[idx].field}></S.FieldImage>
+                      )}
+                    </S.FieldsContainer> : <S.Text variant="overline">nao tem</S.Text>}
                 </S.TextContainerRight>
                 <S.TextContainerRight>
                   <S.Info variant="overline">Pós-Digievolução:</S.Info>
                   {optionsNextEvolutions ? (
-                    <CustomSelect
-                      label="Selecione para avançar!"
-                      options={optionsNextEvolutions}
-                      onChange={handleSelectChange}
-                      selectedValue={selectedOption}
-                      modalVersion={""}
-                    />
+                    <S.SelectContainer>
+                      <CustomSelect
+                        label="Selecione para avançar!"
+                        options={optionsNextEvolutions}
+                        onChange={handleSelectChange}
+                        selectedValue={selectedOption}
+                        modalVersion={""}
+                      />
+                    </S.SelectContainer>
                   ) : (
                     <div>teste</div>
                   )}
@@ -279,7 +333,7 @@ const ModalBox: React.FC<IModalBox> = ({
           )}
         </S.InfoContainer>
       </S.PaperInfo>
-    </S.ModalInfo>
+    </S.ModalUi>
   );
 };
 

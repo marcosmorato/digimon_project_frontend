@@ -1,24 +1,16 @@
 import styled from "styled-components";
 import {
   Box,
-  Button,
   Typography,
-  DialogContent,
-  TextField,
-  List,
-  ListSubheader,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
 } from "@mui/material";
 
 export const ContainerSide = styled(Box)`
   width: 250px;
   height: 550px;
   box-shadow: 1px 1px 4px 4px #acf !important;
-  border: 2px solid #000;
+  border: 2px solid #000000ee;
   border-radius: 10px;
-  color: black;
+  color: #000000ee;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,6 +21,7 @@ export const ContainerSide = styled(Box)`
     font-family: fantasy;
     text-align: center;
   }
+  
   @media (max-width: 426px) {
     margin-bottom: 30px;
     height: 350px;
@@ -44,15 +37,20 @@ export const ContainerFilter = styled(Box)`
   width: 250px;
   height: 550px;
   box-shadow: 1px 1px 4px 4px #acf !important;
-  border: 2px solid #000;
+  border: 2px solid #000000ee;
   border-radius: 10px;
-  color: black;
+  color: #000000ee;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 30px;
   padding: 16px;
   margin-left: 8px;
+  & .MuiTypography-h3 {
+    font-family: fantasy;
+    text-align: center;
+  }
+  
   @media (max-width: 426px) {
     margin-bottom: 30px;
     height: 500px;
@@ -67,9 +65,9 @@ export const ContainerCenter = styled(Box)`
   width: 820px;
   height: 550px;
   box-shadow: 1px 1px 4px 4px #acf !important;
-  border: 2px solid black;
+  border: 2px solid #000000ee;
   border-radius: 10px;
-  color: black;
+  color: #000000ee;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -79,13 +77,15 @@ export const ContainerCenter = styled(Box)`
   & .MuiTypography-h3 {
     font-family: fantasy;
     text-align: center;
-    @media (max-width: 426px) {
-      font-size: 2rem;
-  }}
+  }
+
   @media (max-width: 426px) {
     height: 800px;
     width: 100%;
     margin: 0 0;
+    & .MuiTypography-h3 {
+      font-size: 2rem;
+    }   
   }
 `;
 
@@ -93,9 +93,9 @@ export const ContainerExtra = styled(Box)`
   width: 1098px;
   height: 550px;
   box-shadow: 1px 1px 4px 4px #acf !important;
-  border: 2px solid black;
+  border: 2px solid #000000ee;
   border-radius: 10px;
-  color: black;
+  color: #000000ee;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -104,6 +104,7 @@ export const ContainerExtra = styled(Box)`
   & .MuiTypography-root {
     font-family: fantasy;
   }
+  
   @media (max-width: 426px) {
     height: 800px;
     width: 100%;
@@ -118,6 +119,7 @@ export const TitleBox = styled(Typography)`
   width: 90%;
   color: #000000ee;
   -webkit-text-stroke: 1px #acf;
+  
   @media (max-width: 426px) {
     height: 40px;
   }
@@ -127,7 +129,7 @@ export const DescriptionText = styled(Typography)`
   height: 30px;
   width: 90%;
   font-family: fantasy !important;
-
+  
   @media (max-width: 426px) {
     height: 40px;
   }

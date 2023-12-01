@@ -29,18 +29,20 @@ const Wikipedia: React.FC = () => {
       dispatch(wikipediaThunk(user.token, setShowWikipedia));
     }
   }, [dispatch, setShowWikipedia, user.token]);
-
+  
   return (
     <S.Container>
       <HeaderBox></HeaderBox>
       <S.ContainerBody>
         <NavBox></NavBox>
-        <WikipediaBox
-          showWikipedia={showWikipedia}
-          digimonsName={digimonFilters?.digimonsFilters || []}
-          userToken={user.token}
-          userFavorite={user.favorite}
-        ></WikipediaBox>
+        { showWikipedia && 
+          <WikipediaBox
+            showWikipedia={showWikipedia}
+            digimonsName={digimonFilters?.digimonsFilters || []}
+            userToken={user.token}
+            userFavorite={user.favorite}
+          ></WikipediaBox>
+        }
         <FilterBox
           digimonsName={digimonsName.digimonsFilters || []}
           onSetDigimonFilter={setShowWikipedia}

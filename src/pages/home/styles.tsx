@@ -20,6 +20,7 @@ export const Container = styled.div`
   overflow-y: auto;
   overflow-x: hidden;
   justify-content: center;
+  
   @media (max-width: 426px) {
     justify-content: flex-start;
   }
@@ -32,6 +33,7 @@ export const ContainerBody = styled.div`
   align-items: center;
   justify-content: center;
   margin-bottom: 30px;
+  
   @media (max-width: 426px) {
     flex-direction: column;
   }

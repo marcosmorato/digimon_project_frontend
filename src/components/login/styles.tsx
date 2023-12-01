@@ -28,11 +28,6 @@ export const Form = styled.form`
   justify-content: space-around;
   font-style: italic;
   overflow: auto;
-  @media (max-width: 426px) {
-    width: 338px;
-    height: 310px;
-    justify-content: space-evenly;
-  }
   & button {
     font-style: italic;
     &:hover {
@@ -42,12 +37,19 @@ export const Form = styled.form`
       
     }
   }
+  
+  @media (max-width: 426px) {
+    width: 338px;
+    height: 310px;
+    justify-content: space-evenly;
+  }
 `;
 
 export const InputBox = styled.div`
   width: 540px;
   display: flex;
   margin-top: 40px;
+  
   @media (max-width: 426px) {
     width: 320px;
     height: 150px;
@@ -68,9 +70,6 @@ export const Input = styled.div`
     width: 220px;
     margin-top: 0px;
     margin-bottom: 0px;
-    @media (max-width: 426px) {
-      width: 270px;
-    }
   }
   label {
     width: 110px;
@@ -82,8 +81,15 @@ export const Input = styled.div`
     color: #000000ee;
     background-image: linear-gradient(180deg, #fff, #acf);
     font-family: fantasy !important;
-    border-color: black !important;
+    border-color: #000000ee !important;
   }
+  
+  @media (max-width: 426px) {
+    & .MuiTextField-root {
+      width: 270px;
+    }
+  }
+  
 `;
 
 export const InputText = styled(TextField)`

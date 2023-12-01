@@ -178,37 +178,43 @@ const FilterBox: React.FC<FilterBoxProps> = ({
                 }
               ></S.InputText>
             </S.inputBox>
-            <CustomSelect
-              label="X-Antibody"
-              options={xAntibody}
-              onChange={(value) => handleSelectChange("xAntibody", value)}
-              selectedValue={selectedOption.xAntibody}
-              modalVersion={"modal"}
-            />
-
-            <CustomSelect
-              label="Levels"
-              options={levels}
-              onChange={(value) => handleSelectChange("levels", value)}
-              selectedValue={selectedOption.levels}
-              modalVersion={"modal"}
-            />
-            <CustomSelect
-              label="Attributes"
-              options={attributes}
-              onChange={(value) => handleSelectChange("attributes", value)}
-              selectedValue={selectedOption.attributes}
-              modalVersion={"modal"}
-            />
-            <CustomSelect
-              label="Fields"
-              options={fields}
-              onChange={(value) => handleSelectChange("fields", value)}
-              selectedValue={selectedOption.fields}
-              modalVersion={"modal"}
-            />
+            <S.SelectContainer>
+              <CustomSelect
+                label="X-Antibody"
+                options={xAntibody}
+                onChange={(value) => handleSelectChange("xAntibody", value)}
+                selectedValue={selectedOption.xAntibody}
+                modalVersion={"modal"}
+              />
+            </S.SelectContainer>
+            <S.SelectContainer>
+              <CustomSelect
+                label="Levels"
+                options={levels}
+                onChange={(value) => handleSelectChange("levels", value)}
+                selectedValue={selectedOption.levels}
+                modalVersion={"modal"}
+              />
+            </S.SelectContainer>
+            <S.SelectContainer>
+              <CustomSelect
+                label="Attributes"
+                options={attributes}
+                onChange={(value) => handleSelectChange("attributes", value)}
+                selectedValue={selectedOption.attributes}
+                modalVersion={"modal"}
+              />
+            </S.SelectContainer>
+            <S.SelectContainer>
+              <CustomSelect
+                label="Fields"
+                options={fields}
+                onChange={(value) => handleSelectChange("fields", value)}
+                selectedValue={selectedOption.fields}
+                modalVersion={"modal"}
+              />
+            </S.SelectContainer>
           </S.InputContainer>
-
           <S.Search type="submit" color="primary" variant="contained">
             Search
           </S.Search>

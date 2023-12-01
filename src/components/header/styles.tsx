@@ -10,6 +10,7 @@ export const LogoImg = styled(Box)`
   background-size: contain;
   overflow: hidden;
   margin-bottom: 20px;
+  
   @media (max-width: 426px) {
     width: 310px;
     min-height: 130px;

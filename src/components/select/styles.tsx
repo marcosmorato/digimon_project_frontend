@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 
 export const FormControlMui = styled(FormControl)<{ modalVersion?: string }>`
-  width: ${(props) => (props.modalVersion === "modal" ? "188px" : "220px")};
+  width: 100%;
   text-align: left;
 
   margin-bottom: 1rem;
@@ -21,26 +21,26 @@ export const FormControlMui = styled(FormControl)<{ modalVersion?: string }>`
 
   label {
     font-family: fantasy !important;
-    color: black !important;
+    color: #000000ee !important;
     width: 80px;
     text-align: left;
     /* -webkit-text-stroke: 1px #acf; */
   }
 
   .MuiSvgIcon-root {
-    color: black;
+    color: #000000ee;
   }
 
   .MuiOutlinedInput-notchedOutline {
     font-family: fantasy !important;
-    color: black;
-    border-color: black !important; /* Importante para sobrescrever as configurações padrão */
+    color: #000000ee;
+    border-color: #000000ee !important; /* Importante para sobrescrever as configurações padrão */
     outline: none !important;
   }
 
   .MuiOutlinedInput-root {
     &.Mui-focused fieldset {
-      border-color: black !important;
+      border-color: #000000ee !important;
     }
   }
 
@@ -49,10 +49,10 @@ export const FormControlMui = styled(FormControl)<{ modalVersion?: string }>`
   }
 
   & .MuiInputBase-input {
-    color: black;
+    color: #000000ee;
     /* -webkit-text-stroke: 1px #acf; */
     font-family: fantasy !important;
-    border-color: black !important;
+    border-color: #000000ee !important;
 
     background-image: linear-gradient(180deg, #fff, #acf);
   }

@@ -15,19 +15,19 @@ import {
 export const ListMui = styled(List)`
   width: 190px;
   height: 430px;
-
   background-color: white !important;
   font-size: 16px !important;
   opacity: 0.6;
   border-radius: 10px;
-  border: 2px solid black;
+  border: 2px solid #000000ee;
   box-shadow: 1px 1px 4px 4px #acf !important;
   margin-top: 20px !important;
   & .MuiListItemButton-root {
     &:hover {
-      background-color: black;
+      background-color: #000000ee;
     }
   }
+  
   @media (max-width: 426px) {
     height: 250px;
     width: 300px;
@@ -58,7 +58,7 @@ export const ListItemTextMui = styled(ListItemText)`
   height: 100%;
 
   & .MuiTypography-root {
-    color: black;
+    color: #000000ee;
 
     font-family: fantasy;
     &:hover {

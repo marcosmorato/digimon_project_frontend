@@ -26,6 +26,7 @@ export const SignContainer = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  
   @media (max-width: 426px) {
     flex-direction: column;
     & .MuiTypography-h3 {
@@ -37,11 +38,12 @@ export const SignContainer = styled.div`
 export const Hr = styled.div`
   width: 2px;
   height: 356px;
-  background-color: black;
+  background-color: #000000ee;
   box-shadow: 1px 1px 4px 3px #acf;
+  
   @media (max-width: 426px) {
     width: 328px;
     height: 2px;
-    background-color: black;
+    background-color: #000000ee;
   }
 `

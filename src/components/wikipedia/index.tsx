@@ -52,10 +52,6 @@ const WikipediaBox: React.FC<IWikipediaBox> = ({
     <GS.ContainerCenter>
       <GS.TitleBox variant="h3">Wikipedia</GS.TitleBox>
       <S.PaginationContainer>
-        {!showWikipedia ? (
-          <GS.TitleBox>Carregando...</GS.TitleBox>
-        ) : (
-          <>
             <S.NameContainer>
               {itemsToShow.map((el) => (
                 <S.ShowInfo
@@ -81,8 +77,6 @@ const WikipediaBox: React.FC<IWikipediaBox> = ({
                 shape="rounded"
               />
             </S.StackUi>
-          </>
-        )}
         {digimonInfo &&
         digimonInfo !== null &&
         digimonInfo.images &&
@@ -96,6 +90,7 @@ const WikipediaBox: React.FC<IWikipediaBox> = ({
             image={digimonInfo.images[0].href}
             name={digimonInfo.name as string}
             xAntibody={digimonInfo.xAntibody}
+            fields={digimonInfo.fields || []}
             levels={digimonInfo.levels || []}
             releaseDate={digimonInfo.releaseDate}
             types={digimonInfo.types || []}

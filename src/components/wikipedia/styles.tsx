@@ -13,6 +13,7 @@ export const PaginationContainer = styled(Box)`
   flex-wrap: wrap;
   justify-content: center;
   opacity: 0.7;
+  
   @media (max-width: 426px) {
     width: 360px;
     height: 726px;
@@ -27,7 +28,7 @@ export const NameContainer = styled(Box)`
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  color: black;
+  color: #000000ee;
   opacity: 0.7;
   margin-top: 8px;
   & .MuiButton-root {
@@ -36,20 +37,21 @@ export const NameContainer = styled(Box)`
     text-overflow: ellipsis;
     text-transform: none;
     margin: 0 16px;
-    border: 2px solid black;
+    border: 2px solid #000000ee;
     box-shadow: 1px 1px 4px 4px #acf;
     font-family: fantasy;
-    color: black;
+    color: #000000ee;
     background-color: white;
     font-size: 16px;
-    @media (max-width: 426px) {
-      margin: 6px 12px;
-    }
   }
+  
   @media (max-width: 426px) {
     height: 620px;
     width: 360px;
     margin-top: 20px;
+    & .MuiButton-root {
+      margin: 6px 12px;
+    }
   }
 `;
 
@@ -57,13 +59,14 @@ export const ShowInfo = styled(Button)`
   width: 158px;
   height: 45px;
   white-space: nowrap;
+  &:hover {
+    background-color: #000000ee !important;
+    color: white !important;
+  }
+  
   @media (max-width: 426px) {
     width: 145px;
     height: 50px;
-  }
-  &:hover {
-    background-color: black !important;
-    color: white !important;
   }
 `;
 
@@ -71,7 +74,7 @@ export const StackUi = styled(Stack)``;
 
 export const PaginationUi = styled(Pagination)`
   & .MuiPaginationItem-root {
-    color: black;
+    color: #000000ee;
     background-color: white;
     font-weight: 700;
     opacity: 0.9;
@@ -81,7 +84,7 @@ export const PaginationUi = styled(Pagination)`
     }
 
     &:hover {
-      background-color: black;
+      background-color: #000000ee;
       color: white;
     }
   }

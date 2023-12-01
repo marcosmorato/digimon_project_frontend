@@ -19,7 +19,7 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 export const Close = styled(CloseIcon)`
   z-index: 1; /* Para garantir que os ícones estejam acima da imagem */
-  color: black;
+  color: #000000ee;
   opacity: 0.9;
 `;
 
@@ -42,14 +42,14 @@ export const ContainerLeft = styled(Box)`
   border-radius: 8px;
   justify-content: center;
   align-items: center;
-    border-right: 1px solid black;
+    border-right: 1px solid #000000ee;
   & .MuiTypography-subtitle1 {
     overflow: hidden;
     text-overflow: ellipsis;
     text-transform: none;
     white-space: nowrap;
     -webkit-text-stroke: 0px;
-    color: black;
+    color: #000000ee;
   }
   & .MuiTypography-h6 {
     overflow: hidden;
@@ -57,7 +57,7 @@ export const ContainerLeft = styled(Box)`
     text-transform: none;
     white-space: nowrap;
     -webkit-text-stroke: 0px;
-    color: black;
+    color: #000000ee;
   }
 `;
 
@@ -72,15 +72,12 @@ export const ContainerRight = styled(Box)`
 
 export const ImageContainer = styled(Box)`
   position: relative;
-  /*   width: 326px;
-  height: 326px; */
-  /* box-shadow: 1px 1px 4px 4px black;
-  border-radius: 10px; */
-  color: black;
+  color: #000000ee;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  
   @media (max-width: 426px) {
     width: 100%;
     height: 50%;
@@ -100,7 +97,7 @@ export const Image = styled(Box)<{ digimonImage: string }>`
 `;
 
 export const descriptionBox = styled.div`
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #000000ee;
   width: 310px;
 `
 
@@ -127,18 +124,17 @@ export const ShowInfo = styled(Button)`
   text-transform: none !important;
   white-space: nowrap;
   margin: 0 20px !important;
-  border: 2px solid black !important;
+  border: 2px solid #000000ee !important;
   box-shadow: 1px 1px 4px 4px #acf !important;
 
   font-family: fantasy !important;
-  color: black !important;
-  /* background-image: linear-gradient(180deg, #ffeea8, #f6a325); */
+  color: #000000ee !important;
   background-color: white !important;
   font-size: 16px !important;
   opacity: 0.9;
   &:hover {
     opacity: 1;
-    background-color: black !important;
+    background-color: #000000ee !important;
     color: white !important;
   }
 `;
@@ -147,19 +143,19 @@ export const ShowInfo = styled(Button)`
 export const DescriptionContainer = styled(Box)`
   width: 310px;
   height: 40%;
-  /*   background-color: #fff; */
-  box-shadow: 1px 1px 4px 4px black;
+  box-shadow: 1px 1px 4px 4px #000000ee;
   border-radius: 10px;
-  color: black;
+  color: #000000ee;
   display: flex;
   flex-direction: column;
   opacity: 0.7;
   padding: 5px;
-  @media (max-width: 426px) {
-    height: 50%;
-  }
   &:hover {
     opacity: 0.9;
+  }
+  
+  @media (max-width: 426px) {
+    height: 50%;
   }
 `;
 
@@ -169,7 +165,7 @@ export const DescriptionNav = styled(Box)`
   display: flex;
 
   & .Mui-disabled {
-    color: black !important;
+    color: #000000ee !important;
     background-color: white !important;
   }
 `;
@@ -178,7 +174,7 @@ export const ButtonLanguage = styled(Button)`
   width: 100%;
   height: 25%;
   font-family: fantasy !important;
-  background-color: black !important;
+  background-color: #000000ee !important;
   color: white !important;
 `;
 

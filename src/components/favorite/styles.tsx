@@ -21,7 +21,7 @@ export const Container = styled(Box)`
   box-shadow: 1px 1px 4px 4px #acf !important;
   border: 2px solid #000;
   border-radius: 10px;
-  color: black;
+  color: #000000ee;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -38,18 +38,18 @@ export const ShowInfo = styled(Button)`
   text-transform: none !important;
   white-space: nowrap;
   margin: 0 20px !important;
-  border: 2px solid black !important;
+  border: 2px solid #000000ee !important;
   box-shadow: 1px 1px 4px 4px #acf !important;
 
   font-family: fantasy !important;
-  color: black !important;
+  color: #000000ee !important;
   /* background-image: linear-gradient(180deg, #ffeea8, #f6a325); */
   background-color: white !important;
   font-size: 16px !important;
   opacity: 0.9;
   &:hover {
     opacity: 1;
-    background-color: black !important;
+    background-color: #000000ee !important;
     color: white !important;
   }
 `;
@@ -58,10 +58,10 @@ export const PaginationContainer = styled(Box)`
   width: 1066px;
   height: 458px;
   display: flex;
-  /* align-items: center; */
   opacity: 0.7;
   flex-wrap: wrap;
   justify-content: center;
+  
   @media (max-width: 426px) {
     width: 360px;
     height: 726px;
@@ -70,7 +70,7 @@ export const PaginationContainer = styled(Box)`
 
 export const NameContainer = styled(Box)`
   width: 100%;
-  color: black;
+  color: #000000ee;
   display: flex;
   align-items: center;
   opacity: 0.7;
@@ -79,6 +79,7 @@ export const NameContainer = styled(Box)`
   flex-grow: 1; /* Adicione esta linha */
   height: 370px;
   justify-content: center;
+  
   @media (max-width: 426px) {
     height: 620px;
     margin-top: 20px;
@@ -87,7 +88,7 @@ export const NameContainer = styled(Box)`
 
 export const PaginationUi = styled(Pagination)`
   & .MuiPaginationItem-root {
-    color: black;
+    color: #000000ee;
     background-color: white;
     font-weight: 700;
     opacity: 0.9;
@@ -97,7 +98,7 @@ export const PaginationUi = styled(Pagination)`
     }
 
     &:hover {
-      background-color: black;
+      background-color: #000000ee;
       color: white;
     }
   }
@@ -115,6 +116,7 @@ export const ContainFavorite = styled.div`
   flex-grow: 1; /* Adicione esta linha */
   height: 420px;
   justify-content: space-between;
+  
   @media (max-width: 426px) {
     height: 620px;
     margin-top: 20px;
@@ -138,7 +140,7 @@ export const CardMui = styled(Card)`
     text-transform: none;
     white-space: nowrap;
     -webkit-text-stroke: 0px;
-    color: black;
+    color: #000000ee;
   }
 `;
 
@@ -155,6 +157,6 @@ export const MaximizeIcon = styled(AspectRatioIcon)`
   right: 2%; 
   z-index: 1;  */
 
-  color: black;
-  box-shadow: 1px 1px 1px 1px black;
+  color: #000000ee;
+  box-shadow: 1px 1px 1px 1px #000000ee;
 `;
