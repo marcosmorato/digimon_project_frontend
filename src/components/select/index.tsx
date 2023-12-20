@@ -1,6 +1,5 @@
 import React from "react";
 import { SelectChangeEvent } from "@mui/material";
-
 import * as S from "./styles";
 
 interface SelectProps {

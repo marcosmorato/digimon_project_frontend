@@ -10,7 +10,7 @@ export interface IFields {
   image: string;
 }
 
-interface IModalBox {
+interface IModal {
   digimonId: string;
   open: boolean;
   name: string;
@@ -48,7 +48,7 @@ interface IModalBox {
   userToken: string;
 }
 
-const ModalBox: React.FC<IModalBox> = ({
+const Modal: React.FC<IModal> = ({
   digimonId,
   open,
   handleClose,
@@ -337,4 +337,4 @@ const ModalBox: React.FC<IModalBox> = ({
   );
 };
 
-export default ModalBox;
+export default Modal;

@@ -3,7 +3,7 @@ import HeaderBox from "../../components/header";
 import NavBox from "../../components/nav";
 import WikipediaBox from "../../components/wikipedia";
 import FilterBox from "../../components/filter";
-import * as S from "./styles";
+import * as GS from "../../utils/globalStyles/styles";
 import { AppDispatch, RootState } from "../../store/store";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
@@ -31,25 +31,23 @@ const Wikipedia: React.FC = () => {
   }, [dispatch, setShowWikipedia, user.token]);
   
   return (
-    <S.Container>
+    <GS.ContainerPage>
       <HeaderBox></HeaderBox>
-      <S.ContainerBody>
+      <GS.ContainerBody>
         <NavBox></NavBox>
-        { showWikipedia && 
           <WikipediaBox
             showWikipedia={showWikipedia}
             digimonsName={digimonFilters?.digimonsFilters || []}
             userToken={user.token}
             userFavorite={user.favorite}
           ></WikipediaBox>
-        }
         <FilterBox
           digimonsName={digimonsName.digimonsFilters || []}
           onSetDigimonFilter={setShowWikipedia}
           setDigimonFilters={setDigimonFilters}
         ></FilterBox>
-      </S.ContainerBody>
-    </S.Container>
+      </GS.ContainerBody>
+    </GS.ContainerPage>
   );
 };
 

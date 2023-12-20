@@ -1,11 +1,11 @@
 import React from "react";
 import * as S from "./styles";
-import * as GS from "../globalStyles";
+import * as GS from "../../utils/globalStyles/styles";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 import { useNavigate } from "react-router-dom";
 
-const NavBox: React.FC = () => {
+const Nav: React.FC = () => {
   const userRedux = useSelector(
     (state: RootState) => state.user.loggedUser.user
   );
@@ -40,9 +40,14 @@ const NavBox: React.FC = () => {
             <S.ListItemTextMui>Favorites</S.ListItemTextMui>
           </S.ListItemIconMui>
         </S.ListItemButtonMui>
+        <S.ListItemButtonMui onClick={() => navigate("/gaming/home")}>
+          <S.ListItemIconMui>
+            <S.ListItemTextMui>Gaming</S.ListItemTextMui>
+          </S.ListItemIconMui>
+        </S.ListItemButtonMui>
       </S.ListMui>
     </GS.ContainerSide>
   );
 };
 
-export default NavBox;
+export default Nav;

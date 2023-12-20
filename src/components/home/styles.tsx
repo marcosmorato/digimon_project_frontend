@@ -24,7 +24,7 @@ export const InfoContainer = styled(Box)`
 
 export const DescriptionText = styled(Typography)`
   height: 320px;
-  width: 986px;
+  width: 968px;
   
   @media (max-width: 426px) {
     height: 1120px;

@@ -14,13 +14,30 @@ import {
   Typography
 } from "@mui/material";
 
-import CloseIcon from '@mui/icons-material/Close';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import { typography } from "@mui/system";
 
-export const Close = styled(CloseIcon)`
+export const Close = styled.div`
+  width: 306px;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+  @media (max-width: 426px) {
+    margin: 4px 0px 10px 0px;
+    width: 280px;
+  }
+`
+
+export const BackArrow = styled(ArrowBackIcon)`
   z-index: 1; /* Para garantir que os ícones estejam acima da imagem */
   color: #000000ee;
   opacity: 0.9;
+  width: 24px;
+  height: 23px;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
 `;
 
 export const Container = styled(Box)`
@@ -32,7 +49,26 @@ export const Container = styled(Box)`
   background-color: #fff !important;
   opacity: 0.7;
   border-radius: 8px;
+  @media (max-width: 426px) {
+    height: 764px;
+    
+    width: 325px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    justify-content: center;
+  }
 `;
+
+export const ContainerInfoMb = styled.div`
+  height: 310px;
+  width: 325px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
 
 export const ContainerLeft = styled(Box)`
   display: flex;
@@ -42,7 +78,7 @@ export const ContainerLeft = styled(Box)`
   border-radius: 8px;
   justify-content: center;
   align-items: center;
-    border-right: 1px solid #000000ee;
+  border-right: 1px solid #000000ee;
   & .MuiTypography-subtitle1 {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -59,6 +95,16 @@ export const ContainerLeft = styled(Box)`
     -webkit-text-stroke: 0px;
     color: #000000ee;
   }
+  @media (max-width: 426px) {
+    height: 432px;
+    width: 325px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    margin-bottom: 6px;
+  }
 `;
 
 export const ContainerRight = styled(Box)`
@@ -68,6 +114,15 @@ export const ContainerRight = styled(Box)`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @media (max-width: 426px) {
+    height: 250px;
+    width: 325px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+  }
 `;
 
 export const ImageContainer = styled(Box)`
@@ -77,10 +132,11 @@ export const ImageContainer = styled(Box)`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  
+  margin-bottom: 30px;
   @media (max-width: 426px) {
-    width: 100%;
-    height: 50%;
+    width: 280px;
+    height: 280px;
+    margin-bottom: 16px;
   }
 `;
 
@@ -94,11 +150,71 @@ export const Image = styled(Box)<{ digimonImage: string }>`
   overflow: hidden;
   box-shadow: 1px 1px 4px 4px rgba(1, 3, 45, 1);
   border-radius: 10px;
+  @media (max-width: 426px) {
+    width: 280px;
+    height: 280px;
+  }
+`;
+
+export const Name = styled(Typography)`
+  width: 310px;
+  background-image: linear-gradient(180deg, #ffeea8, #f6a325);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-stroke: 1px #62c1cf; /* Largura e cor da borda */
+  text-align: center;
+  
+  @media (max-width: 426px) {
+    width: 280px;
+    height: 87px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 export const descriptionBox = styled.div`
   border-bottom: 1px solid #000000ee;
   width: 310px;
+  & .MuiTypography-subtitle1 {
+    text-align: left;
+  }
+  & .MuiTypography-h6 {
+    text-align: left;
+  }
+  @media (max-width: 426px) {
+    width: 280px;
+
+  }
+`
+export const evolutionBox = styled.div`
+  width: 310px;
+  & .MuiTypography-subtitle1 {
+    text-align: left;
+  }
+  & .MuiTypography-h6 {
+    text-align: left;
+  }
+    @media (max-width: 426px) {
+    width: 280px;
+  }
+`
+export const evolutionContainer = styled.div`
+  width: 300px;
+  height: 80px;
+  overflow-y: auto;
+  border: 1px solid black;
+  border-radius: 4px;
+  margin-bottom: 4px;
+  padding: 4px;
+  @media (max-width: 426px) {
+    width: 280px;
+  }
+`
+
+export const evolutionName = styled(typography)`
+  width: 200px;
 `
 
 export const IconContainter = styled.div`
@@ -106,7 +222,7 @@ export const IconContainter = styled.div`
   margin-bottom: 10px;
 `;
 
-export const Icon = styled.img`
+export const Field = styled.img`
   width: 32px;
   height: 32px;
   background-position: center;
@@ -139,8 +255,19 @@ export const ShowInfo = styled(Button)`
   }
 `;
 
+export const DescriptionContainer = styled.div`
+    @media (max-width: 426px) {
+    width: 310px;
+    height: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+`
 
-export const DescriptionContainer = styled(Box)`
+
+export const DescriptionBox = styled(Box)`
   width: 310px;
   height: 40%;
   box-shadow: 1px 1px 4px 4px #000000ee;
@@ -153,9 +280,10 @@ export const DescriptionContainer = styled(Box)`
   &:hover {
     opacity: 0.9;
   }
-  
+
   @media (max-width: 426px) {
-    height: 50%;
+    height: 200px;
+    width: 280px;
   }
 `;
 

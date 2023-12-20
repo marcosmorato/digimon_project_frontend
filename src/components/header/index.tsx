@@ -1,9 +1,9 @@
 import React from "react";
 import * as S from "./styles";
-const HeaderBox: React.FC = () => {
+const Header: React.FC = () => {
   return (
       <S.LogoImg></S.LogoImg>
   );
 };
 
-export default HeaderBox;
+export default Header;

@@ -84,7 +84,7 @@ export const InputText = styled(TextField)`
 `;
 
 export const SelectContainer = styled.div`
-  width: 220px;
+  width: 188px;
   
   @media (max-width: 426px) {
       width: 270px;

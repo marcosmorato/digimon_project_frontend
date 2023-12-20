@@ -1,18 +1,4 @@
 import styled from "styled-components";
-import { Box } from "@mui/material";
-
-
-export const Container = styled.div`
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 32px;
-  overflow-y: auto;
-  overflow-x: hidden;
-`;
 
 export const SignContainer = styled.div`
   max-width: 1200px;

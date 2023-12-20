@@ -1,20 +1,21 @@
 import React from "react";
-import Register from "../../components/register";
-import Login from "../../components/login";
+import RegisterBox from "../../components/register";
+import LoginBox from "../../components/login";
 import * as S from "./styles";
+import * as GS from "../../utils/globalStyles/styles";
 import HeaderBox from "../../components/header";
 
-const AccountPage: React.FC = () => {
+const Account: React.FC = () => {
   return (
-    <S.Container>
+    <GS.ContainerPage>
       <HeaderBox/>
       <S.SignContainer>
-        <Login/>
+        <LoginBox />
         <S.Hr></S.Hr>
-        <Register/>
+        <RegisterBox />
       </S.SignContainer>
-    </S.Container>
+    </GS.ContainerPage>
   );
 };
 
-export default AccountPage;
+export default Account;

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import * as S from "./styles";
-import * as GS from "../globalStyles";
+import * as GS from "../../utils/globalStyles/styles";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schemaLogin } from "../../utils/yup/index";
 import { loginUserThunk } from "../../store/user/thunk";
@@ -38,7 +38,7 @@ const Login: React.FC = () => {
 
   useEffect(() => {
     if (userRedux.isLogged) {
-      navigate("/wikipedia");
+      navigate("/home");
       return;
     }
   }, [navigate, userRedux]);

@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import * as S from "./styles";
-import * as GS from "../globalStyles";
+import * as GS from "../../utils/globalStyles/styles";
 import {
   wikipediaModalThunk,
 } from "../../store/wikipedia/thunk";
 import ModalBox from "../modal/index";
 import { IDigimonData, IDigimonFilter } from "../../utils/interfaces/digimons";
 
-interface IWikipediaBox {
+interface IWikipedia {
   showWikipedia: boolean;
   digimonsName: IDigimonData[] | [];
   userToken: string;
   userFavorite: string[] | [];
 }
 
-const WikipediaBox: React.FC<IWikipediaBox> = ({
+const Wikipedia: React.FC<IWikipedia> = ({
   showWikipedia,
   digimonsName,
   userToken,
@@ -52,31 +52,31 @@ const WikipediaBox: React.FC<IWikipediaBox> = ({
     <GS.ContainerCenter>
       <GS.TitleBox variant="h3">Wikipedia</GS.TitleBox>
       <S.PaginationContainer>
-            <S.NameContainer>
-              {itemsToShow.map((el) => (
-                <S.ShowInfo
-                  onClick={() => {
-                    if (el.name) {
-                      handleOpen(el.name);
-                    }
-                  }}
-                  color="primary"
-                  variant="contained"
-                  key={el.name}
+        <S.NameContainer>
+          {itemsToShow.map((el) => (
+            <S.ShowInfo
+              onClick={() => {
+                if (el.name) {
+                  handleOpen(el.name);
+                }
+                }}
+                color="primary"
+                variant="contained"
+                key={el.name}
                 >
                   {el.name}
-                </S.ShowInfo>
-              ))}
-            </S.NameContainer>
-            <S.StackUi spacing={2}>
-              <S.PaginationUi
-                count={Math.ceil(digimonsName.length / itemsPerPage)}
-                page={currentPage}
-                onChange={handlePageChange}
-                variant="outlined"
-                shape="rounded"
-              />
-            </S.StackUi>
+            </S.ShowInfo>
+          ))}
+        </S.NameContainer>
+          <S.StackUi spacing={2}>
+            <S.PaginationUi
+              count={Math.ceil(digimonsName.length / itemsPerPage)}
+              page={currentPage}
+              onChange={handlePageChange}
+              variant="outlined"
+              shape="rounded"
+            />
+          </S.StackUi>
         {digimonInfo &&
         digimonInfo !== null &&
         digimonInfo.images &&
@@ -110,4 +110,4 @@ const WikipediaBox: React.FC<IWikipediaBox> = ({
   );
 };
 
-export default WikipediaBox;
+export default Wikipedia;

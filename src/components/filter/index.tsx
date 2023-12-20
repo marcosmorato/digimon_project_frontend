@@ -1,7 +1,7 @@
 import React, { useEffect, useState, ChangeEvent } from "react";
 import { useForm } from "react-hook-form";
 import * as S from "./styles";
-import * as GS from "../globalStyles";
+import * as GS from "../../utils/globalStyles/styles";
 import { yupResolver } from "@hookform/resolvers/yup";
 import CustomSelect from "../select";
 import { schemaDigimonFilter } from "../../utils/yup/index";
@@ -33,7 +33,7 @@ interface FilterBoxProps {
   setDigimonFilters: React.Dispatch<React.SetStateAction<IDigimonReducer>>;
 }
 
-const FilterBox: React.FC<FilterBoxProps> = ({
+const Filter: React.FC<FilterBoxProps> = ({
   onSetDigimonFilter,
   digimonsName,
   setDigimonFilters,
@@ -224,4 +224,4 @@ const FilterBox: React.FC<FilterBoxProps> = ({
   );
 };
 
-export default FilterBox;
+export default Filter;

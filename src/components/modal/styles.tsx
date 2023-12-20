@@ -276,7 +276,7 @@ export const ContainerCenter = styled.div`
 `
 
 export const DescriptionContainer = styled(Box)`
-  width: 420px;
+  width: 410px;
   height: 170px;
   margin-top: 10px;
   box-shadow: 1px 1px 4px 4px #000000ee;
@@ -302,7 +302,7 @@ export const DescriptionContainer = styled(Box)`
 `;
 
 export const DescriptionNav = styled(Box)`
-  width: 396px;
+  width: 386px;
   height: 20px;
   display: flex;
   & .Mui-disabled {
@@ -316,7 +316,7 @@ export const DescriptionNav = styled(Box)`
 `;
 
 export const ButtonLanguage = styled(Button)`
-  width: 198px;
+  width: 193px;
   height: 18px;
   font-family: fantasy !important;
   background-color: #000000ee !important;
@@ -329,7 +329,7 @@ export const ButtonLanguage = styled(Button)`
 
 export const DescriptionText = styled(Typography)`
   overflow-y: auto;
-  width: 396px;
+  width: 386px;
   height: 126px;
   @media (max-width: 426px) {
     height: 240px;

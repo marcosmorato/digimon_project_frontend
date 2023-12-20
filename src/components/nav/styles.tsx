@@ -29,7 +29,7 @@ export const ListMui = styled(List)`
   }
   
   @media (max-width: 426px) {
-    height: 250px;
+    height: 260px;
     width: 300px;
   }
 `;

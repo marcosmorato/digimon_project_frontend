@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import * as S from "./styles";
-import * as GS from "../globalStyles";
+import * as GS from "../../utils/globalStyles/styles";
 import { useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../store/store";
 import { useDispatch } from "react-redux";
@@ -13,12 +13,6 @@ import {
   IDigimonFavorite,
 } from "../../utils/interfaces/digimons";
 
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import DetailScreen from "../detailFavorite";
 
 interface IFavorite {
@@ -27,17 +21,14 @@ interface IFavorite {
   digimonsData: IDigimonFavorite[] | [];
 }
 
-const FavoriteBox: React.FC<IFavorite> = ({
+const Favorite: React.FC<IFavorite> = ({
   showFavorite,
   setShowFavorite,
   digimonsData,
 }) => {
-  const userRedux = useSelector(
-    (state: RootState) => state.user.loggedUser.user
-  );
 
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const itemsPerPage: number = 6;
+
 
   const [isDetailOpen, setIsDetailOpen] = useState(false);
   const [selectedDetail, setSelectedDetail] = useState<IDigimonFavorite | null>(
@@ -59,10 +50,17 @@ const FavoriteBox: React.FC<IFavorite> = ({
   ) => {
     setCurrentPage(page);
   };
-
+  
+  const itemsPerPage: number = 10;
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const itemsToShow = digimonsData?.slice(startIndex, endIndex);
+  
+  const itemsPerPageMb: number = 3;
+  const startIndexMb = (currentPage - 1) * itemsPerPageMb;
+  const endIndexMB = startIndexMb + itemsPerPageMb;
+  const itemsToShowMb = digimonsData?.slice(startIndexMb, endIndexMB);
+  const isMobile = window.innerWidth <= 426;
 
   const dispatch = useDispatch<AppDispatch>();
 
@@ -76,110 +74,96 @@ const FavoriteBox: React.FC<IFavorite> = ({
 
   return (
     <GS.ContainerExtra>
-      {isDetailOpen && selectedDetail ? (
-        <DetailScreen
-          selectedDetail={selectedDetail}
-          isDetailOpen={isDetailOpen}
-          onClose={handleDetailClose}
-        />
-      ) : (
-        <>
-          <GS.TitleBox variant="h3">Favorites</GS.TitleBox>
-          <S.PaginationContainer>
-            {!showFavorite && digimonsData.length > 0 ? (
-              <GS.TitleBox>Carregando...</GS.TitleBox>
-            ) : (
-              <>
-                <S.ContainFavorite>
-                  {itemsToShow.map((el) => (
-                    <S.CardMui key={el.name}>
-                      <S.CardMediaMui
-                        image={el.images.length > 0 ? el.images[0].href : ""}
+      {isMobile ? 
+      (<>
+        {isDetailOpen && selectedDetail ? (
+            <DetailScreen
+              selectedDetail={selectedDetail}
+              isDetailOpen={isDetailOpen}
+              onClose={handleDetailClose}
+            />
+          ) : (
+            <>
+              <GS.TitleBox variant="h3">Favorites</GS.TitleBox>
+              <S.PaginationContainer>
+              {!showFavorite && digimonsData.length > 0 ? (
+                  <GS.TitleBox>Carregando...</GS.TitleBox>
+                ) : (
+                  <>
+                  <S.ContainerFavorite>
+                    {itemsToShowMb.map((el) => (
+                          <S.CardMui key={el.name} onClick={() => handleMaximizeClick(el)}>
+                            <S.CardMediaMui
+                              image={el.images.length > 0 ? el.images[0].href : ""}
+                            />
+                            <S.CardContentMui>
+                              <GS.DescriptionText variant="overline">
+                                {el.name}
+                              </GS.DescriptionText>
+                            </S.CardContentMui>
+                          </S.CardMui>
+                        ))}
+                  </S.ContainerFavorite>
+                  <S.StackUi spacing={2}>
+                      <S.PaginationUi
+                        count={Math.ceil(digimonsData.length / itemsPerPageMb)}
+                        page={currentPage}
+                        onChange={handlePageChange}
+                        variant="outlined"
+                        shape="rounded"
                       />
-                      <S.CardContentMui>
-                        <GS.TitleBox gutterBottom variant="subtitle1">
-                          {el.name}
-                        </GS.TitleBox>
-                        <S.MaximizeIcon
-                          onClick={() => handleMaximizeClick(el)}
-                        ></S.MaximizeIcon>
-                      </S.CardContentMui>
-                    </S.CardMui>
-                  ))}
-                </S.ContainFavorite>
-                <S.StackUi spacing={2}>
-                  <S.PaginationUi
-                    count={Math.ceil(digimonsData.length / itemsPerPage)}
-                    page={currentPage}
-                    onChange={handlePageChange}
-                    variant="outlined"
-                    shape="rounded"
-                  />
-                </S.StackUi>
-              </>
-            )}
-          </S.PaginationContainer>
-        </>
-      )}
+                    </S.StackUi>
+                  </>)}
+              </S.PaginationContainer>
+            </>
+          )}
+      </>) : (<>
+          {isDetailOpen && selectedDetail ? (
+            <DetailScreen
+              selectedDetail={selectedDetail}
+              isDetailOpen={isDetailOpen}
+              onClose={handleDetailClose}
+            />
+          ) : (
+            <>
+              <GS.TitleBox variant="h3">Favorites</GS.TitleBox>
+              <S.PaginationContainer>
+                {!showFavorite && digimonsData.length > 0 ? (
+                  <GS.TitleBox>Carregando...</GS.TitleBox>
+                ) : (
+                  <>
+                    <S.ContainerFavorite>
+                      {itemsToShow.map((el) => (
+                        <S.CardMui key={el.name} onClick={() => handleMaximizeClick(el)}>
+                          <S.CardMediaMui
+                            image={el.images.length > 0 ? el.images[0].href : ""}
+                          />
+                          <S.CardContentMui>
+                            <GS.DescriptionText gutterBottom variant="overline">
+                              {el.name}
+                            </GS.DescriptionText>
+                          </S.CardContentMui>
+                        </S.CardMui>
+                      ))}
+                    </S.ContainerFavorite>
+                    <S.StackUi spacing={2}>
+                      <S.PaginationUi
+                        count={Math.ceil(digimonsData.length / itemsPerPage)}
+                        page={currentPage}
+                        onChange={handlePageChange}
+                        variant="outlined"
+                        shape="rounded"
+                      />
+                    </S.StackUi>
+                  </>
+                )}
+              </S.PaginationContainer>
+            </>
+          )}
+        </>)
+        }
     </GS.ContainerExtra>
   );
 };
 
-export default FavoriteBox;
-
-{
-  /*  <S.NameContainer>
-              {itemsToShow.map((el) => (
-                <S.ShowInfo
-                  onClick={() => {
-                    if (el.name) {
-                      handleOpen(el.name);
-                    }
-                  }}
-                  color="primary"
-                  variant="contained"
-                  key={el.name}
-                >
-                  {el.name}
-                </S.ShowInfo>
-              ))}
-            </S.NameContainer>
-            <S.StackUi spacing={2}>
-              <S.PaginationUi
-                count={Math.ceil(digimonsData.length / itemsPerPage)}
-                page={currentPage}
-                onChange={handlePageChange}
-                variant="outlined"
-                shape="rounded"
-              />
-            </S.StackUi> */
-}
-
-{
-  /* {digimonInfo &&
-        digimonInfo !== null &&
-        digimonInfo.images &&
-        digimonInfo.name !== null &&
-        digimonInfo.images.length > 0 &&
-        typeof digimonInfo.name === "string" ? (
-          <ModalBox
-            handleOpen={handleOpen}
-            open={showModal}
-            handleClose={handleClose}
-            image={digimonInfo.images[0].href}
-            name={digimonInfo.name as string} // Definir o tipo como string
-            xAntibody={digimonInfo.xAntibody}
-            levels={digimonInfo.levels || []}
-            releaseDate={digimonInfo.releaseDate}
-            types={digimonInfo.types || []}
-            attributes={digimonInfo.attributes || []}
-            descriptions={digimonInfo.descriptions || []}
-            priorEvolutions={digimonInfo.priorEvolutions || []}
-            nextEvolutions={digimonInfo.nextEvolutions || []}
-            userFavorite={user.favorite}
-            userToken={user.token}
-          />
-        ) : (
-          ""
-        )} */
-}
+export default Favorite;

@@ -15,7 +15,7 @@ export const PaginationContainer = styled(Box)`
   opacity: 0.7;
   
   @media (max-width: 426px) {
-    width: 360px;
+    width: 328px;
     height: 726px;
   }
 `;
@@ -47,7 +47,7 @@ export const NameContainer = styled(Box)`
   
   @media (max-width: 426px) {
     height: 620px;
-    width: 360px;
+    width: 328px;
     margin-top: 20px;
     & .MuiButton-root {
       margin: 6px 12px;
@@ -65,12 +65,16 @@ export const ShowInfo = styled(Button)`
   }
   
   @media (max-width: 426px) {
-    width: 145px;
+    width: 140px;
     height: 50px;
   }
 `;
 
-export const StackUi = styled(Stack)``;
+export const StackUi = styled(Stack)`
+  @media (max-width: 426px) {
+    width: 320px;
+  }
+`;
 
 export const PaginationUi = styled(Pagination)`
   & .MuiPaginationItem-root {

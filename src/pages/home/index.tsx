@@ -3,17 +3,17 @@ import HeaderBox from "../../components/header";
 import NavBox from "../../components/nav";
 import HomeBox from "../../components/home";
 import Register from "../../components/register";
-import * as S from "./styles";
+import * as GS from "../../utils/globalStyles/styles";
 
 const Home: React.FC = () => {
   return (
-    <S.Container>
+    <GS.ContainerPage>
       <HeaderBox></HeaderBox>
-      <S.ContainerBody>
+      <GS.ContainerBody>
         <NavBox></NavBox>
         <HomeBox></HomeBox>
-      </S.ContainerBody>
-    </S.Container>
+      </GS.ContainerBody>
+    </GS.ContainerPage>
   );
 };
 
