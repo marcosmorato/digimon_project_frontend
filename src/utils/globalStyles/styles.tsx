@@ -33,9 +33,25 @@ export const ContainerSide = styled(Box)`
     text-align: center;
   }
   
+  & .MuiList-root {
+    margin-top: 16px;
+    font-size: 16px;
+    background-color: #fff;
+    opacity: 0.6;
+    border-radius: 10px;
+    border: 2px solid #000000ee;
+    box-shadow: 1px 1px 4px 4px #acf;
+
+    & .MuiListItemButton-root {
+      &:hover {
+        background-color: #000000ee;
+      }
+    }
+  }
+  
   @media (max-width: 426px) {
     margin-bottom: 30px;
-    height: 380px;
+    height: 400px;
     width: 100%;
     margin-right: 0;
     & .MuiTypography-h3 {

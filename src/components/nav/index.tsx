@@ -13,7 +13,7 @@ const Nav: React.FC = () => {
 
   return (
     <GS.ContainerSide>
-      <GS.TitleBox variant="h3">Paginas</GS.TitleBox>
+      <GS.TitleBox variant="h3">Pages</GS.TitleBox>
       <S.ListMui aria-labelledby="nested-list-subheader">
         <S.ListItemButtonMui onClick={() => navigate("/home")}>
           <S.ListItemIconMui>

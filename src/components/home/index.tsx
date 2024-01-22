@@ -15,7 +15,7 @@ const Home: React.FC = () => {
 
   return (
     <GS.ContainerExtra>
-      <GS.TitleBox variant="h3">Informações</GS.TitleBox>
+      <GS.TitleBox variant="h3">News</GS.TitleBox>
       <S.InfoContainer>
         <S.DescriptionText variant="body2">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tincidunt molestie odio vel tempor. Duis maximus ac sapien et sodales. Nunc in sem non libero dictum pharetra. Donec viverra justo a elit mattis ornare. Nullam in auctor enim. Nam vitae mattis magna, in mollis diam. Cras mauris eros, gravida nec convallis sit amet, dapibus et tellus. Quisque tempor purus justo, non consectetur orci sagittis a. Fusce maximus tristique feugiat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla rutrum justo risus, vitae scelerisque diam imperdiet vulputate. Vivamus bibendum hendrerit quam ut aliquam. Ut sagittis aliquet nisl nec imperdiet. Ut dui nisl, lacinia sit amet odio non, vehicula aliquam turpis. Integer vitae efficitur orci. Vestibulum vel ligula eget dui lobortis eleifend vel vitae libero.
