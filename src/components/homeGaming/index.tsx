@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import Profile from '../profileGaming'
 import News from '../newsGame'
 import Setting from "../settingGaming"
+import TeamFormation from "../teamFormation"
 const HomeGaming: React.FC = () => {
   const [showControl, setShowControl] = useState<string>("profile");
   const userRedux = useSelector(
@@ -19,12 +20,14 @@ const HomeGaming: React.FC = () => {
     <S.HomeContainer>
         <S.HomeNav>
             <S.ContainerIcon onClick={() => setShowControl("profile")}><S.ProfileIcon /></S.ContainerIcon>
+            <S.ContainerIcon onClick={() => setShowControl("teamFormation")}><S.TeamFormationIcon /></S.ContainerIcon>
             <S.ContainerIcon onClick={() => setShowControl("news")}><S.NewsIcon /></S.ContainerIcon>
             <S.ContainerIcon onClick={() => setShowControl("settings")}><S.SettingIcon /></S.ContainerIcon>
         </S.HomeNav>
         {showControl === "profile" && <Profile nickname={userRedux.nickname} />}
         {showControl === "news" && <News />}
         {showControl === "settings" && <Setting />}
+        {showControl === "teamFormation" && <TeamFormation />}
 
     </S.HomeContainer>
   );

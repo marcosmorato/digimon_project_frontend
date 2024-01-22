@@ -37,14 +37,14 @@ const Register: React.FC = () => {
 
   return (
     <S.Container>
-        <GS.TitleBox variant="h3">Cadastro</GS.TitleBox>
+        <GS.TitleBox variant="h3">Register</GS.TitleBox>
         <S.Form onSubmit={handleSubmit(handleForm)}>
           <S.InputBox>
             <S.Input>
               <S.InputText
                 autoComplete="off"
                 variant="filled"
-                label="Nome Completo"
+                label="Full Name"
                 margin="dense"
                 type="string"
                 {...register("name")}
@@ -56,7 +56,7 @@ const Register: React.FC = () => {
               <S.InputText
                 autoComplete="off"
                 variant="filled"
-                label="Apelido"
+                label="Nickname"
                 margin="dense"
                 type="string"
                 {...register("nickname")}
@@ -82,7 +82,7 @@ const Register: React.FC = () => {
               <S.InputText
                 autoComplete="off"
                 variant="filled"
-                label="Senha"
+                label="Password"
                 margin="dense"
                 type="password"
                 {...register("password")}
@@ -96,7 +96,7 @@ const Register: React.FC = () => {
               <S.InputText
                 autoComplete="off"
                 variant="filled"
-                label="Repita a Senha"
+                label="Confirm Password"
                 margin="dense"
                 type="password"
                 {...register("password_confirmation")}
@@ -106,7 +106,7 @@ const Register: React.FC = () => {
             </S.Input>
             <S.ButtonContainer>
               <S.CreateUser type="submit" color="primary" variant="contained">
-                Cadastrar
+                Register
               </S.CreateUser>
             </S.ButtonContainer>
           </S.InputBox>

@@ -18,7 +18,7 @@ flex-direction: column;
 export const ContainerSide = styled(Box)`
   width: 250px;
   height: 550px;
-  box-shadow: 1px 1px 4px 4px #acf !important;
+  box-shadow: 1px 1px 4px 4px #acf;
   border: 2px solid #000000ee;
   border-radius: 10px;
   color: #000000ee;

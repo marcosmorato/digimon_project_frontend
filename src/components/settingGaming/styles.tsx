@@ -1,28 +1,16 @@
 import styled from "styled-components";
 import { Box,  Typography } from "@mui/material";
 
-export const HomeContainer = styled(Box)`
-  width: 1098px;
-  height: 86vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+export const ContainerSetting = styled.div`
   & .MuiTypography-root {
     font-size: 28px;
     letter-spacing: 1.6px;
     font-weight: bold;
-    font-family: IBM Plex Sans;
+    font-family: 'IBM Plex Sans', sans-serif;
   }
-  
-  @media (max-width: 426px) {
-    height: 800px;
-    width: 100%;
-    margin-top: 0px;
-    & .MuiTypography-root {
-      font-size: 1rem;
-    }
-  }
-`;
+`
+
+
 
 export const Title = styled(Typography)`
   width: 710px;
@@ -39,10 +27,11 @@ export const Title = styled(Typography)`
   display: flex;
   align-items: center;
   justify-content: center;
-   
+  text-transform: uppercase;
   @media (max-width: 426px) {
     height: 800px;
     width: 100%;
     margin-top: 0px;
   }
 `;
+

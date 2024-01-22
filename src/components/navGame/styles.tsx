@@ -169,7 +169,7 @@ export const ListItemTextMui = styled(ListItemText)`
   height: 100%;
 
   & .MuiTypography-root {
-    font-family: IBM Plex Sans;
+    font-family: 'IBM Plex Sans', sans-serif;
     text-transform: uppercase;
     font-size: 14px;
     text-align: left;
@@ -188,32 +188,18 @@ export const ListItemTextMui = styled(ListItemText)`
 export const Footer = styled.div`
      & .MuiTypography-root {
     color: #000000ee;
-    font-family: IBM Plex Sans;
+    font-family: 'IBM Plex Sans', sans-serif;
     text-transform: uppercase;
     font-size: 8px;
     text-align: center;
     text-decoration: none;
     outline: 0;
-    /* color: #12a5ff; */
-    /* background-color: #13151e; */
-   
     color: #b8bbbf;
-
   }
 `
 
 export const FooterText = styled(Typography)`
-    /* & .MuiTypography-root {
-    color: #000000ee;
-    font-family: IBM Plex Sans;
-    text-transform: uppercase;
-    font-size: 8px;
-    text-align: left;
-    text-decoration: none;
-    outline: 0; */
-    /* color: #12a5ff; */
-    /* background-color: #13151e; */
-   
+
     text-align: center;
     & .MuiSvgIcon-root {
         color: #eb0505;

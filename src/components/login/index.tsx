@@ -33,7 +33,6 @@ const Login: React.FC = () => {
 
   const handleForm = (formData: FormData) => {
     dispatch(loginUserThunk(formData));
-    localStorage.setItem("teste", "testando");
   };
 
   useEffect(() => {
@@ -64,7 +63,7 @@ const Login: React.FC = () => {
               <S.InputText
                 autoComplete="off"
                 variant="filled"
-                label="Senha"
+                label="Password"
                 margin="dense"
                 type="password"
                 {...register("password")}
@@ -74,7 +73,7 @@ const Login: React.FC = () => {
             </S.Input>
           </S.InputBox>
           <S.Login type="submit" color="primary" variant="contained">
-            Login
+            Enter
           </S.Login>
         </S.Form>
     </S.Container>

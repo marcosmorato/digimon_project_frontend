@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Box, Typography } from "@mui/material";
 
-import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 export const HeaderContainer = styled(Box)`
   width: 100vw;
@@ -15,8 +15,7 @@ export const HeaderContainer = styled(Box)`
   justify-content: center;
   
   & .MuiTypography-root {
-    font-family: IBM Plex Sans;
-    text-transform: uppercase;
+    font-family: 'IBM Plex Sans', sans-serif;
     font-size: 14px;
     text-align: left;
     text-decoration: none;
@@ -46,7 +45,7 @@ export const Nickname = styled(Typography)`
   }
 `;
 
-export const AvatarIcon = styled(AccountCircleOutlinedIcon)`
+export const AvatarIcon = styled(AccountCircleIcon)`
     z-index: 1; /* Para garantir que os ícones estejam acima da imagem */
     color: #b8bbbf;
     opacity: 0.9;

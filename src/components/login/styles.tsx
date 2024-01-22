@@ -25,11 +25,12 @@ export const Form = styled.form`
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   font-style: italic;
   overflow: auto;
   & button {
     font-style: italic;
+    margin-top: 50px;
     &:hover {
       cursor: pointer;
       background-color: #000000ee;
@@ -48,7 +49,7 @@ export const Form = styled.form`
 export const InputBox = styled.div`
   width: 540px;
   display: flex;
-  margin-top: 40px;
+  margin-top: 20px;
   
   @media (max-width: 426px) {
     width: 320px;

@@ -75,6 +75,8 @@ const Wikipedia: React.FC<IWikipedia> = ({
               onChange={handlePageChange}
               variant="outlined"
               shape="rounded"
+              boundaryCount={1}
+              siblingCount={0}
             />
           </S.StackUi>
         {digimonInfo &&

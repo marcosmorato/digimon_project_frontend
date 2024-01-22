@@ -3,6 +3,7 @@ import { Box,  Typography } from "@mui/material";
 import PermIdentityOutlinedIcon from '@mui/icons-material/PermIdentityOutlined';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import NewspaperOutlinedIcon from '@mui/icons-material/NewspaperOutlined';
+import GroupWorkOutlinedIcon from '@mui/icons-material/GroupWorkOutlined';
 
 export const HomeContainer = styled(Box)`
   width: 710px;
@@ -64,5 +65,9 @@ export const SettingIcon = styled(SettingsOutlinedIcon)`
 `
 
 export const NewsIcon = styled(NewspaperOutlinedIcon)`
+
+`
+
+export const TeamFormationIcon = styled(GroupWorkOutlinedIcon)`
 
 `

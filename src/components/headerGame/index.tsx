@@ -9,7 +9,7 @@ const HeaderGame: React.FC<IHeaderGame> = ({nickname}) => {
   console.log(nickname)
   return (
       <S.HeaderContainer>
-        <S.Nickname variant="overline">{nickname}</S.Nickname>
+        <S.Nickname >{nickname}</S.Nickname>
         <S.AvatarIcon></S.AvatarIcon>
       </S.HeaderContainer>
   );

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Box,  Typography } from "@mui/material";
 
-export const ProfileContainer = styled(Box)`
+export const TeamFormation = styled(Box)`
   
   & .MuiTypography-h5 {
     font-family: 'IBM Plex Sans', sans-serif;
@@ -17,7 +17,7 @@ export const ProfileContainer = styled(Box)`
   
 `;
 
-export const Nickname = styled(Typography)`
+export const Title = styled(Typography)`
   width: 710px;
   height: 8vh;
   padding: 12px;
@@ -28,7 +28,7 @@ export const Nickname = styled(Typography)`
   
 `;
 
-export const ExpContainer = styled(Box)`
+export const TeamContainer = styled(Box)`
   width: 710px;
   height: 26vh;
   background-color: #222430;
@@ -44,7 +44,7 @@ export const ExpContainer = styled(Box)`
   padding: 12px;
 `;
 
-export const LevelContainer = styled(Box)`
+export const DigiContainer = styled(Box)`
   width: 300px;
   height: 8vh;
   color: #b8bbbf;

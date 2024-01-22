@@ -3,38 +3,38 @@ import * as yup from "yup";
 export const schemaRegister = yup.object().shape({
   name: yup
     .string()
-    .min(3, "Mínimo 3 caracteres")
-    .max(30, "Seu Nome deve conter no máximo 30 caracteres")
-    .required("Seu Nome deve ser Fornecido"),
+    .min(3, "Minimum 3 characters")
+    .max(30, "Your name must contain a maximum of 30 characters")
+    .required("Your Name must be Provided"),
   nickname: yup
     .string()
-    .min(3, "Mínimo 3 letras")
-    .max(10, "Seu Apelido deve conter no máximo 10 caracteres")
-    .required("Campo obrigatório"),
+    .min(3, "Minimum 3 letters")
+    .max(10, "Your Nickname must contain a maximum of 10 characters")
+    .required("Required field"),
   email: yup
     .string()
-    .email("Email inválido")
-    .required("Um Email válido deve ser fornecido"),
+    .email("Invalid email")
+    .required("A valid email must be provided"),
   password: yup
     .string()
-    .min(6, "Mínimo 6 dígitos")
-    .required("Senha de no Mínimo 6 dígitos deve ser criada"),
+    .min(6, "Minimum 6 digits")
+    .required("Password of at least 6 digits must be created"),
   password_confirmation: yup
     .string()
-    .oneOf([yup.ref("password")], "Senhas não conferem"),
+    .oneOf([yup.ref("password")], "Passwords don't match"),
 });
 
 export const schemaLogin = yup.object().shape({
   email: yup
     .string()
-    .email("Email inválido")
-    .required("Um Email válido deve ser fornecido"),
+    .email("Enter a valid email")
+    .required("Enter a valid email"),
   password: yup
     .string()
-    .min(6, "Mínimo 6 dígitos")
-    .required("Senha de no Mínimo 6 dígitos deve ser criada"),
+    .min(6, "Minimum 6 digits")
+    .required("Enter a valid password"),
 });
 
 export const schemaDigimonFilter = yup.object().shape({
-  name: yup.string().max(30, "Seu Nome deve conter no máximo 30 caracteres"),
+  name: yup.string().max(30, "Your name must contain a maximum of 30 characters"),
 });

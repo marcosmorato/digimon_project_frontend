@@ -73,6 +73,9 @@ export const ShowInfo = styled(Button)`
 export const StackUi = styled(Stack)`
   @media (max-width: 426px) {
     width: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 `;
 
