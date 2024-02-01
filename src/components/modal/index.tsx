@@ -143,25 +143,25 @@ const Modal: React.FC<IModal> = ({
               </S.ImageContainer>
               <S.detailsMobile>
                 <S.infoContainerMobile>
-                  <S.Info variant="inherit">Levels:</S.Info>
+                  <S.Text variant="overline">Levels:</S.Text>
                   <S.Text variant="overline">{levels.join(", ")}</S.Text>
                 </S.infoContainerMobile>
                 <S.infoContainerMobile>
-                  <S.Info variant="inherit">X-Antibody:</S.Info>
+                  <S.Text variant="overline">X-Antibody:</S.Text>
                   <S.Text variant="overline">
                     {xAntibody ? "Infectado" : "Não contém"}
                   </S.Text>
                 </S.infoContainerMobile>
                 <S.infoContainerMobile>
-                  <S.Info variant="inherit">Tipo:</S.Info>
+                  <S.Text variant="overline">Tipo:</S.Text>
                   <S.Text variant="overline">{types.join(", ")}</S.Text>
                 </S.infoContainerMobile>
                 <S.infoContainerMobile>
-                  <S.Info variant="inherit">Anunciado:</S.Info>
+                  <S.Text variant="overline">Anunciado:</S.Text>
                   <S.Text variant="overline">{releaseDate}</S.Text>
                 </S.infoContainerMobile>
                 <S.infoContainerMobile>
-                  <S.Info variant="inherit">Atributos:</S.Info>
+                  <S.Text variant="overline">Atributos:</S.Text>
                   <S.Text variant="overline">
                     {attributes.join(", ")
                       ? attributes.join(", ")
@@ -169,7 +169,7 @@ const Modal: React.FC<IModal> = ({
                   </S.Text>
                 </S.infoContainerMobile>
                 <S.infoContainerMobile>
-                  <S.Info variant="inherit">Campos:</S.Info>
+                  <S.Text variant="overline">Campos:</S.Text>
                     {fields.length > 0 ? 
                       <S.FieldsContainer>
                         {urlFields.map((el, idx) => 
@@ -193,7 +193,7 @@ const Modal: React.FC<IModal> = ({
                 </S.DescriptionContainer>
                 <S.SelectContainerMobile>
                   <S.TextContainerLeft>
-                    <S.Info variant="inherit">Pré-Digievolução:</S.Info>
+                    <S.Text variant="overline">Pré-Digievolução:</S.Text>
                     {optionsPriorEvolutions ? (
                       <S.SelectContainer>
                         <CustomSelect
@@ -209,7 +209,7 @@ const Modal: React.FC<IModal> = ({
                     )}
                   </S.TextContainerLeft>
                   <S.TextContainerRight>
-                    <S.Info variant="inherit">Pós-Digievolução:</S.Info>
+                    <S.Text variant="overline">Pós-Digievolução:</S.Text>
                     {optionsNextEvolutions ? (
                       <S.SelectContainer>
                         <CustomSelect

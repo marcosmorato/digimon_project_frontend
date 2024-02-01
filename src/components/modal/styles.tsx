@@ -191,22 +191,18 @@ export const infoContainerMobile = styled(Box)`
   height: 75px;
   color: white;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   opacity: 0.7;
   
-  & .MuiTypography-inherit {
-    font-size: 0.7rem;
-    font-style: fantasy;
-    line-height: 1.66;
-    text-transform: none;
-  }
   & .MuiTypography-overline {
     font-size: 0.8rem;
     font-style: fantasy;
     line-height: 1.66;
     text-transform: none;
+    margin-right: 6px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   &:hover {
     opacity: 0.9;
@@ -251,8 +247,9 @@ export const Info = styled(Typography)`
   height: 35px;
   display: flex;
   align-items: center;
+  margin-right: 10px !important;
   @media (max-width: 426px) {
-    height: 30px;
+    height: 35px;
   }
 `;
 
