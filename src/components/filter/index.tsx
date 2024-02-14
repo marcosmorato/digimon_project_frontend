@@ -86,10 +86,16 @@ const Filter: React.FC<FilterBoxProps> = ({
 
       // Verifique o campo xAntibody
       if (filter.xAntibody === "infected" && !digimon.xAntibody) {
+        /* console.log(filter.xAntibody) */
+        console.log('---Infected---')
+        console.log(digimon)
         return false;
       }
 
       if (filter.xAntibody === "not infected" && digimon.xAntibody) {
+        console.log(filter.xAntibody)
+        console.log('---notInfected---')
+        console.log(digimon.xAntibody)
         return false;
       }
 
@@ -109,7 +115,6 @@ const Filter: React.FC<FilterBoxProps> = ({
   const handleForm = (formData: any) => {
     let filteredDigimons: any = [];
     filteredDigimons = FilterDigimons(selectedOption, digimonsName);
-
     setDigimonFilters({ digimonsFilters: filteredDigimons });
   };
 
@@ -156,82 +161,87 @@ const Filter: React.FC<FilterBoxProps> = ({
     { label: "Infected", value: "infected" },
     { label: "Not Affected", value: "not infected" },
   ];
+  
+  const resetando = {
+    name: "",
+    xAntibody: "",
+    levels: "",
+    attributes: "",
+    fields: "",
+  }
 
   return (
     <GS.ContainerFilter>
       <GS.TitleBox variant="h3">Filters</GS.TitleBox>
       <S.FormBox>
-        <S.Form onSubmit={handleSubmit(handleForm)}>
-          <S.InputContainer>
-            <S.Label>Digimon Name:</S.Label>
-            <S.inputBox>
-              <S.InputText
-                autoComplete="off"
-                size="small"
-                variant="outlined"
-                margin="dense"
-                type="string"
-                placeholder="Insert Name"
-                {...register("name")}
-                error={!!errors.name}
-                helperText={errors.name?.message}
-                onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                  setSelectedOption({ ...selectedOption, name: e.target.value })
-                }
-              ></S.InputText>
-            </S.inputBox>
-            <S.Label>Levels:</S.Label>
-            <S.SelectContainer>
-              <CustomSelect
-                label="Levels"
-                options={levels}
-                onChange={(value) => handleSelectChange("levels", value)}
-                selectedValue={selectedOption.levels}
-                modalVersion={"modal"}
-              />
-            </S.SelectContainer>
-            <S.Label>Fields:</S.Label>
-            <S.SelectContainer>
-              <CustomSelect
-                label="Fields"
-                options={fields}
-                onChange={(value) => handleSelectChange("fields", value)}
-                selectedValue={selectedOption.fields}
-                modalVersion={"modal"}
-              />
-            </S.SelectContainer>
-            <S.Label>Attributes:</S.Label>
-            <S.SelectContainer>
-              <CustomSelect
-                label="Attributes"
-                options={attributes}
-                onChange={(value) => handleSelectChange("attributes", value)}
-                selectedValue={selectedOption.attributes}
-                modalVersion={"modal"}
-              />
-            </S.SelectContainer>
+        <S.InputContainer>
+          <S.Label>Digimon Name:</S.Label>
+          <S.inputBox>
+            <S.InputText
+              autoComplete="off"
+              size="small"
+              variant="outlined"
+              margin="dense"
+              type="string"
+              placeholder="Insert Name"
+              {...register("name")}
+              error={!!errors.name}
+              helperText={errors.name?.message}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                setSelectedOption({ ...selectedOption, name: e.target.value })
+              }
+            ></S.InputText>
+          </S.inputBox>
+          <S.Label>Levels:</S.Label>
+          <S.SelectContainer>
+            <CustomSelect
+              label="Levels"
+              options={levels}
+              onChange={(value) => handleSelectChange("levels", value)}
+              selectedValue={selectedOption.levels}
+              modalVersion={"modal"}
+            />
+          </S.SelectContainer>
+          <S.Label>Fields:</S.Label>
+          <S.SelectContainer>
+            <CustomSelect
+              label="Fields"
+              options={fields}
+              onChange={(value) => handleSelectChange("fields", value)}
+              selectedValue={selectedOption.fields}
+              modalVersion={"modal"}
+            />
+          </S.SelectContainer>
+          <S.Label>Attributes:</S.Label>
+          <S.SelectContainer>
+            <CustomSelect
+              label="Attributes"
+              options={attributes}
+              onChange={(value) => handleSelectChange("attributes", value)}
+              selectedValue={selectedOption.attributes}
+              modalVersion={"modal"}
+            />
+          </S.SelectContainer>
 
-            <S.Label>X-Antibody:</S.Label>
-            <S.SelectContainer>
-              <CustomSelect
-                label="X-Antibody"
-                options={xAntibody}
-                onChange={(value) => handleSelectChange("xAntibody", value)}
-                selectedValue={selectedOption.xAntibody}
-                modalVersion={"modal"}
-
-              />
-            </S.SelectContainer>
-          </S.InputContainer>
-          <S.Buttons>
-            <S.Reset type="submit" color="primary" variant="contained">
-              Reset
-            </S.Reset>
-            <S.Search type="submit" color="primary" variant="contained">
-              Search
-            </S.Search>
-          </S.Buttons>
-        </S.Form>
+          <S.Label>X-Antibody:</S.Label>
+          <S.SelectContainer>
+            <CustomSelect
+              label="X-Antibody"
+              options={xAntibody}
+              onChange={(value) => handleSelectChange("xAntibody", value)}
+              selectedValue={selectedOption.xAntibody}
+              modalVersion={"modal"}
+            />
+          </S.SelectContainer>
+        </S.InputContainer>
+        <S.Buttons>
+          <S.Reset type="submit" color="primary" variant="contained" onClick={() => console.log('teste')}>
+            Reset
+          </S.Reset>
+          <S.Search type="submit" color="primary" variant="contained" onClick={handleSubmit(handleForm)}>
+            Search
+          </S.Search>
+        </S.Buttons>
       </S.FormBox>
     </GS.ContainerFilter>
   );

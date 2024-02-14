@@ -6,7 +6,6 @@ export interface IHeaderGame {
 }
 
 const HeaderGame: React.FC<IHeaderGame> = ({nickname}) => {
-  console.log(nickname)
   return (
       <S.HeaderContainer>
         <S.Nickname >{nickname}</S.Nickname>

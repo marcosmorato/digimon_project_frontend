@@ -21,21 +21,6 @@ export const FormBox = styled(Box)`
   }
 `;
 
-export const Form = styled.form`
-  height: 454px;
-  width: 190px;
-  overflow: auto;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: space-between;
-  
-  @media (max-width: 426px) {
-    height: 400px;
-    width: 325px;
-  }
-`;
-
 export const Label = styled(Typography)`
 font-family: fantasy !important;
 color: #acf !important;

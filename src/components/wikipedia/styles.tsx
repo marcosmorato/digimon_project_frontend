@@ -41,6 +41,8 @@ export const NameContainer = styled(Box)`
     color: #000000ee;
     background-image: linear-gradient(180deg, #fff, #acf);
     font-size: 16px;
+
+    
     &:hover {
       background-image: linear-gradient(180deg, #000000ee, #acf);
       color: #fff !important;
@@ -48,6 +50,10 @@ export const NameContainer = styled(Box)`
       border: 2px solid #fff;
       opacity: 1 !important;
     }
+  }
+     
+  & .Mui-disabled {
+    color: #ff0000cc !important;
   }
   
   @media (max-width: 426px) {
