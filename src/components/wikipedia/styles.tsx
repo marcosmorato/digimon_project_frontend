@@ -84,18 +84,24 @@ export const StackUi = styled(Stack)`
 
 export const PaginationUi = styled(Pagination)`
   & .MuiPaginationItem-root {
+    background-image: linear-gradient(180deg, #fff, #acf);
     color: #000000ee;
-    background-color: white;
-    font-weight: 700;
-    opacity: 0.9;
+    border: 1px solid #000000ee;
+    font-family: fantasy;
+    opacity: 0.6;
+    text-transform: none;
+    /* font-weight: 700; */
 
     &.Mui-selected {
-      background-color: #acf !important;
+      background-image: linear-gradient(180deg, #000000ee, #acf);
+      color: #fff !important;
+      border: 1px solid #fff;
     }
 
     &:hover {
-      background-color: #000000ee;
-      color: white;
+      background-image: linear-gradient(180deg, #000000ee, #acf);
+      color: #fff !important;
+      border: 1px solid #fff;
     }
   }
 `;

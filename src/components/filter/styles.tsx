@@ -116,11 +116,11 @@ export const Buttons = styled.div`
   
   & .MuiButton-root{
     background-image: linear-gradient(180deg, #fff, #acf);
+    color: #000000ee;
+    border: 1px solid #000000ee;
     font-family: fantasy;
     opacity: 0.6;
     text-transform: none;
-    border: 1px solid #000000ee;
-    color: #000000ee;
     &:hover {
       background-image: linear-gradient(180deg, #000000ee, #acf);
       color: #fff !important;
