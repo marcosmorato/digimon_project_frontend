@@ -153,23 +153,25 @@ const Filter: React.FC<FilterBoxProps> = ({
 
   const xAntibody = [
     { label: " ", value: "" },
-    { label: "Infectado", value: "infected" },
-    { label: "Não contém", value: "not infected" },
+    { label: "Infected", value: "infected" },
+    { label: "Not Affected", value: "not infected" },
   ];
 
   return (
     <GS.ContainerFilter>
-      <GS.TitleBox variant="h3">Filtros</GS.TitleBox>
+      <GS.TitleBox variant="h3">Filters</GS.TitleBox>
       <S.FormBox>
         <S.Form onSubmit={handleSubmit(handleForm)}>
           <S.InputContainer>
+            <S.Label>Digimon Name:</S.Label>
             <S.inputBox>
               <S.InputText
                 autoComplete="off"
-                variant="filled"
-                label="Digimon Name"
+                size="small"
+                variant="outlined"
                 margin="dense"
                 type="string"
+                placeholder="Insert Name"
                 {...register("name")}
                 error={!!errors.name}
                 helperText={errors.name?.message}
@@ -178,15 +180,7 @@ const Filter: React.FC<FilterBoxProps> = ({
                 }
               ></S.InputText>
             </S.inputBox>
-            <S.SelectContainer>
-              <CustomSelect
-                label="X-Antibody"
-                options={xAntibody}
-                onChange={(value) => handleSelectChange("xAntibody", value)}
-                selectedValue={selectedOption.xAntibody}
-                modalVersion={"modal"}
-              />
-            </S.SelectContainer>
+            <S.Label>Levels:</S.Label>
             <S.SelectContainer>
               <CustomSelect
                 label="Levels"
@@ -196,15 +190,7 @@ const Filter: React.FC<FilterBoxProps> = ({
                 modalVersion={"modal"}
               />
             </S.SelectContainer>
-            <S.SelectContainer>
-              <CustomSelect
-                label="Attributes"
-                options={attributes}
-                onChange={(value) => handleSelectChange("attributes", value)}
-                selectedValue={selectedOption.attributes}
-                modalVersion={"modal"}
-              />
-            </S.SelectContainer>
+            <S.Label>Fields:</S.Label>
             <S.SelectContainer>
               <CustomSelect
                 label="Fields"
@@ -214,10 +200,37 @@ const Filter: React.FC<FilterBoxProps> = ({
                 modalVersion={"modal"}
               />
             </S.SelectContainer>
+            <S.Label>Attributes:</S.Label>
+            <S.SelectContainer>
+              <CustomSelect
+                label="Attributes"
+                options={attributes}
+                onChange={(value) => handleSelectChange("attributes", value)}
+                selectedValue={selectedOption.attributes}
+                modalVersion={"modal"}
+              />
+            </S.SelectContainer>
+
+            <S.Label>X-Antibody:</S.Label>
+            <S.SelectContainer>
+              <CustomSelect
+                label="X-Antibody"
+                options={xAntibody}
+                onChange={(value) => handleSelectChange("xAntibody", value)}
+                selectedValue={selectedOption.xAntibody}
+                modalVersion={"modal"}
+
+              />
+            </S.SelectContainer>
           </S.InputContainer>
+          <S.Buttons>
           <S.Search type="submit" color="primary" variant="contained">
             Search
           </S.Search>
+          <S.Reset type="submit" color="primary" variant="contained">
+            Reset
+          </S.Reset>
+          </S.Buttons>
         </S.Form>
       </S.FormBox>
     </GS.ContainerFilter>

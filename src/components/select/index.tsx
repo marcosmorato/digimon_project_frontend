@@ -23,12 +23,14 @@ const CustomSelect: React.FC<SelectProps> = ({
   };
 
   return (
-    <S.FormControlMui modalVersion={modalVersion} variant="filled">
-      <S.InputLabelMui>{label}</S.InputLabelMui>
+    <S.FormControlMui modalVersion={modalVersion} >
+      {/* <S.InputLabelMui>{label}</S.InputLabelMui> */}
       <S.SelectMui
-        label={label}
+        displayEmpty
+        inputProps={{ 'aria-label': 'Without label' }}
         value={selectedValue}
         onChange={handleSelectChange}
+        size="small"
       >
         {options.map((option) => (
           <S.MenuItemMui key={option.value} value={option.value}>

@@ -192,7 +192,7 @@ export const infoContainerMobile = styled(Box)`
   color: white;
   display: flex;
   align-items: center;
-  opacity: 0.7;
+  justify-content: space-between;
   
   & .MuiTypography-overline {
     font-size: 0.8rem;
@@ -336,7 +336,7 @@ export const DescriptionText = styled(Typography)`
 `;
 
 export const FieldsContainer = styled(Box)`
-  width: 260px;
+  max-width: 260px;
   height: 40px;
   color: #000000ee;
   position: relative;
@@ -350,10 +350,8 @@ export const FieldsContainer = styled(Box)`
   }
   
   @media (max-width: 426px) {
-    width: 260px;
     height: 40px;
     justify-content: flex-start;
-    
   }
 `;
 

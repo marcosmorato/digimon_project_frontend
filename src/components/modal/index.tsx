@@ -143,61 +143,65 @@ const Modal: React.FC<IModal> = ({
               </S.ImageContainer>
               <S.detailsMobile>
                 <S.infoContainerMobile>
-                  <S.Text variant="overline">Levels:</S.Text>
+                  <S.Text variant="overline">Type:</S.Text>
+                  <S.Text variant="overline">{types.join(", ")}</S.Text>
+                </S.infoContainerMobile>
+                <S.infoContainerMobile>
+                  <S.Text variant="overline">Level:</S.Text>
                   <S.Text variant="overline">{levels.join(", ")}</S.Text>
+                </S.infoContainerMobile>
+                <S.infoContainerMobile>
+                  <S.Text variant="overline">Attribute:</S.Text>
+                  <S.Text variant="overline">
+                    {attributes.join(", ")
+                      ? attributes.join(", ")
+                      : "Undefined"}
+                  </S.Text>
                 </S.infoContainerMobile>
                 <S.infoContainerMobile>
                   <S.Text variant="overline">X-Antibody:</S.Text>
                   <S.Text variant="overline">
-                    {xAntibody ? "Infectado" : "Não contém"}
+                    {xAntibody ? "Infected" : "Not Affected"}
                   </S.Text>
                 </S.infoContainerMobile>
+                
                 <S.infoContainerMobile>
-                  <S.Text variant="overline">Tipo:</S.Text>
-                  <S.Text variant="overline">{types.join(", ")}</S.Text>
-                </S.infoContainerMobile>
-                <S.infoContainerMobile>
-                  <S.Text variant="overline">Anunciado:</S.Text>
+                  <S.Text variant="overline">Release Date:</S.Text>
                   <S.Text variant="overline">{releaseDate}</S.Text>
                 </S.infoContainerMobile>
+
                 <S.infoContainerMobile>
-                  <S.Text variant="overline">Atributos:</S.Text>
-                  <S.Text variant="overline">
-                    {attributes.join(", ")
-                      ? attributes.join(", ")
-                      : "Indefinido"}
-                  </S.Text>
-                </S.infoContainerMobile>
-                <S.infoContainerMobile>
-                  <S.Text variant="overline">Campos:</S.Text>
+                  <S.Text variant="overline">Field:</S.Text>
                     {fields.length > 0 ? 
                       <S.FieldsContainer>
                         {urlFields.map((el, idx) => 
                           <S.FieldImage src={el} alt={fields[idx].field} title={fields[idx].field}></S.FieldImage>
                         )}
-                      </S.FieldsContainer> : <S.Text variant="overline">nao tem</S.Text>
+                      </S.FieldsContainer> : <S.Text variant="overline">Undefined</S.Text>
                     }
                 </S.infoContainerMobile>
                 <S.DescriptionContainer>
                     {descriptions ?
-                    <>
-                    <S.DescriptionNav>
-                      <S.ButtonLanguage disabled={languageDescription === 'en_us' ? true : false} onClick={() => setLanguageDescription('en_us')}>EN</S.ButtonLanguage>
-                      <S.ButtonLanguage disabled={languageDescription === 'jap' ? true : false} onClick={() => setLanguageDescription('jap')}>JP</S.ButtonLanguage>
-                    </S.DescriptionNav>
-                    {descriptions.map((el) => 
-                      el.language === languageDescription ? <S.DescriptionText>{el.description}</S.DescriptionText> : null
-                    )}
-                    </>
-                    : <div>Inexistente</div>}
+                      <>
+                      <S.DescriptionNav>
+                        <S.ButtonLanguage disabled={languageDescription === 'en_us' ? true : false} onClick={() => setLanguageDescription('en_us')}>EN</S.ButtonLanguage>
+                        <S.ButtonLanguage disabled={languageDescription === 'jap' ? true : false} onClick={() => setLanguageDescription('jap')}>JP</S.ButtonLanguage>
+                      </S.DescriptionNav>
+                      {descriptions.map((el) => 
+                        el.language === languageDescription ? <S.DescriptionText>{el.description}</S.DescriptionText> : null
+                      )}
+                      </>
+                    : 
+                      <S.Text variant="overline">Undefined</S.Text>
+                    }
                 </S.DescriptionContainer>
                 <S.SelectContainerMobile>
                   <S.TextContainerLeft>
-                    <S.Text variant="overline">Pré-Digievolução:</S.Text>
+                    <S.Text variant="overline">After-Evolution:</S.Text>
                     {optionsPriorEvolutions ? (
                       <S.SelectContainer>
                         <CustomSelect
-                          label="Selecione para voltar!"
+                          label="Select Evolution"
                           options={optionsPriorEvolutions}
                           onChange={handleSelectChange}
                           selectedValue={selectedOption}
@@ -205,15 +209,15 @@ const Modal: React.FC<IModal> = ({
                         />
                       </S.SelectContainer>
                     ) : (
-                      <div>teste</div>
+                      <S.Text variant="overline">Undefined</S.Text>
                     )}
                   </S.TextContainerLeft>
                   <S.TextContainerRight>
-                    <S.Text variant="overline">Pós-Digievolução:</S.Text>
+                    <S.Text variant="overline">Next-Evolution:</S.Text>
                     {optionsNextEvolutions ? (
                       <S.SelectContainer>
                         <CustomSelect
-                          label="Selecione para avançar!"
+                          label="Select Evolution"
                           options={optionsNextEvolutions}
                           onChange={handleSelectChange}
                           selectedValue={selectedOption}
@@ -221,7 +225,7 @@ const Modal: React.FC<IModal> = ({
                         />
                       </S.SelectContainer>
                     ) : (
-                      <div>teste</div>
+                      <S.Text variant="overline">Undefined</S.Text>
                     )}
                   </S.TextContainerRight>
                 </S.SelectContainerMobile>
@@ -231,27 +235,27 @@ const Modal: React.FC<IModal> = ({
             <>
               <S.DescriptionsContainer>
                 <S.TextContainerLeft>
-                  <S.Info variant="overline">Levels:</S.Info>
+                  <S.Info variant="overline">Level:</S.Info>
                   <S.Text variant="overline">{levels.join(", ")}</S.Text>
                 </S.TextContainerLeft>
                 <S.TextContainerLeft>
-                  <S.Info variant="overline">Atributos:</S.Info>
+                  <S.Info variant="overline">Attribute:</S.Info>
                   <S.Text variant="overline">
                     {attributes.join(", ")
                       ? attributes.join(", ")
-                      : "Indefinido"}
+                      : "Undefined"}
                   </S.Text>
                 </S.TextContainerLeft>
                 <S.TextContainerLeft>
-                  <S.Info variant="overline">Ano de Lançamento:</S.Info>
+                  <S.Info variant="overline">Release Date:</S.Info>
                   <S.Text variant="overline">{releaseDate}</S.Text>
                 </S.TextContainerLeft>
                 <S.TextContainerLeft>
-                  <S.Info variant="overline">Pré-Digievolução:</S.Info>
+                  <S.Info variant="overline">After-Evolution:</S.Info>
                   {optionsPriorEvolutions ? (
                     <S.SelectContainer>
                       <CustomSelect
-                        label="Selecione para voltar!"
+                        label="Select Evolution"
                         options={optionsPriorEvolutions}
                         onChange={handleSelectChange}
                         selectedValue={selectedOption}
@@ -259,7 +263,7 @@ const Modal: React.FC<IModal> = ({
                       />
                     </S.SelectContainer>
                   ) : (
-                    <div>teste</div>
+                    <S.Text variant="overline">Undefined</S.Text>
                   )}
                 </S.TextContainerLeft>
               </S.DescriptionsContainer>
@@ -280,40 +284,42 @@ const Modal: React.FC<IModal> = ({
                 </S.ImageContainer>
                 <S.DescriptionContainer>
                     {descriptions ?
-                    <>
-                    <S.DescriptionNav>
-                      <S.ButtonLanguage disabled={languageDescription === 'en_us' ? true : false} onClick={() => setLanguageDescription('en_us')}>EN</S.ButtonLanguage>
-                      <S.ButtonLanguage disabled={languageDescription === 'jap' ? true : false} onClick={() => setLanguageDescription('jap')}>JP</S.ButtonLanguage>
-                    </S.DescriptionNav>
-                    {descriptions.map((el) => 
-                      el.language === languageDescription ? <S.DescriptionText>{el.description}</S.DescriptionText> : null
-                    )}
-                    </>
-                    : <div>Inexistente</div>}
+                      <>
+                      <S.DescriptionNav>
+                        <S.ButtonLanguage disabled={languageDescription === 'en_us' ? true : false} onClick={() => setLanguageDescription('en_us')}>EN</S.ButtonLanguage>
+                        <S.ButtonLanguage disabled={languageDescription === 'jap' ? true : false} onClick={() => setLanguageDescription('jap')}>JP</S.ButtonLanguage>
+                      </S.DescriptionNav>
+                      {descriptions.map((el) => 
+                        el.language === languageDescription ? <S.DescriptionText>{el.description}</S.DescriptionText> : null
+                      )}
+                      </>
+                    : 
+                      <S.Text variant="overline">Undefined</S.Text>
+                    }
                 </S.DescriptionContainer>
               </S.ContainerCenter>
               <S.DescriptionsContainer>
                 <S.TextContainerRight>
-                  <S.Info variant="overline">Tipo:</S.Info>
+                  <S.Info variant="overline">Type:</S.Info>
                   <S.Text variant="overline">{types.join(", ")}</S.Text>
                 </S.TextContainerRight>
                 <S.TextContainerRight>
                   <S.Info variant="overline">X-Antibody:</S.Info>
                   <S.Text variant="overline">
-                    {xAntibody ? "Infectado" : "Não contém"}
+                    {xAntibody ? "Infected" : "Not Affected"}
                   </S.Text>
                 </S.TextContainerRight>
                 <S.TextContainerRight>
-                  <S.Info variant="overline">Campos:</S.Info>
+                  <S.Info variant="overline">Field:</S.Info>
                   {fields.length > 0 ? 
                     <S.FieldsContainer>
                       {urlFields.map((el, idx) => 
                         <S.FieldImage src={el} alt={fields[idx].field} title={fields[idx].field}></S.FieldImage>
                       )}
-                    </S.FieldsContainer> : <S.Text variant="overline">nao tem</S.Text>}
+                    </S.FieldsContainer> : <S.Text variant="overline">Undefined</S.Text>}
                 </S.TextContainerRight>
                 <S.TextContainerRight>
-                  <S.Info variant="overline">Pós-Digievolução:</S.Info>
+                  <S.Info variant="overline">Next-Digievolution:</S.Info>
                   {optionsNextEvolutions ? (
                     <S.SelectContainer>
                       <CustomSelect
@@ -325,7 +331,7 @@ const Modal: React.FC<IModal> = ({
                       />
                     </S.SelectContainer>
                   ) : (
-                    <div>teste</div>
+                    <S.Text variant="overline">Undefined</S.Text>
                   )}
                 </S.TextContainerRight>
               </S.DescriptionsContainer>

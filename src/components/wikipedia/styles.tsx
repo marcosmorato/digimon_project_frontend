@@ -38,11 +38,17 @@ export const NameContainer = styled(Box)`
     text-transform: none;
     margin: 0 16px;
     border: 2px solid #000000ee;
-    box-shadow: 1px 1px 4px 4px #acf;
     font-family: fantasy;
     color: #000000ee;
-    background-color: white;
+    background-image: linear-gradient(180deg, #fff, #acf);
     font-size: 16px;
+    &:hover {
+      background-image: linear-gradient(180deg, #000000ee, #acf);
+      color: #fff !important;
+      -webkit-text-stroke: 1px #000000ee;
+      border: 2px solid #fff;
+      opacity: 1 !important;
+    }
   }
   
   @media (max-width: 426px) {
@@ -59,10 +65,7 @@ export const ShowInfo = styled(Button)`
   width: 158px;
   height: 45px;
   white-space: nowrap;
-  &:hover {
-    background-color: #000000ee !important;
-    color: white !important;
-  }
+
   
   @media (max-width: 426px) {
     width: 140px;

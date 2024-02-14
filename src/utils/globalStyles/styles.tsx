@@ -51,7 +51,7 @@ export const ContainerSide = styled(Box)`
   
   @media (max-width: 426px) {
     margin-bottom: 30px;
-    height: 400px;
+    height: 420px;
     width: 100%;
     margin-right: 0;
     & .MuiTypography-h3 {
@@ -109,7 +109,7 @@ export const ContainerFilter = styled(Box)`
   
   @media (max-width: 426px) {
     margin-bottom: 30px;
-    height: 500px;
+    height: 520px;
     width: 100%;
     & .MuiTypography-h3 {
       font-size: 2rem;
@@ -204,8 +204,8 @@ export const ContainerBody = styled.div`
 export const TitleBox = styled(Typography)`
   height: 60px;
   width: 90%;
-  color: #000000ee;
-  -webkit-text-stroke: 1px #acf;
+  color: #acf;
+  -webkit-text-stroke: 1px #000000ee;
   
   @media (max-width: 426px) {
     height: 40px;

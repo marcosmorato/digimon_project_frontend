@@ -24,7 +24,6 @@ export const FormControlMui = styled(FormControl)<{ modalVersion?: string }>`
     color: #000000ee !important;
     width: 80px;
     text-align: left;
-    /* -webkit-text-stroke: 1px #acf; */
   }
 
   .MuiSvgIcon-root {
@@ -34,7 +33,6 @@ export const FormControlMui = styled(FormControl)<{ modalVersion?: string }>`
   .MuiOutlinedInput-notchedOutline {
     font-family: fantasy !important;
     color: #000000ee;
-    border-color: #000000ee !important; /* Importante para sobrescrever as configurações padrão */
     outline: none !important;
   }
 
