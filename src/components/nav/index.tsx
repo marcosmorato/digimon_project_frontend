@@ -1,21 +1,17 @@
 import React from "react";
 import * as S from "./styles";
 import * as GS from "../../utils/globalStyles/styles";
-import { useSelector } from "react-redux";
-import { RootState } from "../../store/store";
 import { useNavigate } from "react-router-dom";
 
 const Nav: React.FC = () => {
-  const userRedux = useSelector(
-    (state: RootState) => state.user.loggedUser.user
-  );
   const navigate = useNavigate();
+  const pathname = window.location.pathname
 
   return (
     <GS.ContainerSide>
       <GS.TitleBox variant="h3">Pages</GS.TitleBox>
       <S.ListMui aria-labelledby="nested-list-subheader">
-        <S.ListItemButtonMui onClick={() => navigate("/home")}>
+        <S.ListItemButtonMui  onClick={() => navigate("/home")} disabled={"/home" === pathname}>
           <S.ListItemIconMui>
             <S.ListItemTextMui>Home</S.ListItemTextMui>
           </S.ListItemIconMui>
@@ -30,12 +26,12 @@ const Nav: React.FC = () => {
             <S.ListItemTextMui>Cadastro</S.ListItemTextMui>
           </S.ListItemIconMui>
         </S.ListItemButtonMui>
-        <S.ListItemButtonMui onClick={() => navigate("/wikipedia")}>
+        <S.ListItemButtonMui onClick={() => navigate("/wikipedia")} disabled={"/wikipedia" === pathname}>
           <S.ListItemIconMui>
             <S.ListItemTextMui>Wikipedia</S.ListItemTextMui>
           </S.ListItemIconMui>
         </S.ListItemButtonMui>
-        <S.ListItemButtonMui onClick={() => navigate("/favorite")}>
+        <S.ListItemButtonMui onClick={() => navigate("/favorite")} disabled={"/favorite" === pathname}>
           <S.ListItemIconMui>
             <S.ListItemTextMui>Favorites</S.ListItemTextMui>
           </S.ListItemIconMui>

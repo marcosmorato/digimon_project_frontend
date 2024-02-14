@@ -21,13 +21,13 @@ export const ContainerSide = styled(Box)`
   box-shadow: 1px 1px 4px 4px #acf;
   border: 2px solid #000000ee;
   border-radius: 10px;
-  color: #000000ee;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 30px;
   padding: 16px;
   margin-right: 28px;
+  
   & .MuiTypography-h3 {
     font-family: fantasy;
     text-align: center;
@@ -36,15 +36,26 @@ export const ContainerSide = styled(Box)`
   & .MuiList-root {
     margin-top: 16px;
     font-size: 16px;
-    background-color: #fff;
-    opacity: 0.6;
-    border-radius: 10px;
+    background-image: linear-gradient(180deg, #fff, #acf);
+    opacity: 0.8;
+    border-radius: 8px;
     border: 2px solid #000000ee;
     box-shadow: 1px 1px 4px 4px #acf;
+    padding-top: 0;
 
     & .MuiListItemButton-root {
       &:hover {
-        background-color: #000000ee;
+        background-image: linear-gradient(180deg, #000000ee, #acf);
+        -webkit-text-stroke: 1px #000000ee;
+      }
+    }
+    
+    & .Mui-disabled {
+      background-image: linear-gradient(180deg, #000000ee, #acf);
+      opacity: 0.8;
+      -webkit-text-stroke: 1px #000000ee;
+      & .MuiTypography-root {
+        color: #fff;
       }
     }
   }

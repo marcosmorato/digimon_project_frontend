@@ -9,6 +9,11 @@ import {
 export const ListMui = styled(List)`
   width: 190px;
   height: 430px;
+  
+/*     
+  & .Mui-selected {
+    cursor: initial;
+  } */
 
   @media (max-width: 426px) {
     height: 308px;
@@ -20,7 +25,6 @@ export const ListItemButtonMui = styled(ListItemButton)`
   width: 186px;
   
   &:hover {
-    color: #fff;
     & .MuiTypography-root {
       color: #fff;
     }
@@ -45,9 +49,7 @@ export const ListItemTextMui = styled(ListItemText)`
   & .MuiTypography-root {
     font-family: fantasy;
     color: #000000ee;
-    &:hover {
-      color: white;
-    }
+
   }
   
   @media (max-width: 426px) {

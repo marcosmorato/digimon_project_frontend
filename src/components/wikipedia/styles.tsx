@@ -12,7 +12,7 @@ export const PaginationContainer = styled(Box)`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  opacity: 0.7;
+  opacity: 0.8;
   
   @media (max-width: 426px) {
     width: 328px;
@@ -29,7 +29,6 @@ export const NameContainer = styled(Box)`
   align-items: center;
   justify-content: center;
   color: #000000ee;
-  opacity: 0.7;
   margin-top: 8px;
   & .MuiButton-root {
     display: flow;
@@ -88,9 +87,8 @@ export const PaginationUi = styled(Pagination)`
     color: #000000ee;
     border: 1px solid #000000ee;
     font-family: fantasy;
-    opacity: 0.6;
+    opacity: 0.8;
     text-transform: none;
-    /* font-weight: 700; */
 
     &.Mui-selected {
       background-image: linear-gradient(180deg, #000000ee, #acf);

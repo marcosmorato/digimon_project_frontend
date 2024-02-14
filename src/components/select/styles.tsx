@@ -13,7 +13,7 @@ export const FormControlMui = styled(FormControl)<{ modalVersion?: string }>`
   text-align: left;
 
   margin-bottom: 1rem;
-  opacity: 0.6;
+  opacity: 0.8;
   .MuiSelect-standard {
     border-bottom: 2px solid blue !important;
     background-image: linear-gradient(180deg, #ffeea8, #f6a325);

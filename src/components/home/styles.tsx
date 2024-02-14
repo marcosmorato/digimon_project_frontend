@@ -8,8 +8,8 @@ export const InfoContainer = styled(Box)`
   border: 2px solid #000000ee;
   border-radius: 10px;
   color: #000000ee;
-  background-color: #fff;
-  opacity: 0.6;
+  background-image: linear-gradient(180deg, #fff, #acf);
+  opacity: 0.8;
   margin-top: 20px;
   padding: 16px;
   overflow-y: auto;

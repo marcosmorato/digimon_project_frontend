@@ -64,7 +64,7 @@ export const inputBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0.6;
+  opacity: 0.8;
   & .MuiTextField-root {
     width: 220px;
   }
@@ -113,13 +113,14 @@ export const Buttons = styled.div`
   height: 46px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   
   & .MuiButton-root{
     background-image: linear-gradient(180deg, #fff, #acf);
     color: #000000ee;
     border: 1px solid #000000ee;
     font-family: fantasy;
-    opacity: 0.6;
+    opacity: 0.8;
     text-transform: none;
     &:hover {
       background-image: linear-gradient(180deg, #000000ee, #acf);
@@ -142,7 +143,7 @@ export const Search = styled(Button)`
 
 export const Reset = styled(Button)`
   width: 70px;
-  height: 46px;
+  height: 36px;
   
   @media (max-width: 426px) {
     width: 220px;

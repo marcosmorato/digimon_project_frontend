@@ -224,12 +224,12 @@ const Filter: React.FC<FilterBoxProps> = ({
             </S.SelectContainer>
           </S.InputContainer>
           <S.Buttons>
-          <S.Search type="submit" color="primary" variant="contained">
-            Search
-          </S.Search>
-          <S.Reset type="submit" color="primary" variant="contained">
-            Reset
-          </S.Reset>
+            <S.Reset type="submit" color="primary" variant="contained">
+              Reset
+            </S.Reset>
+            <S.Search type="submit" color="primary" variant="contained">
+              Search
+            </S.Search>
           </S.Buttons>
         </S.Form>
       </S.FormBox>
