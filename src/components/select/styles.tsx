@@ -14,6 +14,7 @@ export const FormControlMui = styled(FormControl)<{ modalVersion?: string }>`
 
   margin-bottom: 1rem;
   opacity: 0.8;
+
   .MuiSelect-standard {
     border-bottom: 2px solid blue !important;
     background-image: linear-gradient(180deg, #ffeea8, #f6a325);
@@ -43,12 +44,11 @@ export const FormControlMui = styled(FormControl)<{ modalVersion?: string }>`
   }
 
   option {
-    width: 10px; /* Remova as aspas em torno de "10px" */
+    width: 10px;
   }
 
   & .MuiInputBase-input {
     color: #000000ee;
-    /* -webkit-text-stroke: 1px #acf; */
     font-family: fantasy !important;
     border-color: #000000ee !important;
 
@@ -56,15 +56,17 @@ export const FormControlMui = styled(FormControl)<{ modalVersion?: string }>`
   }
 `;
 
-export const InputLabelMui = styled(InputLabel)`
-  /* color: white !important; */
-`;
-
-export const MenuItemMui = styled(MenuItem)``;
-
 export const SelectMui = styled(Select)`
-  /* border-bottom: 2px solid red; */
+  
+  
 `;
+
+export const MenuItemMui = styled(MenuItem)`
+    font-family: fantasy !important;
+    color: #000000ee !important;
+    font-weight: 400 !important;
+`;
+
 
 /* 
 

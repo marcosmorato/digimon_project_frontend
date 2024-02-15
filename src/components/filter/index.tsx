@@ -86,16 +86,11 @@ const Filter: React.FC<FilterBoxProps> = ({
 
       // Verifique o campo xAntibody
       if (filter.xAntibody === "infected" && !digimon.xAntibody) {
-        /* console.log(filter.xAntibody) */
-        console.log('---Infected---')
-        console.log(digimon)
+        
         return false;
       }
 
       if (filter.xAntibody === "not infected" && digimon.xAntibody) {
-        console.log(filter.xAntibody)
-        console.log('---notInfected---')
-        console.log(digimon.xAntibody)
         return false;
       }
 
@@ -107,7 +102,6 @@ const Filter: React.FC<FilterBoxProps> = ({
         }
       }
 
-      // Se nenhuma das condições acima for falsa, mantenha o Digimon no resultado
       return true;
     });
   };
@@ -115,6 +109,7 @@ const Filter: React.FC<FilterBoxProps> = ({
   const handleForm = (formData: any) => {
     let filteredDigimons: any = [];
     filteredDigimons = FilterDigimons(selectedOption, digimonsName);
+
     setDigimonFilters({ digimonsFilters: filteredDigimons });
   };
 
@@ -162,12 +157,17 @@ const Filter: React.FC<FilterBoxProps> = ({
     { label: "Not Affected", value: "not infected" },
   ];
   
-  const resetando = {
+  const defaultValues = {
     name: "",
     xAntibody: "",
     levels: "",
     attributes: "",
     fields: "",
+  };
+  
+  const handleReset = () => {
+    setSelectedOption(defaultValues)
+    setDigimonFilters({ digimonsFilters: digimonsName })
   }
 
   return (
@@ -184,6 +184,7 @@ const Filter: React.FC<FilterBoxProps> = ({
               margin="dense"
               type="string"
               placeholder="Insert Name"
+              value={selectedOption.name}
               {...register("name")}
               error={!!errors.name}
               helperText={errors.name?.message}
@@ -235,7 +236,7 @@ const Filter: React.FC<FilterBoxProps> = ({
           </S.SelectContainer>
         </S.InputContainer>
         <S.Buttons>
-          <S.Reset type="submit" color="primary" variant="contained" onClick={() => console.log('teste')}>
+          <S.Reset type="submit" color="primary" variant="contained" onClick={handleReset}>
             Reset
           </S.Reset>
           <S.Search type="submit" color="primary" variant="contained" onClick={handleSubmit(handleForm)}>

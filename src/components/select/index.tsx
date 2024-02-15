@@ -24,7 +24,6 @@ const CustomSelect: React.FC<SelectProps> = ({
 
   return (
     <S.FormControlMui modalVersion={modalVersion} >
-      {/* <S.InputLabelMui>{label}</S.InputLabelMui> */}
       <S.SelectMui
         displayEmpty
         inputProps={{ 'aria-label': 'Without label' }}
