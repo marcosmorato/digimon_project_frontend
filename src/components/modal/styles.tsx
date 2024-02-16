@@ -25,13 +25,17 @@ export const PaperInfo = styled(Paper)`
   align-items: center;
   justify-content: space-between;
   overflow: hidden;
-  background-image: url("https://img.hype.games/cdn/67372575-d3d7-4576-8cb9-acfbe4663886Cover_Digimon.jpg");
+  background-image: linear-gradient(180deg, #040024, #000000 );
+  /* background-image: url("https://img.hype.games/cdn/67372575-d3d7-4576-8cb9-acfbe4663886Cover_Digimon.jpg");
   background-position: center;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
   border: 2px solid #000;
   background-size: cover;
   box-shadow: 1px 1px 4px 4px #acf !important;
   padding: 16px;
+  & .MuiTypography-h2 {
+      font-family: fantasy;
+  }
   
   @media (max-width: 426px) {
     width: 352px;
@@ -41,20 +45,17 @@ export const PaperInfo = styled(Paper)`
     justify-content: flex-start;
     background-position: left;
     padding: 12px;
+    background-image: linear-gradient(90deg, #040024, #000000 );
     & .MuiTypography-h2 {
       font-size: 2rem;
-      font-family: fantasy;
     }
   }
 `;
 
 export const Name = styled(Typography)`
   width: 1060px;
-  background-image: linear-gradient(180deg, #ffeea8, #f6a325);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  -webkit-text-stroke: 1px #62c1cf; /* Largura e cor da borda */
+  color: #fff;
+  -webkit-text-stroke: 1px #000000ee;
   text-align: center;
   
   @media (max-width: 426px) {
@@ -94,7 +95,8 @@ export const DescriptionsContainer = styled(Box)`
 export const TextContainerRight = styled(Box)`
   width: 300px;
   height: 120px;
-  color: white;
+  color: #fff;
+  -webkit-text-stroke: 1px #000000ee;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -102,7 +104,7 @@ export const TextContainerRight = styled(Box)`
   opacity: 0.7;
   & .MuiTypography-root {
     font-size: 1rem;
-    font-style: fantasy;
+    font-family: fantasy;
     text-transform: none;
   }
   &:hover {
@@ -115,14 +117,15 @@ export const TextContainerRight = styled(Box)`
 export const TextContainerLeft = styled(Box)`
   width: 300px;
   height: 120px;
-  color: white;
+  color: #fff;
+  -webkit-text-stroke: 1px #000000ee;
   display: flex;
   flex-direction: column;
   justify-content: center;
   opacity: 0.7;
   & .MuiTypography-root {
     font-size: 1rem;
-    font-style: fantasy;
+    font-family: fantasy;
     text-transform: none;
   }
   &:hover {
@@ -131,8 +134,8 @@ export const TextContainerLeft = styled(Box)`
 `;
 
 export const ImageContainer = styled(Box)`
-  width: 410px;
-  height: 390px;
+  width: 320px;
+  height: 320px;
   color: #000000ee;
   position: relative;
   display: flex;
@@ -157,14 +160,13 @@ export const ImageContainer = styled(Box)`
 `;
 
 export const Image = styled(Box)<{ digimonImage: string }>`
-  width: 410px;
-  height: 390px;
+  width: 320px;
+  height: 320px;
   background-image: url(${(props) => props.digimonImage});
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   overflow: hidden;
-  box-shadow: 1px 1px 4px 4px rgba(1, 3, 45, 1);
   border-radius: 10px;
   
   @media (max-width: 426px) {
@@ -196,7 +198,7 @@ export const infoContainerMobile = styled(Box)`
   
   & .MuiTypography-overline {
     font-size: 0.8rem;
-    font-style: fantasy;
+    font-family: fantasy;
     line-height: 1.66;
     text-transform: none;
     margin-right: 6px;
@@ -229,7 +231,10 @@ export const FavoriteIconMui = styled(FavoriteIcon)`
   top: 10px;
   right: 10px;
   z-index: 1;
-  color: red;
+  color: #ff4646;
+  background-color: #acf;
+  border-radius: 6px;
+  border: 1px solid #000000ee;
   box-shadow: 1px 1px 1px 1px #000000ee;
 `;
 
@@ -238,18 +243,21 @@ export const FavoriteBorderIconMui = styled(FavoriteBorderIcon)`
   top: 10px;
   right: 10px;
   z-index: 1;
-  color: #000000ee;
+  color: #fff;
+  background-color: #acf;
+  border: 1px solid #000000ee;
   box-shadow: 1px 1px 1px 1px #000000ee;
-
+  border-radius: 6px;
 `;
 
 export const Info = styled(Typography)`
   height: 35px;
   display: flex;
   align-items: center;
-  margin-right: 10px !important;
+  
   @media (max-width: 426px) {
     height: 35px;
+    margin-right: 10px !important;
   }
 `;
 
@@ -274,24 +282,21 @@ export const ContainerCenter = styled.div`
 
 export const DescriptionContainer = styled(Box)`
   width: 410px;
-  height: 170px;
-  margin-top: 10px;
-  box-shadow: 1px 1px 4px 4px #000000ee;
+  height: 180px;
+  margin-top: 20px;
   border-radius: 10px;
   color: #000000ee;
   display: flex;
   flex-direction: column;
   opacity: 0.8;
   padding: 12px;
-  background-color: #fff;
-  &:hover {
-    opacity: 0.9
-  }
+  background-image: linear-gradient(180deg, #fff, #acf);
+
   @media (max-width: 426px) {
     width: 310px;
     height: 310px;
-    box-shadow: 1px 1px 2px 2px #000000ee;
-     padding: 12px;
+    padding: 12px;
+    margin-top: 10px;
     & .MuiTypography-root {
       margin: 10px 0px;
     }
@@ -302,9 +307,10 @@ export const DescriptionNav = styled(Box)`
   width: 386px;
   height: 20px;
   display: flex;
+  margin-bottom: 10px;
   & .Mui-disabled {
-    color: #000000ee !important;
-    background-color: white !important;
+  background-image: linear-gradient(180deg, #acf, #000) !important;
+  color: #fff !important;
   }
   @media (max-width: 426px) {
     width: 286px;
@@ -316,8 +322,8 @@ export const ButtonLanguage = styled(Button)`
   width: 193px;
   height: 18px;
   font-family: fantasy !important;
-  background-color: #000000ee !important;
-  color: white !important;
+  color: #acf !important;
+  background-image: linear-gradient(180deg, #fff, #fff) !important;
   @media (max-width: 426px) {
     width: 155px;
     height: 18px;
@@ -328,6 +334,9 @@ export const DescriptionText = styled(Typography)`
   overflow-y: auto;
   width: 386px;
   height: 126px;
+  font-family: fantasy !important;
+  letter-spacing: 0.06em !important;
+  font-size: 12px !important;
   @media (max-width: 426px) {
     height: 240px;
     margin-top: 10px;
@@ -343,7 +352,7 @@ export const FieldsContainer = styled(Box)`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  
+ 
   & .MuiSvgIcon-root {
     width: 24px;
     height: 24px;
@@ -362,8 +371,8 @@ export const FieldImage = styled.img`
   background-repeat: no-repeat;
   background-size: cover;
   overflow: hidden;
-  box-shadow: 1px 1px 4px 4px rgba(1, 3, 45, 1);
-  
+
+  margin: 0 2px;
   @media (max-width: 426px) {
     margin-right: 10px;
   }

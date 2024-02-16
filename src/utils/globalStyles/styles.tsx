@@ -120,7 +120,7 @@ export const ContainerFilter = styled(Box)`
   
   @media (max-width: 426px) {
     margin-bottom: 30px;
-    height: 520px;
+    height: 500px;
     width: 100%;
     & .MuiTypography-h3 {
       font-size: 2rem;

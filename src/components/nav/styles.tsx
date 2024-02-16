@@ -9,11 +9,6 @@ import {
 export const ListMui = styled(List)`
   width: 190px;
   height: 430px;
-  
-/*     
-  & .Mui-selected {
-    cursor: initial;
-  } */
 
   @media (max-width: 426px) {
     height: 308px;

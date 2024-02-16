@@ -15,7 +15,7 @@ export const FormBox = styled(Box)`
   flex-direction: column;
   
   @media (max-width: 426px) {
-    height: 400px;
+    height: 394px;
     width: 325px;
     margin-top: 20px;
   }
@@ -29,17 +29,29 @@ font-size: 18px;
 margin-top: 10px !important;
 `
 
-export const InputContainer = styled.div`
+export const Filters = styled.div`
   width: 190px;
   height: 408px;
   display: flex;
   flex-direction: column;
-  /* justify-content: space-evenly; */
   
   @media (max-width: 426px) {
-    height: 400px;
+    height: 322px;
     width: 300px;
     align-items: center;
+  }
+`;
+
+export const Filter = styled.div`
+  width: 190px;
+  display: flex;
+  flex-direction: column;
+  
+  @media (max-width: 426px) {
+    width: 300px;
+    flex-direction: initial;
+    justify-content: space-between;
+    margin-bottom: 24px;
   }
 `;
 
@@ -52,6 +64,7 @@ export const inputBox = styled.div`
   opacity: 0.8;
   & .MuiTextField-root {
     width: 220px;
+    margin: 0;
   }
   & .MuiInputLabel-root {
     width: 110px;
@@ -74,10 +87,7 @@ export const inputBox = styled.div`
   }
   
   @media (max-width: 426px) {
-    width: 270px;
-    & .MuiTextField-root {
-      width: 325px;
-    }
+    width: 180px;
   }
 `;
 
@@ -89,7 +99,7 @@ export const SelectContainer = styled.div`
   width: 188px;
   
   @media (max-width: 426px) {
-      width: 270px;
+      width: 180px;
   }
 `
 
@@ -114,6 +124,10 @@ export const Buttons = styled.div`
   }
   
   }
+  @media (max-width: 426px) {
+      width: 300px;
+      margin-top: 26px;
+  }
 `
 
 export const Search = styled(Button)`
@@ -122,7 +136,7 @@ export const Search = styled(Button)`
   
 
   @media (max-width: 426px) {
-    width: 220px;
+    width: 180px;
   }
 `;
 
@@ -131,6 +145,6 @@ export const Reset = styled(Button)`
   height: 36px;
   
   @media (max-width: 426px) {
-    width: 220px;
+    width: 80px;
   }
 `;

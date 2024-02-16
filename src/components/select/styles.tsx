@@ -64,7 +64,6 @@ export const SelectMui = styled(Select)`
 export const MenuItemMui = styled(MenuItem)`
     font-family: fantasy !important;
     color: #000000ee !important;
-    font-weight: 400 !important;
 `;
 
 

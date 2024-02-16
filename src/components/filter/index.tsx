@@ -174,67 +174,76 @@ const Filter: React.FC<FilterBoxProps> = ({
     <GS.ContainerFilter>
       <GS.TitleBox variant="h3">Filters</GS.TitleBox>
       <S.FormBox>
-        <S.InputContainer>
-          <S.Label>Digimon Name:</S.Label>
-          <S.inputBox>
-            <S.InputText
-              autoComplete="off"
-              size="small"
-              variant="outlined"
-              margin="dense"
-              type="string"
-              placeholder="Insert Name"
-              value={selectedOption.name}
-              {...register("name")}
-              error={!!errors.name}
-              helperText={errors.name?.message}
-              onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                setSelectedOption({ ...selectedOption, name: e.target.value })
-              }
-            ></S.InputText>
-          </S.inputBox>
-          <S.Label>Levels:</S.Label>
-          <S.SelectContainer>
-            <CustomSelect
-              label="Levels"
-              options={levels}
-              onChange={(value) => handleSelectChange("levels", value)}
-              selectedValue={selectedOption.levels}
-              modalVersion={"modal"}
-            />
-          </S.SelectContainer>
-          <S.Label>Fields:</S.Label>
-          <S.SelectContainer>
-            <CustomSelect
-              label="Fields"
-              options={fields}
-              onChange={(value) => handleSelectChange("fields", value)}
-              selectedValue={selectedOption.fields}
-              modalVersion={"modal"}
-            />
-          </S.SelectContainer>
-          <S.Label>Attributes:</S.Label>
-          <S.SelectContainer>
-            <CustomSelect
-              label="Attributes"
-              options={attributes}
-              onChange={(value) => handleSelectChange("attributes", value)}
-              selectedValue={selectedOption.attributes}
-              modalVersion={"modal"}
-            />
-          </S.SelectContainer>
-
-          <S.Label>X-Antibody:</S.Label>
-          <S.SelectContainer>
-            <CustomSelect
-              label="X-Antibody"
-              options={xAntibody}
-              onChange={(value) => handleSelectChange("xAntibody", value)}
-              selectedValue={selectedOption.xAntibody}
-              modalVersion={"modal"}
-            />
-          </S.SelectContainer>
-        </S.InputContainer>
+        <S.Filters>
+          <S.Filter>
+            <S.Label>Digimon Name:</S.Label>
+            <S.inputBox>
+              <S.InputText
+                autoComplete="off"
+                size="small"
+                variant="outlined"
+                margin="dense"
+                type="string"
+                placeholder="Insert Name"
+                value={selectedOption.name}
+                {...register("name")}
+                error={!!errors.name}
+                helperText={errors.name?.message}
+                onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                  setSelectedOption({ ...selectedOption, name: e.target.value })
+                }
+              ></S.InputText>
+            </S.inputBox>
+          </S.Filter>
+          <S.Filter>
+            <S.Label>Levels:</S.Label>
+            <S.SelectContainer>
+              <CustomSelect
+                label="Levels"
+                options={levels}
+                onChange={(value) => handleSelectChange("levels", value)}
+                selectedValue={selectedOption.levels}
+                modalVersion={"modal"}
+              />
+            </S.SelectContainer>
+          </S.Filter>
+          <S.Filter>
+            <S.Label>Fields:</S.Label>
+            <S.SelectContainer>
+              <CustomSelect
+                label="Fields"
+                options={fields}
+                onChange={(value) => handleSelectChange("fields", value)}
+                selectedValue={selectedOption.fields}
+                modalVersion={"modal"}
+              />
+            </S.SelectContainer>
+          </S.Filter>
+          <S.Filter>
+            <S.Label>Attributes:</S.Label>
+            <S.SelectContainer>
+              <CustomSelect
+                label="Attributes"
+                options={attributes}
+                onChange={(value) => handleSelectChange("attributes", value)}
+                selectedValue={selectedOption.attributes}
+                modalVersion={"modal"}
+              />
+            </S.SelectContainer>
+          </S.Filter>  
+          <S.Filter>
+            <S.Label>X-Antibody:</S.Label>
+            <S.SelectContainer>
+              <CustomSelect
+                label="X-Antibody"
+                options={xAntibody}
+                onChange={(value) => handleSelectChange("xAntibody", value)}
+                selectedValue={selectedOption.xAntibody}
+                modalVersion={"modal"}
+              />
+            </S.SelectContainer>
+          </S.Filter>
+        </S.Filters>
         <S.Buttons>
           <S.Reset type="submit" color="primary" variant="contained" onClick={handleReset}>
             Reset
