@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Button, TextField } from "@mui/material";
+import { Button, TextField, Typography } from "@mui/material";
 
 export const Container = styled.div`
   width: 582px;
@@ -20,7 +20,7 @@ export const Container = styled.div`
 `;
 
 export const Form = styled.form`
-  height: 296px;
+  height: 306px;
   width: 540px;
   overflow: auto;
   display: flex;
@@ -44,12 +44,15 @@ export const Form = styled.form`
   }
 `;
 
-export const InputBox = styled.div`
+export const Label = styled(Typography)`
+
+`
+
+export const InputContainer = styled.div`
   width: 540px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 10px;
   
   @media (max-width: 426px) {
     width: 320px;
@@ -58,12 +61,32 @@ export const InputBox = styled.div`
 `;
 
 export const Input = styled.div`
-  width: 270px;
-  height: 75px;
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+  
+  & .MuiTypography-root {
+    font-family: fantasy;
+    color: #acf;
+    -webkit-text-stroke: 1px #000000ee;
+    font-size: 18px;
+    margin-top: 10px;
+  }
+  
+  @media (max-width: 426px) {
+    width: 300px;
+    flex-direction: initial;
+    justify-content: space-between;
+    margin-bottom: 24px;
+  }
+`;
+
+export const InputBox = styled.div`
+  width: 260px;
+  height: 65px;
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  opacity: 0.8;
   & .MuiTextField-root {
     width: 220px;
     margin-top: 0px;
@@ -98,22 +121,36 @@ export const InputText = styled(TextField)`
   }
 `;
   
-export const ButtonContainer = styled.div`
-  width: 270px;
-  height: 75px;
+export const ButtonBox = styled.div`
+  width: 260px;
+  height: 102px;
   display: flex;
   justify-content: center;
-  
-  @media (max-width: 426px) {
-    width: 155px;
+  align-items: center;
+  & .MuiButton-root{
+    background-image: linear-gradient(180deg, #fff, #acf);
+    color: #000000ee;
+    border: 1px solid #000000ee;
+    font-family: fantasy;
+    opacity: 0.8;
+    text-transform: none;
+    &:hover {
+      background-image: linear-gradient(180deg, #000000ee, #acf);
+      color: #fff !important;
+      border: 1px solid #fff;
   }
+  }
+   /* @media (max-width: 426px) {
+      width: 300px;
+      margin-top: 26px;
+  } */
 `;
 
 export const CreateUser = styled(Button)`
   width: 220px;
   height: 56px;
   
-  @media (max-width: 426px) {
+  /* @media (max-width: 426px) {
     width: 155px;
-  }
+  } */
 `;

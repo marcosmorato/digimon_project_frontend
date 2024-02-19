@@ -39,77 +39,92 @@ const Register: React.FC = () => {
     <S.Container>
         <GS.TitleBox variant="h3">Register</GS.TitleBox>
         <S.Form onSubmit={handleSubmit(handleForm)}>
-          <S.InputBox>
+          <S.InputContainer>
             <S.Input>
-              <S.InputText
-                autoComplete="off"
-                variant="filled"
-                label="Full Name"
-                margin="dense"
-                type="string"
-                {...register("name")}
-                error={!!errors.name}
-                helperText={errors.name?.message}
-              ></S.InputText>
+              <S.Label>Full name:</S.Label>
+              <S.InputBox>
+                <S.InputText
+                  autoComplete="off"
+                  size="small"
+                  variant="outlined"
+                  margin="dense"
+                  type="string"
+                  {...register("name")}
+                  error={!!errors.name}
+                  helperText={errors.name?.message}
+                ></S.InputText>
+              </S.InputBox>
             </S.Input>
             <S.Input>
-              <S.InputText
-                autoComplete="off"
-                variant="filled"
-                label="Nickname"
-                margin="dense"
-                type="string"
-                {...register("nickname")}
-                error={!!errors.nickname}
-                helperText={errors.nickname?.message}
-              ></S.InputText>
+              <S.Label>Nickname:</S.Label>
+              <S.InputBox>
+                <S.InputText
+                  autoComplete="off"
+                  size="small"
+                  variant="outlined"
+                  margin="dense"
+                  type="string"
+                  {...register("nickname")}
+                  error={!!errors.nickname}
+                  helperText={errors.nickname?.message}
+                ></S.InputText>
+              </S.InputBox>
             </S.Input>
-          </S.InputBox>
-          <S.InputBox>
+          </S.InputContainer>
+          <S.InputContainer>
             <S.Input>
-              <S.InputText
-                autoComplete="off"
-                variant="filled"
-                label="Email"
-                margin="dense"
-                type="string"
-                {...register("email")}
-                error={!!errors.email}
-                helperText={errors.email?.message}
-              ></S.InputText>
+              <S.Label>Email:</S.Label>
+              <S.InputBox>
+                <S.InputText
+                  autoComplete="off"
+                  size="small"
+                  variant="outlined"
+                  margin="dense"
+                  type="string"
+                  {...register("email")}
+                  error={!!errors.email}
+                  helperText={errors.email?.message}
+                ></S.InputText>
+              </S.InputBox>
             </S.Input>
             <S.Input>
-              <S.InputText
-                autoComplete="off"
-                variant="filled"
-                label="Password"
-                margin="dense"
-                type="password"
-                {...register("password")}
-                error={!!errors.password}
-                helperText={errors.password?.message}
-              ></S.InputText>
+              <S.Label>Password:</S.Label>
+              <S.InputBox>
+                <S.InputText
+                  autoComplete="off"
+                  size="small"
+                  variant="outlined"
+                  margin="dense"
+                  type="password"
+                  {...register("password")}
+                  error={!!errors.password}
+                  helperText={errors.password?.message}
+                ></S.InputText>
+              </S.InputBox>
             </S.Input>
-          </S.InputBox>
-          <S.InputBox>
+          </S.InputContainer>
+          <S.InputContainer>
             <S.Input>
-              <S.InputText
-                autoComplete="off"
-                variant="filled"
-                label="Confirm Password"
-                margin="dense"
-                type="password"
-                {...register("password_confirmation")}
-                error={!!errors.password_confirmation}
-                helperText={errors.password_confirmation?.message}
-              ></S.InputText>
+              <S.Label>Confirm Password:</S.Label>
+              <S.InputBox>
+                <S.InputText
+                  autoComplete="off"
+                  size="small"
+                  variant="outlined"
+                  margin="dense"
+                  type="password"
+                  {...register("password_confirmation")}
+                  error={!!errors.password_confirmation}
+                  helperText={errors.password_confirmation?.message}
+                ></S.InputText>
+              </S.InputBox>
             </S.Input>
-            <S.ButtonContainer>
+            <S.ButtonBox>
               <S.CreateUser type="submit" color="primary" variant="contained">
                 Register
               </S.CreateUser>
-            </S.ButtonContainer>
-          </S.InputBox>
+            </S.ButtonBox>
+          </S.InputContainer>
         </S.Form>
     </S.Container>
   );

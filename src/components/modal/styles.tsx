@@ -12,6 +12,7 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 export const ModalUi = styled(Modal)`
   background-color: rgba(1, 3, 45, 0.9);
+  
 `;
 
 export const PaperInfo = styled(Paper)`
