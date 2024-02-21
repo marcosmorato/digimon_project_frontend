@@ -9,10 +9,6 @@ export const SignContainer = styled.div`
   align-items: center;
   justify-content: center;
   background-image: linear-gradient(180deg, #040024, #000000 );
-  /* background-image: url("https://i.pinimg.com/736x/f4/32/29/f43229c63e4260d277251c1cea812801.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover; */
   opacity: 0.8;
   @media (max-width: 426px) {
     flex-direction: column;

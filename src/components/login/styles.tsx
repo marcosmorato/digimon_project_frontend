@@ -69,7 +69,6 @@ export const Input = styled.div`
   
   @media (max-width: 426px) {
     width: 300px;
-
     flex-direction: column;
     align-items: center;
     justify-content: center;
