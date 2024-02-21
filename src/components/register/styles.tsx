@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Button, TextField } from "@mui/material";
+import { Button, TextField, Typography } from "@mui/material";
 
 export const Container = styled.div`
   width: 582px;
@@ -20,16 +20,15 @@ export const Container = styled.div`
 `;
 
 export const Form = styled.form`
-  height: 296px;
+  height: 306px;
   width: 540px;
   overflow: auto;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  font-style: italic;
+
   & button {
-    font-style: italic;
     &:hover {
       cursor: pointer;
       background-color: #000000ee;
@@ -44,12 +43,15 @@ export const Form = styled.form`
   }
 `;
 
-export const InputBox = styled.div`
+export const Label = styled(Typography)`
+
+`
+
+export const InputContainer = styled.div`
   width: 540px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 10px;
   
   @media (max-width: 426px) {
     width: 320px;
@@ -58,12 +60,31 @@ export const InputBox = styled.div`
 `;
 
 export const Input = styled.div`
-  width: 270px;
-  height: 75px;
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+  
+  & .MuiTypography-root {
+    font-family: fantasy;
+    color: #acf;
+    -webkit-text-stroke: 1px #000000ee;
+    font-size: 18px;
+    margin-top: 10px;
+  }
+  
+  @media (max-width: 426px) {
+    width: 150px;
+    justify-content: center;
+    align-items: center;
+  }
+`;
+
+export const InputBox = styled.div`
+  width: 260px;
+  height: 65px;
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  opacity: 0.8;
   & .MuiTextField-root {
     width: 220px;
     margin-top: 0px;
@@ -77,9 +98,9 @@ export const Input = styled.div`
   }
     
   @media (max-width: 426px) {
-    width: 155px;
+    width: 150px;
     & .MuiTextField-root {
-      width: 155px;
+      width: 150px;
     }
   }
 `;
@@ -93,19 +114,31 @@ export const InputText = styled(TextField)`
   
   & .Mui-focused {
     color: #1976d2;
-    font-style: italic;
     border-color: #000 !important;
   }
 `;
   
-export const ButtonContainer = styled.div`
-  width: 270px;
-  height: 75px;
+export const ButtonBox = styled.div`
+  width: 260px;
+  height: 102px;
   display: flex;
   justify-content: center;
-  
-  @media (max-width: 426px) {
-    width: 155px;
+  align-items: center;
+  & .MuiButton-root{
+    background-image: linear-gradient(180deg, #fff, #acf);
+    color: #000000ee;
+    border: 1px solid #000000ee;
+    font-family: fantasy;
+    opacity: 0.8;
+    text-transform: none;
+    &:hover {
+      background-image: linear-gradient(180deg, #000000ee, #acf);
+      color: #fff !important;
+      border: 1px solid #fff;
+  }
+  }
+   @media (max-width: 426px) {
+      width: 150px;
   }
 `;
 
@@ -114,6 +147,7 @@ export const CreateUser = styled(Button)`
   height: 56px;
   
   @media (max-width: 426px) {
-    width: 155px;
+    width: 125px;
+    height: 46px;
   }
 `;

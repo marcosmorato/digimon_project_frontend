@@ -44,37 +44,45 @@ const Login: React.FC = () => {
 
   return (
     <S.Container>
-        <GS.TitleBox variant="h3">Login</GS.TitleBox>
+        <GS.TitleBox variant="h2">Login</GS.TitleBox>
         <S.Form onSubmit={handleSubmit(handleForm)}>
-          <S.InputBox>
+          <S.InputContainer>
             <S.Input>
-              <S.InputText
-                autoComplete="off"
-                variant="filled"
-                label="Email"
-                margin="dense"
-                type="string"
-                {...register("email")}
-                error={!!errors.email}
-                helperText={errors.email?.message}
-              ></S.InputText>
+              <S.Label>Email:</S.Label>
+              <S.InputBox>
+                <S.InputText
+                  autoComplete="off"
+                  size="small"
+                  variant="outlined"
+                  margin="dense"
+                  type="string"
+                  {...register("email")}
+                  error={!!errors.email}
+                  helperText={errors.email?.message}
+                ></S.InputText>
+              </S.InputBox>
             </S.Input>
             <S.Input>
-              <S.InputText
-                autoComplete="off"
-                variant="filled"
-                label="Password"
-                margin="dense"
-                type="password"
-                {...register("password")}
-                error={!!errors.password}
-                helperText={errors.password?.message}
-              ></S.InputText>
+            <S.Label>Password:</S.Label>
+              <S.InputBox>
+                <S.InputText
+                  autoComplete="off"
+                  size="small"
+                  variant="outlined"
+                  margin="dense"
+                  type="password"
+                  {...register("password")}
+                  error={!!errors.password}
+                  helperText={errors.password?.message}
+                ></S.InputText>
+              </S.InputBox>
             </S.Input>
-          </S.InputBox>
-          <S.Login type="submit" color="primary" variant="contained">
-            Enter
-          </S.Login>
+          </S.InputContainer>
+          <S.ButtonBox>
+            <S.Login type="submit" color="primary" variant="contained">
+              Login
+            </S.Login>
+          </S.ButtonBox>
         </S.Form>
     </S.Container>
   );

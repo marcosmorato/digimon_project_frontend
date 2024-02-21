@@ -8,11 +8,12 @@ export const SignContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url("https://i.pinimg.com/736x/f4/32/29/f43229c63e4260d277251c1cea812801.jpg");
+  background-image: linear-gradient(180deg, #040024, #000000 );
+  /* background-image: url("https://i.pinimg.com/736x/f4/32/29/f43229c63e4260d277251c1cea812801.jpg");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
-  
+  background-size: cover; */
+  opacity: 0.8;
   @media (max-width: 426px) {
     flex-direction: column;
     & .MuiTypography-h3 {
@@ -23,7 +24,7 @@ export const SignContainer = styled.div`
 
 export const Hr = styled.div`
   width: 2px;
-  height: 356px;
+  height: 376px;
   background-color: #000000ee;
   box-shadow: 1px 1px 4px 3px #acf;
   

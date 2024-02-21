@@ -213,14 +213,14 @@ export const ContainerBody = styled.div`
 
 
 export const TitleBox = styled(Typography)`
-  height: 60px;
+  height: 70px;
   width: 90%;
   color: #acf;
   -webkit-text-stroke: 1px #000000ee;
   
-  @media (max-width: 426px) {
-    height: 40px;
-  }
+  /* @media (max-width: 426px) {
+    height: 70px;
+  } */
 `;
 
 export const DescriptionText = styled(Typography)`
