@@ -34,10 +34,8 @@ export const ContainerSide = styled(Box)`
   }
   
   & .MuiList-root {
-    margin-top: 16px;
     font-size: 16px;
     background-image: linear-gradient(180deg, #fff, #acf);
-    opacity: 0.8;
     border-radius: 8px;
     border: 2px solid #000000ee;
     box-shadow: 1px 1px 4px 4px #acf;
@@ -52,8 +50,8 @@ export const ContainerSide = styled(Box)`
     
     & .Mui-disabled {
       background-image: linear-gradient(180deg, #000000ee, #acf);
-      opacity: 0.8;
       -webkit-text-stroke: 1px #000000ee;
+      opacity: 1;
       & .MuiTypography-root {
         color: #fff;
       }
@@ -211,12 +209,22 @@ export const ContainerBody = styled.div`
   }
 `;
 
-
-export const TitleBox = styled(Typography)`
+export const AccountTitle = styled(Typography)`
   height: 70px;
   width: 90%;
-  color: #acf;
-  -webkit-text-stroke: 1px #000000ee;
+  color: #000000;
+  -webkit-text-stroke: 1px #acf;
+  
+  /* @media (max-width: 426px) {
+    height: 70px;
+  } */
+`;
+
+export const TitleBox = styled(Typography)`
+  height: 60px;
+  width: 90%;
+  color: #000000ee;
+  -webkit-text-stroke: 1px #acf;
   
   /* @media (max-width: 426px) {
     height: 70px;
@@ -224,11 +232,15 @@ export const TitleBox = styled(Typography)`
 `;
 
 export const DescriptionText = styled(Typography)`
-  height: 30px;
-  width: 200px;
+  height: 50px;
+  width: 210px;
   text-align: center;
   font-family: fantasy !important;
- 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  word-wrap: break-word;
+
   @media (max-width: 426px) {
     height: 40px;
   }

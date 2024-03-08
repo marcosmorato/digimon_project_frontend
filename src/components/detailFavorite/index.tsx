@@ -26,7 +26,8 @@ const DetailScreen: React.FC<DetailScreenProps> = ({
   const nextEvolutionsName = selectedDetail.nextEvolutions?.map((el) => el.digimon)
   return (
     <S.Container>
-      {isMobile ? (<>
+      {isMobile ? (
+      <>
         <S.ContainerLeft>
           <S.Close>
             <S.BackArrow onClick={onClose}>Fechar</S.BackArrow>
@@ -86,9 +87,9 @@ const DetailScreen: React.FC<DetailScreenProps> = ({
             </GS.DescriptionText>
           </S.descriptionBox>
           <S.descriptionBox>
-            <GS.DescriptionText gutterBottom variant="subtitle1">
+            <S.Description gutterBottom variant="subtitle1">
               Campo[s]:
-            </GS.DescriptionText>
+            </S.Description>
             {selectedDetail.fields.length > 0 ? (
               <S.IconContainter>
                 {selectedDetail.fields.map((ele) => (
@@ -154,7 +155,13 @@ const DetailScreen: React.FC<DetailScreenProps> = ({
           <S.Close>
             <S.BackArrow onClick={onClose}>Fechar</S.BackArrow>
           </S.Close>
+          
           <S.ImageContainer>
+            <S.descriptionBox>
+            <S.Name gutterBottom variant="h4">
+              {selectedDetail.name}
+            </S.Name>
+          </S.descriptionBox>
             {selectedDetail.images.length !== 0 ? (
               <S.Image
                 digimonImage={
@@ -179,41 +186,37 @@ const DetailScreen: React.FC<DetailScreenProps> = ({
                     ></S.FavoriteBorderIconMui>
                   )} */}
           </S.ImageContainer>
-          <S.descriptionBox>
-            <S.Name gutterBottom variant="h4">
-              {selectedDetail.name}
-            </S.Name>
-          </S.descriptionBox>
+          
         </S.ContainerLeft>
       <S.ContainerRight>
         <S.descriptionBox>
-        <GS.DescriptionText gutterBottom variant="subtitle1">
-          Atributo(s):
-        </GS.DescriptionText>
-        <GS.DescriptionText gutterBottom variant="h6">
+          <S.Description gutterBottom variant="subtitle1">
+            Atributo(s):
+          </S.Description>
+        <S.Description gutterBottom variant="h6">
           {selectedDetail.attributes.join(", ")}
-        </GS.DescriptionText>
+        </S.Description>
         </S.descriptionBox>
         
         <S.descriptionBox>
-          <GS.DescriptionText gutterBottom variant="subtitle1">
+          <S.Description gutterBottom variant="subtitle1">
               Data de Lançamento:
-          </GS.DescriptionText>
-          <GS.DescriptionText gutterBottom variant="h6">
+          </S.Description>
+          <S.Description gutterBottom variant="h6">
               {selectedDetail.releaseDate}
-          </GS.DescriptionText>
+          </S.Description>
         </S.descriptionBox>
         <S.descriptionBox>
-          <GS.DescriptionText gutterBottom variant="subtitle1">
+          <S.Description gutterBottom variant="subtitle1">
             Anticorpo - X / X-Antibody:
-          </GS.DescriptionText>
-          <GS.DescriptionText gutterBottom variant="h6">
+          </S.Description>
+          <S.Description gutterBottom variant="h6">
             {selectedDetail.xAntibody ? 'Sim' : 'Não'}
-          </GS.DescriptionText>
+          </S.Description>
         </S.descriptionBox>
-        <GS.DescriptionText gutterBottom variant="subtitle1">
+        <S.Description gutterBottom variant="subtitle1">
           Descrição:
-        </GS.DescriptionText>
+        </S.Description>
         <S.DescriptionBox>
           {selectedDetail.descriptions ?
           <>
@@ -230,17 +233,17 @@ const DetailScreen: React.FC<DetailScreenProps> = ({
       </S.ContainerRight>    
       <S.ContainerRight>
         <S.descriptionBox>
-          <GS.DescriptionText gutterBottom variant="subtitle1">
+          <S.Description gutterBottom variant="subtitle1">
             Level(s):
-          </GS.DescriptionText>
-          <GS.DescriptionText gutterBottom variant="h6">
+          </S.Description>
+          <S.Description gutterBottom variant="h6">
             {selectedDetail.levels.join(", ")}
-          </GS.DescriptionText>
+          </S.Description>
         </S.descriptionBox>
         <S.descriptionBox>
-          <GS.DescriptionText gutterBottom variant="subtitle1">
+          <S.Description gutterBottom variant="subtitle1">
             Campo[s]:
-          </GS.DescriptionText>
+          </S.Description>
           {selectedDetail.fields.length > 0 ? (
             <S.IconContainter>
               {selectedDetail.fields.map((ele) => (
@@ -256,29 +259,29 @@ const DetailScreen: React.FC<DetailScreenProps> = ({
               ))}
             </S.IconContainter>
           ) : (
-            <GS.DescriptionText gutterBottom variant="h6">
+            <S.Description gutterBottom variant="h6">
             Sem dados.
-            </GS.DescriptionText>
+            </S.Description>
         )}
         </S.descriptionBox>
         <S.descriptionBox>
-          <GS.DescriptionText gutterBottom variant="subtitle1">
+          <S.Description gutterBottom variant="subtitle1">
             Tipo(S):
-          </GS.DescriptionText>
-          <GS.DescriptionText gutterBottom variant="h6">
+          </S.Description>
+          <S.Description gutterBottom variant="h6">
             {selectedDetail.types.join(', ')}
-          </GS.DescriptionText>
+          </S.Description>
         </S.descriptionBox>
         <S.evolutionBox>
-          <GS.DescriptionText gutterBottom variant="subtitle1">
+          <S.Description gutterBottom variant="subtitle1">
             Pre-Evolução:
-          </GS.DescriptionText>
+          </S.Description>
           <S.evolutionContainer>
             {previousEvolutionsName?.map((el) => <div>{el}</div>)}
           </S.evolutionContainer>
-          <GS.DescriptionText gutterBottom variant="subtitle1">
+          <S.Description gutterBottom variant="subtitle1">
             Pos-Evolução:
-          </GS.DescriptionText>
+          </S.Description>
           <S.evolutionContainer>
             {nextEvolutionsName?.map((el) => <div>{el}</div>)}
           </S.evolutionContainer>

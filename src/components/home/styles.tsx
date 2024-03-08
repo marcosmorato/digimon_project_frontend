@@ -9,8 +9,6 @@ export const InfoContainer = styled(Box)`
   border-radius: 10px;
   color: #000000ee;
   background-image: linear-gradient(180deg, #fff, #acf);
-  opacity: 0.8;
-  margin-top: 20px;
   padding: 16px;
   overflow-y: auto;
   

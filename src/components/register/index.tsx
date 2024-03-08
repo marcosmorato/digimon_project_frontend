@@ -37,7 +37,7 @@ const Register: React.FC = () => {
 
   return (
     <S.Container>
-        <GS.TitleBox variant="h2">Register</GS.TitleBox>
+        <GS.AccountTitle variant="h2">Register</GS.AccountTitle>
         <S.Form onSubmit={handleSubmit(handleForm)}>
           <S.InputContainer>
             <S.Input>

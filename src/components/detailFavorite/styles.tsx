@@ -2,41 +2,48 @@ import styled from "styled-components";
 import {
   Box,
   Button,
-  Dialog,
-  DialogContent,
-  TextField,
-  Pagination,
-  Stack,
-  Card,
-  CardContent,
-  CardMedia,
-  IconButton,
   Typography
 } from "@mui/material";
 
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import CloseIcon from '@mui/icons-material/Close';
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { typography } from "@mui/system";
 
 export const Close = styled.div`
-  width: 306px;
-  display: flex;
-  justify-content: flex-start;
-  margin-bottom: 20px;
+  position: absolute; /* Define o posicionamento absoluto */
+  top: 14px; /* Posição em relação ao topo do container pai */
+  left: 4px; /* Posição em relação à direita do container pai */
+  z-index: 1; /* Garante que o botão de fechar esteja acima do conteúdo */
+  
+  & :hover {
+    cursor: pointer;
+  }
   @media (max-width: 426px) {
     margin: 4px 0px 10px 0px;
     width: 280px;
   }
 `
 
-export const BackArrow = styled(ArrowBackIcon)`
-  z-index: 1; /* Para garantir que os ícones estejam acima da imagem */
+export const Description = styled(Typography)`
+  height: 32px;
+  width: 310px;
+
+  font-family: fantasy !important;
+  display: flex;
+
+  word-wrap: break-word;
+
+  @media (max-width: 426px) {
+    height: 40px;
+  }
+`;
+
+export const BackArrow = styled(CloseIcon)`
+  z-index: 1;
   color: #000000ee;
   opacity: 0.9;
   width: 24px;
   height: 23px;
-  top: 10px;
-  right: 10px;
   z-index: 1;
 `;
 
@@ -46,8 +53,9 @@ export const Container = styled(Box)`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #fff !important;
-  opacity: 0.7;
+  background-image: linear-gradient(180deg, #acf, #fff);
+  box-shadow: 1px 1px 4px 4px #acf;
+  border: 1px solid black;
   border-radius: 8px;
   @media (max-width: 426px) {
     height: 764px;
@@ -58,6 +66,7 @@ export const Container = styled(Box)`
     align-items: center;
     
     justify-content: center;
+    background-image: linear-gradient(180deg, #fff, #acf);
   }
 `;
 
@@ -71,6 +80,7 @@ export const ContainerInfoMb = styled.div`
 `
 
 export const ContainerLeft = styled(Box)`
+  position: relative;
   display: flex;
   width: 362px;
   height: 514px;
@@ -132,7 +142,7 @@ export const ImageContainer = styled(Box)`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  margin-bottom: 30px;
+  margin-top: 16px;
   @media (max-width: 426px) {
     width: 280px;
     height: 280px;
@@ -157,12 +167,9 @@ export const Image = styled(Box)<{ digimonImage: string }>`
 `;
 
 export const Name = styled(Typography)`
-  width: 310px;
-  background-image: linear-gradient(180deg, #ffeea8, #f6a325);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  -webkit-text-stroke: 1px #62c1cf; /* Largura e cor da borda */
+  width: 300px;
+  color: #000000ee;
+  
   text-align: center;
   
   @media (max-width: 426px) {
@@ -185,7 +192,6 @@ export const descriptionBox = styled.div`
   }
   @media (max-width: 426px) {
     width: 280px;
-
   }
 `
 export const evolutionBox = styled.div`
@@ -202,6 +208,7 @@ export const evolutionBox = styled.div`
 `
 export const evolutionContainer = styled.div`
   width: 300px;
+  font-family: fantasy;
   height: 80px;
   overflow-y: auto;
   border: 1px solid black;
@@ -275,7 +282,6 @@ export const DescriptionBox = styled(Box)`
   color: #000000ee;
   display: flex;
   flex-direction: column;
-  opacity: 0.7;
   padding: 5px;
   &:hover {
     opacity: 0.9;
@@ -289,21 +295,22 @@ export const DescriptionBox = styled(Box)`
 
 export const DescriptionNav = styled(Box)`
   width: 100%;
-  height: 15%;
+  height: 28px;
   display: flex;
 
   & .Mui-disabled {
-    color: #000000ee !important;
-    background-color: white !important;
+    color: #fff !important;
+    background-color: #000000ee !important;
   }
 `;
 
 export const ButtonLanguage = styled(Button)`
   width: 100%;
-  height: 25%;
+  height: 26px;
+  background-color: white !important;
   font-family: fantasy !important;
-  background-color: #000000ee !important;
-  color: white !important;
+  background-color: #fff !important;
+  color: #000000ee !important;
 `;
 
 export const DescriptionText = styled(Typography)`

@@ -4,6 +4,7 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAILED,
   UPDATE_FAVORITE,
+  RESET_USERS
 } from "./actionsType";
 
 interface LoggedUser {
@@ -25,15 +26,19 @@ export const updateUsers = (newState: UsersState): AnyAction => ({
 
 export const loginSuccess = (newState: UsersState): AnyAction => ({
   type: LOGIN_SUCCESS,
-  payload: newState,
+  newState: newState,
 });
 
-export const loginFailed = (error: any): AnyAction => ({
+export const loginFailed = (newState: UsersState): AnyAction => ({
   type: LOGIN_FAILED,
-  payload: error,
+  newState: newState,
 });
 
 export const updateFavorite = (newState: string[]): AnyAction => ({
   type: UPDATE_FAVORITE,
   newState: newState,
+});
+
+export const resetUsers = (): AnyAction => ({
+  type: RESET_USERS,
 });

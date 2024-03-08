@@ -6,6 +6,7 @@ import * as GS from "../../utils/globalStyles/styles";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schemaLogin } from "../../utils/yup/index";
 import { loginUserThunk } from "../../store/user/thunk";
+import { resetUsers } from "../../store/user/actions";
 import { AppDispatch, RootState } from "../../store/store";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -16,8 +17,8 @@ interface FormData {
 }
 
 const Login: React.FC = () => {
-  const [LoginSuccess, setLoginSuccess] = useState(false);
-  const [LoginFailed, setLoginFailed] = useState(false);
+  const [LoginFailed, setLoginFailed] = useState<any>({message: "", failLogin: false});
+  const [showModal, setShowModal] = useState(false);
   const {
     register,
     handleSubmit,
@@ -25,26 +26,40 @@ const Login: React.FC = () => {
   } = useForm({
     resolver: yupResolver(schemaLogin),
   });
-
+  
   const userRedux = useSelector((state: RootState) => state.user);
+  const [isLogged, setIsLogged] = useState<boolean>(userRedux.isLogged)
 
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
 
-  const handleForm = (formData: FormData) => {
-    dispatch(loginUserThunk(formData));
-  };
-
-  useEffect(() => {
-    if (userRedux.isLogged) {
+  const handleForm = async (formData: FormData) => {
+    try {
+      console.log('teste')
+      const response = await dispatch(loginUserThunk(formData));
+      console.log(response); // Aqui response deve estar definido corretamente
       navigate("/home");
-      return;
+      return
+    } catch (error) {
+      console.log('se tentar logar com o usuario errado cai aqui?')
+      setLoginFailed({message: "E-mail or password invalid", failLogin: true})
+      setShowModal(true)
+      console.error('Erro ao fazer login:', error);
     }
-  }, [navigate, userRedux]);
+};
+  
+  const handleClose = () => {
+    setShowModal(false);
+  };
+  
+  const resetLogin = () => {
+    setIsLogged(false)
+    dispatch(resetUsers())
+  }
 
   return (
     <S.Container>
-        <GS.TitleBox variant="h2">Login</GS.TitleBox>
+        <GS.AccountTitle variant="h2">Login</GS.AccountTitle>
         <S.Form onSubmit={handleSubmit(handleForm)}>
           <S.InputContainer>
             <S.Input>
@@ -57,7 +72,7 @@ const Login: React.FC = () => {
                   margin="dense"
                   type="string"
                   {...register("email")}
-                  error={!!errors.email}
+                  error={!!errors.email || LoginFailed.failLogin}
                   helperText={errors.email?.message}
                 ></S.InputText>
               </S.InputBox>
@@ -72,7 +87,7 @@ const Login: React.FC = () => {
                   margin="dense"
                   type="password"
                   {...register("password")}
-                  error={!!errors.password}
+                  error={!!errors.password || LoginFailed.failLogin}
                   helperText={errors.password?.message}
                 ></S.InputText>
               </S.InputBox>
@@ -84,6 +99,20 @@ const Login: React.FC = () => {
             </S.Login>
           </S.ButtonBox>
         </S.Form>
+        <S.ModalUi open={showModal} onClose={handleClose}>
+          <S.PaperInfo>
+            <S.FeedbackIconMui></S.FeedbackIconMui>
+            <S.Label>Invalid email or password, check the values ​​entered.</S.Label>
+          </S.PaperInfo>
+        </S.ModalUi>
+        <S.ModalUi open={isLogged} onClose={handleClose}>
+          <S.PaperInfo>
+            <S.FeedbackIconMui></S.FeedbackIconMui>
+            <S.Label>You are already logged in, would you like to log in again?</S.Label>
+            <S.Login onClick={() => resetLogin()}>Deslogar</S.Login>
+            <S.Login onClick={() => navigate('/home')}>Return</S.Login>
+          </S.PaperInfo>
+        </S.ModalUi>
     </S.Container>
   );
 };

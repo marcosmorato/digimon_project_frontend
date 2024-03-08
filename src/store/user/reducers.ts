@@ -1,9 +1,10 @@
 import { AnyAction, Reducer } from "redux";
 import {
   UPDATE_USERS,
-  LOGIN_FAILED,
   LOGIN_SUCCESS,
+  LOGIN_FAILED,
   UPDATE_FAVORITE,
+  RESET_USERS
 } from "./actionsType";
 
 interface LoggedUser {
@@ -54,10 +55,12 @@ const UsersReducer: Reducer<UsersState, UpdateUsersAction> = (
   switch (action.type) {
     case UPDATE_USERS:
       return { ...state, ...action.newState };
-    case LOGIN_FAILED:
-      return { ...state, ...action.newState };
     case LOGIN_SUCCESS:
-      return { ...state, ...action.newState };
+      return { ...state, ...action.newState }
+    case LOGIN_FAILED:
+      return { ...state, ...action.newState }
+    case RESET_USERS:
+      return initialState;
     case UPDATE_FAVORITE:
       const updatedFavoriteState: UsersState = {
         ...state,
@@ -76,3 +79,16 @@ const UsersReducer: Reducer<UsersState, UpdateUsersAction> = (
 };
 
 export default UsersReducer;
+
+/* case LOGIN_FAILED:
+      return {
+        ...state,
+        loggedUser: action.payload.loggedUser, // Atualiza os dados do usuário logado
+        isLogged: false, // Define isLogged como true
+      };
+    case LOGIN_SUCCESS:
+      return {
+        ...state,
+        loggedUser: action.payload.loggedUser, // Atualiza os dados do usuário logado
+        isLogged: true, // Define isLogged como true
+      }; */

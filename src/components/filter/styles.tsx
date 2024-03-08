@@ -7,13 +7,16 @@ import {
 } from "@mui/material";
 
 export const FormBox = styled(Box)`
-  width: 190px;
+  width: 210px;
   height: 454px;
   color: #000000ee;
   display: flex;
   align-items: center;
   flex-direction: column;
-  
+  background-image: linear-gradient(180deg, #fff, #acf);
+    border-radius: 8px;
+    border: 2px solid #000000ee;
+    box-shadow: 1px 1px 4px 4px #acf;
   @media (max-width: 426px) {
     height: 394px;
     width: 325px;
@@ -23,9 +26,8 @@ export const FormBox = styled(Box)`
 
 export const Label = styled(Typography)`
 font-family: fantasy !important;
-color: #acf !important;
--webkit-text-stroke: 1px #000000ee;
-font-size: 18px;
+color: #000000 !important;
+font-size: 18px !important;
 margin-top: 10px !important;
 `
 
@@ -34,7 +36,7 @@ export const Filters = styled.div`
   height: 408px;
   display: flex;
   flex-direction: column;
-  
+  align-items: center;
   @media (max-width: 426px) {
     height: 322px;
     width: 300px;
@@ -43,7 +45,7 @@ export const Filters = styled.div`
 `;
 
 export const Filter = styled.div`
-  width: 190px;
+  width: 180px;
   display: flex;
   flex-direction: column;
   
@@ -56,12 +58,11 @@ export const Filter = styled.div`
 `;
 
 export const inputBox = styled.div`
-  width: 188px;
+  width: 180px;
   height: 42px;
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0.8;
   & .MuiTextField-root {
     width: 220px;
     margin: 0;
@@ -96,7 +97,7 @@ export const InputText = styled(TextField)`
 `;
 
 export const SelectContainer = styled.div`
-  width: 188px;
+  width: 180px;
   
   @media (max-width: 426px) {
       width: 180px;
@@ -115,7 +116,6 @@ export const Buttons = styled.div`
     color: #000000ee;
     border: 1px solid #000000ee;
     font-family: fantasy;
-    opacity: 0.8;
     text-transform: none;
     &:hover {
       background-image: linear-gradient(180deg, #000000ee, #acf);
@@ -132,7 +132,7 @@ export const Buttons = styled.div`
 
 export const Search = styled(Button)`
   width: 110px;
-  height: 46px;
+  height: 36px;
   
 
   @media (max-width: 426px) {

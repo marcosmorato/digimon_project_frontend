@@ -12,7 +12,6 @@ export const PaginationContainer = styled(Box)`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  opacity: 0.8;
   
   @media (max-width: 426px) {
     width: 328px;
@@ -93,7 +92,6 @@ export const PaginationUi = styled(Pagination)`
     color: #000000ee;
     border: 1px solid #000000ee;
     font-family: fantasy;
-    opacity: 0.8;
     text-transform: none;
 
     &.Mui-selected {

@@ -66,8 +66,7 @@ export const Input = styled.div`
   
   & .MuiTypography-root {
     font-family: fantasy;
-    color: #acf;
-    -webkit-text-stroke: 1px #000000ee;
+    color: #000000ee;
     font-size: 18px;
     margin-top: 10px;
   }
@@ -95,6 +94,20 @@ export const InputBox = styled.div`
     font-family: fantasy;
     color: #000000ee;
     text-align: left;
+  }
+  
+  & .MuiInputBase-input {
+    font-family: fantasy;
+    color: #000000ee;
+    border-color: #000000ee;
+    border-radius: 4px;
+    background-image: linear-gradient(180deg, #fff, #acf);
+  }
+  
+  .MuiOutlinedInput-root {
+    &.Mui-focused fieldset {
+      border-color: #000000ee;
+    }
   }
     
   @media (max-width: 426px) {
@@ -129,7 +142,6 @@ export const ButtonBox = styled.div`
     color: #000000ee;
     border: 1px solid #000000ee;
     font-family: fantasy;
-    opacity: 0.8;
     text-transform: none;
     &:hover {
       background-image: linear-gradient(180deg, #000000ee, #acf);

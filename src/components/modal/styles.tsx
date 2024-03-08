@@ -26,7 +26,7 @@ export const PaperInfo = styled(Paper)`
   align-items: center;
   justify-content: space-between;
   overflow: hidden;
-  background-image: linear-gradient(180deg, #040024, #000000 );
+  background-image: linear-gradient(180deg, #acf, #fff );
   /* background-image: url("https://img.hype.games/cdn/67372575-d3d7-4576-8cb9-acfbe4663886Cover_Digimon.jpg");
   background-position: center;
   background-repeat: no-repeat; */
@@ -55,8 +55,8 @@ export const PaperInfo = styled(Paper)`
 
 export const Name = styled(Typography)`
   width: 1060px;
-  color: #fff;
-  -webkit-text-stroke: 1px #000000ee;
+  color: #000000ee;
+  -webkit-text-stroke: 1px #fff;
   text-align: center;
   
   @media (max-width: 426px) {
@@ -96,15 +96,14 @@ export const DescriptionsContainer = styled(Box)`
 export const TextContainerRight = styled(Box)`
   width: 300px;
   height: 120px;
-  color: #fff;
-  -webkit-text-stroke: 1px #000000ee;
+  color: #000000ee;
+  /* -webkit-text-stroke: 1px #fff; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
-  opacity: 0.7;
   & .MuiTypography-root {
-    font-size: 1rem;
+    font-size: 20px;
     font-family: fantasy;
     text-transform: none;
   }
@@ -118,19 +117,14 @@ export const TextContainerRight = styled(Box)`
 export const TextContainerLeft = styled(Box)`
   width: 300px;
   height: 120px;
-  color: #fff;
-  -webkit-text-stroke: 1px #000000ee;
+  color: #000000ee;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  opacity: 0.7;
   & .MuiTypography-root {
-    font-size: 1rem;
+    font-size: 18px;
     font-family: fantasy;
     text-transform: none;
-  }
-  &:hover {
-    opacity: 0.9;
   }
 `;
 
@@ -143,7 +137,8 @@ export const ImageContainer = styled(Box)`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  
+  box-shadow: 1px 1px 4px 4px rgba(1, 3, 45, 1);
+  border-radius: 10px;
   & .MuiSvgIcon-root {
     width: 24px;
     height: 24px;
@@ -206,9 +201,6 @@ export const infoContainerMobile = styled(Box)`
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-  }
-  &:hover {
-    opacity: 0.9;
   }
 `;
 
@@ -289,10 +281,9 @@ export const DescriptionContainer = styled(Box)`
   color: #000000ee;
   display: flex;
   flex-direction: column;
-  opacity: 0.8;
   padding: 12px;
   background-image: linear-gradient(180deg, #fff, #acf);
-
+  box-shadow: 1px 1px 4px 4px rgba(1, 3, 45, 1);
   @media (max-width: 426px) {
     width: 310px;
     height: 310px;

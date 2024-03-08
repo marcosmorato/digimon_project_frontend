@@ -119,7 +119,6 @@ export const ListMui = styled(List)`
   width: 190px;
   height: 430px;
   font-size: 16px !important;
-  opacity: 0.6;
   margin-top: 20px !important;
   
   & .MuiListItemButton-root {

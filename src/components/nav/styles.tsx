@@ -7,8 +7,8 @@ import {
 } from "@mui/material";
 
 export const ListMui = styled(List)`
-  width: 190px;
-  height: 430px;
+  width: 210px;
+  height: 454px;
 
   @media (max-width: 426px) {
     height: 308px;
@@ -17,7 +17,7 @@ export const ListMui = styled(List)`
 `;
 
 export const ListItemButtonMui = styled(ListItemButton)`
-  width: 186px;
+  width: 206px;
   
   &:hover {
     & .MuiTypography-root {
@@ -44,7 +44,7 @@ export const ListItemTextMui = styled(ListItemText)`
   & .MuiTypography-root {
     font-family: fantasy;
     color: #000000ee;
-
+    font-size: 20px;
   }
   
   @media (max-width: 426px) {

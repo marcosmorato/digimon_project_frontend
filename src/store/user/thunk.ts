@@ -9,16 +9,6 @@ import {
 import { ThunkAction, ThunkDispatch } from "redux-thunk";
 import { RootState, AppDispatch } from "../store";
 
-/* const loginSuccess = (data: any): AnyAction => ({
-  type: "LOGIN_SUCCESS",
-  payload: data,
-}); */
-
-/* const loginFailure = (error: any): AnyAction => ({
-  type: "LOGIN_FAILURE",
-  payload: error,
-}); */
-
 interface CustomAction<T = any> extends Action {
   type: string;
   payload?: T;
@@ -54,28 +44,32 @@ export const loginUserThunk = (
   ) => {
     try {
       let users = getState().UsersReducer;
-      const response = await api
-        .post("/user/authenticate", {
-          email: userData.email,
-          password: userData.password,
-        })
-        .then((res) => {
-          users = {
-            loggedUser: {
-              user: res.data,
-            },
-            isLogged: true,
-          };
-          return res.data;
-        })
-        .catch((error) => {
-          console.log(error, "error ao fazer a requisição");
-          return error;
-        });
-      dispatch(updateUsers(users));
+      const response = await api.post("/user/authenticate", {
+        email: userData.email,
+        password: userData.password,
+      });
+      users = {
+        loggedUser: {
+          user: response.data,
+        },
+        isLogged: true,
+      };
+      dispatch(loginSuccess(users));
+      return response.data;
+
     } catch (error) {
-      console.error(error);
-      dispatch(loginFailed(error));
+      console.log(error, "error ao fazer a requisição");
+      let users = {
+        loggedUser: {
+          user: {
+            name: "",
+            nickname: "",
+          },
+        },
+        isLogged: false,
+      };
+      /* dispatch(loginFailed(users)) */;
+      throw error;
     }
   };
 };
@@ -109,7 +103,6 @@ export const registerUserThunk = (
       dispatch(loginSuccess(response));
     } catch (error) {
       console.error(error);
-      dispatch(loginFailed(error));
     }
   };
 };
@@ -148,7 +141,7 @@ export const updateFavoriteThunk = (
       return Promise.resolve(); // Retorne uma promise vazia para cumprir o tipo de retorno Promise<void>
     } catch (error) {
       console.error(error);
-      dispatch(loginFailed(error));
+      /* dispatch(loginFailed(error)); */
       return Promise.reject(error); // Retorne uma promise rejeitada em caso de erro
     }
   };
@@ -156,3 +149,50 @@ export const updateFavoriteThunk = (
 
 /* setRegisterSuccess: (success: boolean) => void,
   setRegisterFailed: (failed: boolean) => void */
+
+ /*  
+  export const loginUserThunk = (
+    userData: loginUserData
+  ): ThunkAction<Promise<void>, RootState, unknown, AnyAction> => {
+    return async (
+      dispatch: ThunkDispatch<RootState, unknown, AnyAction>,
+      getState: () => any
+    ) => {
+      try {
+        let users = getState().UsersReducer;
+        const response = await api
+          .post("/user/authenticate", {
+            email: userData.email,
+            password: userData.password,
+          })
+          .then((res) => {
+            users = {
+              loggedUser: {
+                user: res.data,
+              },
+              isLogged: true,
+            };
+            dispatch(loginSuccess(users))
+            return res.data;
+          })
+          .catch((error) => {
+            console.log(error, "error ao fazer a requisição");
+            console.log('aqui ????')
+            users = {
+              loggedUser: {
+                user:{
+                  name: '',
+                  nickname: '',
+                },
+              },
+              isLogged: false,
+            }
+            dispatch(loginFailed(users));
+            return error;
+          });
+      } catch (error) {
+        console.error(error);
+      }
+    };
+  };
+   */
