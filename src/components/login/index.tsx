@@ -35,13 +35,10 @@ const Login: React.FC = () => {
 
   const handleForm = async (formData: FormData) => {
     try {
-      console.log('teste')
       const response = await dispatch(loginUserThunk(formData));
-      console.log(response); // Aqui response deve estar definido corretamente
       navigate("/home");
       return
     } catch (error) {
-      console.log('se tentar logar com o usuario errado cai aqui?')
       setLoginFailed({message: "E-mail or password invalid", failLogin: true})
       setShowModal(true)
       console.error('Erro ao fazer login:', error);

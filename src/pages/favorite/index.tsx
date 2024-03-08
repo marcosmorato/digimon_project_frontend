@@ -11,11 +11,9 @@ import { api } from "../../services/api";
 
 const Favorite: React.FC = () => {
   const [showFavorite, setShowFavorite] = useState(false);
-
   const [digimonFavorite, setDigimonFavorite] = useState<
-    IDigimonFavorite[] | []
+  IDigimonFavorite[] | []
   >([]);
-
   const user = useSelector((state: RootState) => state.user.loggedUser.user);
   const dispatch = useDispatch<AppDispatch>();
 
@@ -50,7 +48,11 @@ const Favorite: React.FC = () => {
     };
 
     fetchData();
-  }, [user.token]);
+  }, [user.token, digimonFavorite]);
+
+  useEffect(() => {
+    console.log('teste')
+  }, [user]);
 
   return (
     <GS.ContainerPage>
@@ -61,6 +63,8 @@ const Favorite: React.FC = () => {
           showFavorite={showFavorite}
           setShowFavorite={setShowFavorite}
           digimonsData={digimonFavorite || []}
+          userToken={user.token}
+          userFavorite={user.favorite}
         ></FavoriteBox>
       </GS.ContainerBody>
     </GS.ContainerPage>

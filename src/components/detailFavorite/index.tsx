@@ -1,5 +1,8 @@
 import React, {useState} from "react";
 import { IDigimonFavorite } from "../../utils/interfaces/digimons";
+import { updateFavoriteThunk } from "../../store/user/thunk";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../store/store";
 import * as S from "./styles";
 import * as GS from "../../utils/globalStyles/styles";
 
@@ -7,19 +10,36 @@ interface DetailScreenProps {
   onClose: () => void;
   isDetailOpen: boolean;
   selectedDetail: IDigimonFavorite;
+  userToken: string;
+  userFavorite: string[] | [];
 }
 
 const DetailScreen: React.FC<DetailScreenProps> = ({
   isDetailOpen,
   onClose,
   selectedDetail,
+  userToken,
+  userFavorite
 }) => {
   const openClass = "open"; // Nome da classe para a animação
   const [languageDescription, setLanguageDescription] = useState('jap')
+  const [favorite, setFavorite] = useState<boolean>(true)
   const classNames = ["DetailContainer", isDetailOpen ? openClass : ""].join(
     " "
   );
   const isMobile = window.innerWidth <= 426;
+  
+  const dispatch = useDispatch<AppDispatch>();
+  
+  const changeFavorite = async () => {
+    try {
+      await dispatch(updateFavoriteThunk(selectedDetail._id, userToken));
+      setFavorite(false)
+    } catch (error) {
+      console.error("Erro ao fazer a requisição:", error);
+    }
+  };
+  
   
   
   const previousEvolutionsName = selectedDetail.priorEvolutions?.map((el) => el.digimon)
@@ -30,8 +50,16 @@ const DetailScreen: React.FC<DetailScreenProps> = ({
       <>
         <S.ContainerLeft>
           <S.Close>
-            <S.BackArrow onClick={onClose}>Fechar</S.BackArrow>
+            <S.CloseIcon onClick={onClose}>Fechar</S.CloseIcon>
           </S.Close>
+          {favorite ? (
+            
+            <div>teste</div>
+          ) : (
+            <S.FavoriteBorderIconMui
+              onClick={() => changeFavorite()}
+            ></S.FavoriteBorderIconMui>
+          )}
           <S.ImageContainer>
             {selectedDetail.images.length !== 0 ? (
               <S.Image
@@ -153,8 +181,17 @@ const DetailScreen: React.FC<DetailScreenProps> = ({
       </>) : (<>
         <S.ContainerLeft>
           <S.Close>
-            <S.BackArrow onClick={onClose}>Fechar</S.BackArrow>
+            <S.CloseIcon onClick={onClose}>Fechar</S.CloseIcon>
           </S.Close>
+          {favorite ? (
+            <S.FavoriteIconMui
+              onClick={() => changeFavorite()}
+            ></S.FavoriteIconMui>
+          ) : (
+            <S.FavoriteBorderIconMui
+              onClick={() => changeFavorite()}
+            ></S.FavoriteBorderIconMui>
+          )}
           
           <S.ImageContainer>
             <S.descriptionBox>

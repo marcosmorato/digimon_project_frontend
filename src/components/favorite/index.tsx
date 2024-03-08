@@ -19,12 +19,16 @@ interface IFavorite {
   showFavorite: boolean;
   setShowFavorite: (newValue: boolean) => void;
   digimonsData: IDigimonFavorite[] | [];
+  userToken: string;
+  userFavorite: string[] | [];
 }
 
 const Favorite: React.FC<IFavorite> = ({
   showFavorite,
   setShowFavorite,
   digimonsData,
+  userToken,
+  userFavorite,
 }) => {
 
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -40,8 +44,9 @@ const Favorite: React.FC<IFavorite> = ({
     setIsDetailOpen(true);
   };
 
-  const handleDetailClose = () => {
+  const onClose = () => {
     setIsDetailOpen(false);
+    setCurrentPage(1)
   };
 
   const handlePageChange = (
@@ -71,6 +76,8 @@ const Favorite: React.FC<IFavorite> = ({
       console.error("Erro ao fazer a requisição:", error);
     } */
   };
+  
+
 
   return (
     <GS.ContainerExtra>
@@ -80,7 +87,9 @@ const Favorite: React.FC<IFavorite> = ({
             <DetailScreen
               selectedDetail={selectedDetail}
               isDetailOpen={isDetailOpen}
-              onClose={handleDetailClose}
+              onClose={onClose}
+              userToken={userToken}
+              userFavorite={userFavorite}
             />
           ) : (
             <>
@@ -124,7 +133,9 @@ const Favorite: React.FC<IFavorite> = ({
             <DetailScreen
               selectedDetail={selectedDetail}
               isDetailOpen={isDetailOpen}
-              onClose={handleDetailClose}
+              onClose={onClose}
+              userToken={userToken}
+              userFavorite={userFavorite}
             />
           ) : (
             <>

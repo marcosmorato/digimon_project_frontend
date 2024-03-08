@@ -5,9 +5,10 @@ import {
   Typography
 } from "@mui/material";
 
-import CloseIcon from '@mui/icons-material/Close';
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import CancelIcon from '@mui/icons-material/Cancel';
 import { typography } from "@mui/system";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 export const Close = styled.div`
   position: absolute; /* Define o posicionamento absoluto */
@@ -24,6 +25,32 @@ export const Close = styled.div`
   }
 `
 
+export const FavoriteIconMui = styled(FavoriteIcon)`
+  position: absolute;
+  width: 24px;
+  height: 23px;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+  color: #ff4646;
+  background-color: #acf;
+  border-radius: 6px;
+  border: 1px solid #000000ee;
+  box-shadow: 1px 1px 1px 1px #000000ee;
+`;
+
+export const FavoriteBorderIconMui = styled(FavoriteBorderIcon)`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+  color: #fff;
+  background-color: #acf;
+  border: 1px solid #000000ee;
+  box-shadow: 1px 1px 1px 1px #000000ee;
+  border-radius: 6px;
+`;
+
 export const Description = styled(Typography)`
   height: 32px;
   width: 310px;
@@ -38,13 +65,17 @@ export const Description = styled(Typography)`
   }
 `;
 
-export const BackArrow = styled(CloseIcon)`
+export const CloseIcon = styled(CancelIcon)`
   z-index: 1;
-  color: #000000ee;
+  color: #fff;
   opacity: 0.9;
   width: 24px;
   height: 23px;
   z-index: 1;
+  background-color: #acf;
+  border: 1px solid #000000ee;
+  box-shadow: 1px 1px 1px 1px #000000ee;
+  border-radius: 6px;
 `;
 
 export const Container = styled(Box)`
