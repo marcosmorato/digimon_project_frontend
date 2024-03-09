@@ -39,7 +39,7 @@ export const ContainerSide = styled(Box)`
     border-radius: 8px;
     border: 2px solid #000000ee;
     box-shadow: 1px 1px 4px 4px #acf;
-    padding-top: 0;
+    padding: 0;
 
     & .MuiListItemButton-root {
       &:hover {
@@ -60,7 +60,7 @@ export const ContainerSide = styled(Box)`
   
   @media (max-width: 426px) {
     margin-bottom: 30px;
-    height: 420px;
+    height: 440px;
     width: 100%;
     margin-right: 0;
     & .MuiTypography-h3 {
@@ -118,7 +118,7 @@ export const ContainerFilter = styled(Box)`
   
   @media (max-width: 426px) {
     margin-bottom: 30px;
-    height: 500px;
+    height: 540px;
     width: 100%;
     & .MuiTypography-h3 {
       font-size: 2rem;

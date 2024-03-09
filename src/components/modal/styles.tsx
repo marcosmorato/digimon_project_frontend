@@ -27,9 +27,6 @@ export const PaperInfo = styled(Paper)`
   justify-content: space-between;
   overflow: hidden;
   background-image: linear-gradient(180deg, #acf, #fff );
-  /* background-image: url("https://img.hype.games/cdn/67372575-d3d7-4576-8cb9-acfbe4663886Cover_Digimon.jpg");
-  background-position: center;
-  background-repeat: no-repeat; */
   border: 2px solid #000;
   background-size: cover;
   box-shadow: 1px 1px 4px 4px #acf !important;
@@ -46,7 +43,7 @@ export const PaperInfo = styled(Paper)`
     justify-content: flex-start;
     background-position: left;
     padding: 12px;
-    background-image: linear-gradient(90deg, #040024, #000000 );
+    background-image: linear-gradient(180deg, #acf, #fff );
     & .MuiTypography-h2 {
       font-size: 2rem;
     }
@@ -182,12 +179,15 @@ export const detailsMobile = styled.div`
   overflow-y: auto;
   height: 350px;
   width: 310px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
 
 export const infoContainerMobile = styled(Box)`
   width: 310px;
   height: 75px;
-  color: white;
+  color: #000000ee;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -285,7 +285,7 @@ export const DescriptionContainer = styled(Box)`
   background-image: linear-gradient(180deg, #fff, #acf);
   box-shadow: 1px 1px 4px 4px rgba(1, 3, 45, 1);
   @media (max-width: 426px) {
-    width: 310px;
+    width: 300px;
     height: 310px;
     padding: 12px;
     margin-top: 10px;
@@ -305,7 +305,7 @@ export const DescriptionNav = styled(Box)`
   color: #fff !important;
   }
   @media (max-width: 426px) {
-    width: 286px;
+    width: 276px;
     height: 20px;
   }
 `;
@@ -317,7 +317,7 @@ export const ButtonLanguage = styled(Button)`
   color: #acf !important;
   background-image: linear-gradient(180deg, #fff, #fff) !important;
   @media (max-width: 426px) {
-    width: 155px;
+    width: 138px;
     height: 18px;
   }
 `;
@@ -332,7 +332,7 @@ export const DescriptionText = styled(Typography)`
   @media (max-width: 426px) {
     height: 240px;
     margin-top: 10px;
-    width: 286px;
+    width: 276px;
   }
 `;
 

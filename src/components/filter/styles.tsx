@@ -18,9 +18,10 @@ export const FormBox = styled(Box)`
     border: 2px solid #000000ee;
     box-shadow: 1px 1px 4px 4px #acf;
   @media (max-width: 426px) {
-    height: 394px;
+    height: 424px;
     width: 325px;
     margin-top: 20px;
+    padding: 12px 0px;
   }
 `;
 

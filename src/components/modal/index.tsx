@@ -181,19 +181,19 @@ const Modal: React.FC<IModal> = ({
                     }
                 </S.infoContainerMobile>
                 <S.DescriptionContainer>
-                    {descriptions ?
-                      <>
-                      <S.DescriptionNav>
-                        <S.ButtonLanguage disabled={languageDescription === 'en_us' ? true : false} onClick={() => setLanguageDescription('en_us')}>EN</S.ButtonLanguage>
-                        <S.ButtonLanguage disabled={languageDescription === 'jap' ? true : false} onClick={() => setLanguageDescription('jap')}>JP</S.ButtonLanguage>
-                      </S.DescriptionNav>
-                      {descriptions.map((el) => 
-                        el.language === languageDescription ? <S.DescriptionText>{el.description}</S.DescriptionText> : null
-                      )}
-                      </>
-                    : 
-                      <S.Text variant="overline">Undefined</S.Text>
-                    }
+                  {descriptions ?
+                    <>
+                    <S.DescriptionNav>
+                      <S.ButtonLanguage disabled={languageDescription === 'en_us' ? true : false} onClick={() => setLanguageDescription('en_us')}>EN</S.ButtonLanguage>
+                      <S.ButtonLanguage disabled={languageDescription === 'jap' ? true : false} onClick={() => setLanguageDescription('jap')}>JP</S.ButtonLanguage>
+                    </S.DescriptionNav>
+                    {descriptions.map((el) => 
+                      el.language === languageDescription ? <S.DescriptionText>{el.description}</S.DescriptionText> : null
+                    )}
+                    </>
+                  : 
+                    <S.Text variant="overline">Undefined</S.Text>
+                  }
                 </S.DescriptionContainer>
                 <S.SelectContainerMobile>
                   <S.TextContainerLeft>

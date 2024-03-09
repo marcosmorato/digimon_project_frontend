@@ -11,7 +11,6 @@ interface DetailScreenProps {
   isDetailOpen: boolean;
   selectedDetail: IDigimonFavorite;
   userToken: string;
-  userFavorite: string[] | [];
 }
 
 const DetailScreen: React.FC<DetailScreenProps> = ({
@@ -19,14 +18,10 @@ const DetailScreen: React.FC<DetailScreenProps> = ({
   onClose,
   selectedDetail,
   userToken,
-  userFavorite
 }) => {
-  const openClass = "open"; // Nome da classe para a animação
+  const openClass = "open";
   const [languageDescription, setLanguageDescription] = useState('jap')
   const [favorite, setFavorite] = useState<boolean>(true)
-  const classNames = ["DetailContainer", isDetailOpen ? openClass : ""].join(
-    " "
-  );
   const isMobile = window.innerWidth <= 426;
   
   const dispatch = useDispatch<AppDispatch>();
@@ -39,11 +34,10 @@ const DetailScreen: React.FC<DetailScreenProps> = ({
       console.error("Erro ao fazer a requisição:", error);
     }
   };
-  
-  
-  
+
   const previousEvolutionsName = selectedDetail.priorEvolutions?.map((el) => el.digimon)
   const nextEvolutionsName = selectedDetail.nextEvolutions?.map((el) => el.digimon)
+  
   return (
     <S.Container>
       {isMobile ? (
@@ -212,16 +206,6 @@ const DetailScreen: React.FC<DetailScreenProps> = ({
             ) : (
               <></>
             )}
-
-            {/* {verifyFavorite() ? (
-                    <S.FavoriteIconMui
-                      onClick={() => changeFavorite()}
-                    ></S.FavoriteIconMui>
-                  ) : (
-                    <S.FavoriteBorderIconMui
-                      onClick={() => changeFavorite()}
-                    ></S.FavoriteBorderIconMui>
-                  )} */}
           </S.ImageContainer>
           
         </S.ContainerLeft>

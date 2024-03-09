@@ -36,11 +36,11 @@ const Nav: React.FC = () => {
             <S.ListItemTextMui>Favorites</S.ListItemTextMui>
           </S.ListItemIconMui>
         </S.ListItemButtonMui>
-        <S.ListItemButtonMui onClick={() => navigate("/gaming/home")}>
+        {/* <S.ListItemButtonMui onClick={() => navigate("/gaming/home")}>
           <S.ListItemIconMui>
             <S.ListItemTextMui>Gaming</S.ListItemTextMui>
           </S.ListItemIconMui>
-        </S.ListItemButtonMui>
+        </S.ListItemButtonMui> */}
       </S.ListMui>
     </GS.ContainerSide>
   );

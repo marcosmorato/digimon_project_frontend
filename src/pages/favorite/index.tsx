@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import HeaderBox from "../../components/header";
 import NavBox from "../../components/nav";
 import FavoriteBox from "../../components/favorite";
-import { AppDispatch, RootState } from "../../store/store";
-import { useDispatch } from "react-redux";
+import { RootState } from "../../store/store";
 import { useSelector } from "react-redux";
 import { IDigimonFavorite } from "../../utils/interfaces/digimons/index";
 import * as GS from "../../utils/globalStyles/styles";
@@ -15,7 +14,6 @@ const Favorite: React.FC = () => {
   IDigimonFavorite[] | []
   >([]);
   const user = useSelector((state: RootState) => state.user.loggedUser.user);
-  const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -40,6 +38,8 @@ const Favorite: React.FC = () => {
             .catch((error) => {
               console.log("erro ao fazer a requisição");
             });
+            
+            console.log("response received", response)
 
         } catch (error) {
           console.log(error);
@@ -49,10 +49,6 @@ const Favorite: React.FC = () => {
 
     fetchData();
   }, [user.token, digimonFavorite]);
-
-  useEffect(() => {
-    console.log('teste')
-  }, [user]);
 
   return (
     <GS.ContainerPage>
@@ -64,7 +60,6 @@ const Favorite: React.FC = () => {
           setShowFavorite={setShowFavorite}
           digimonsData={digimonFavorite || []}
           userToken={user.token}
-          userFavorite={user.favorite}
         ></FavoriteBox>
       </GS.ContainerBody>
     </GS.ContainerPage>

@@ -11,7 +11,7 @@ export const ListMui = styled(List)`
   height: 454px;
 
   @media (max-width: 426px) {
-    height: 308px;
+    height: 340px;
     width: 300px;
   }
 `;
