@@ -68,7 +68,6 @@ export const loginUserThunk = (
         },
         isLogged: false,
       };
-      /* dispatch(loginFailed(users)) */;
       throw error;
     }
   };
@@ -98,7 +97,6 @@ export const registerUserThunk = (
           console.log(error, "error ao fazer a requisição");
           return error;
         });
-      /* let users = getState().UsersReducer; */
 
       dispatch(loginSuccess(response));
     } catch (error) {
@@ -127,7 +125,7 @@ export const updateFavoriteThunk = (
           {
             digimonId: digimonId,
           },
-          { headers: headers } // Passa o objeto de configuração com os cabeçalhos
+          { headers: headers }
         )
         .then((res) => {
           return res.data;
@@ -138,11 +136,11 @@ export const updateFavoriteThunk = (
         });
 
       dispatch(updateFavorite(response.favorite));
-      return Promise.resolve(); // Retorne uma promise vazia para cumprir o tipo de retorno Promise<void>
+      return Promise.resolve();
     } catch (error) {
       console.error(error);
-      /* dispatch(loginFailed(error)); */
-      return Promise.reject(error); // Retorne uma promise rejeitada em caso de erro
+
+      return Promise.reject(error);
     }
   };
 };

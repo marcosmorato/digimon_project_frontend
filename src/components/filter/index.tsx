@@ -63,16 +63,13 @@ const Filter: React.FC<FilterBoxProps> = ({
     data: IDigimon[]
   ): IDigimon[] => {
     return data.filter((digimon) => {
-      // Verifique se o campo "attributes" do selectOption está vazio ou presente no Digimon
       if (filter.attributes && filter.attributes !== "") {
         if (!digimon.attributes.includes(filter.attributes)) {
           return false;
         }
       }
 
-      // Faça o mesmo para os outros campos (name e levels)
       if (filter.name && filter.name !== "") {
-        // Verifique se o campo "name" do selectOption está contido no nome do Digimon
         if (!digimon.name.toLowerCase().includes(filter.name.toLowerCase())) {
           return false;
         }
@@ -84,7 +81,6 @@ const Filter: React.FC<FilterBoxProps> = ({
         }
       }
 
-      // Verifique o campo xAntibody
       if (filter.xAntibody === "infected" && !digimon.xAntibody) {
         
         return false;
@@ -94,9 +90,7 @@ const Filter: React.FC<FilterBoxProps> = ({
         return false;
       }
 
-      // Verifique o campo "fields" do selectOption
       if (filter.fields && filter.fields !== "") {
-        // Verifique se o campo "fields" do selectOption está presente em algum objeto "field" do Digimon
         if (!digimon.fields.some((field) => field.field === filter.fields)) {
           return false;
         }

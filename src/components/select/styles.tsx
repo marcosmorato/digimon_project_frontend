@@ -7,6 +7,7 @@ import {
   Select,
   SelectChangeEvent,
 } from "@mui/material";
+import { theme } from '../../utils/globalStyles/theme'
 
 export const FormControlMui = styled(FormControl)<{ modalVersion?: string }>`
   width: 100%;
@@ -20,24 +21,24 @@ export const FormControlMui = styled(FormControl)<{ modalVersion?: string }>`
 
   label {
     font-family: fantasy !important;
-    color: #000000ee !important;
+    color: ${theme.colors.text} !important;
     width: 80px;
     text-align: left;
   }
 
   .MuiSvgIcon-root {
-    color: #000000ee;
+    color: ${theme.colors.text};
   }
 
   .MuiOutlinedInput-notchedOutline {
     font-family: fantasy !important;
-    color: #000000ee;
+    color: ${theme.colors.text};
     outline: none !important;
   }
 
   .MuiOutlinedInput-root {
     &.Mui-focused fieldset {
-      border-color: #000000ee !important;
+      border-color: ${theme.colors.black} !important;
     }
   }
 
@@ -46,11 +47,11 @@ export const FormControlMui = styled(FormControl)<{ modalVersion?: string }>`
   }
 
   & .MuiInputBase-input {
-    color: #000000ee;
+    color: ${theme.colors.text};
     font-family: fantasy !important;
-    border-color: #000000ee !important;
+    border-color: ${theme.colors.black} !important;
 
-    background-image: linear-gradient(180deg, #fff, #acf);
+    background-image: linear-gradient(180deg, ${theme.colors.secondary}, ${theme.colors.primary});
   }
 `;
 
@@ -61,27 +62,5 @@ export const SelectMui = styled(Select)`
 
 export const MenuItemMui = styled(MenuItem)`
     font-family: fantasy !important;
-    color: #000000ee !important;
+    color: ${theme.colors.text} !important;
 `;
-
-
-/* 
-
-& .MuiInputBase-input {
-
-  border-bottom: 2px solid yellow !important;
-
-
-  &:hover {
-    border-bottom: 2px solid red !important;
-  }
-
-  &.Mui-focused {
-    border-bottom: 2px solid red !important; 
-
-
-    &::after {
-      border-bottom: 2px solid red !important; 
-    }
-  }
-} */

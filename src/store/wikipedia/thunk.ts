@@ -95,9 +95,9 @@ export const wikipediaModalThunk = async (
         setStateFilter(false);
         return error;
       });
-    return response.data; // Retornar apenas a parte de dados da resposta
+    return response.data;
   } catch (error) {
     console.error("Erro ao fazer a requisição:", error);
-    throw error; // Você pode lidar com o erro no componente que chama essa função, se necessário.
+    throw error;
   }
 };

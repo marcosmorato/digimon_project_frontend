@@ -21,8 +21,6 @@ export const HeaderContainer = styled(Box)`
     text-decoration: none;
     outline: 0;
     font-weight: bold;
-    /* color: #12a5ff; */
-    /* background-color: #13151e; */
    
     color: #b8bbbf;
   }
@@ -46,7 +44,7 @@ export const Nickname = styled(Typography)`
 `;
 
 export const AvatarIcon = styled(AccountCircleIcon)`
-    z-index: 1; /* Para garantir que os ícones estejam acima da imagem */
+    z-index: 1;
     color: #b8bbbf;
     opacity: 0.9;
     top: 10px;

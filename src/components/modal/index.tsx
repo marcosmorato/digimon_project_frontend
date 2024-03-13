@@ -67,7 +67,6 @@ const Modal: React.FC<IModal> = ({
   userFavorite,
   userToken,
 }) => {
-  const [languageShow, setLanguageShow] = useState(true);
   descriptions?.sort((a, b) => (a.language === "en_us" ? -1 : 1));
   const [selectedOption, setSelectedOption] = useState<string>("");
   const isMobile = window.innerWidth <= 426;
@@ -123,6 +122,9 @@ const Modal: React.FC<IModal> = ({
         <S.InfoContainer>
           {isMobile ? (
             <>
+              <S.Close onClick={handleClose}>
+                <S.CloseIcon></S.CloseIcon>
+              </S.Close>
               <S.ImageContainer> 
                 <S.Image
                   digimonImage={image
@@ -233,6 +235,9 @@ const Modal: React.FC<IModal> = ({
             </>
           ) : (
             <>
+              <S.Close onClick={handleClose}>
+                <S.CloseIcon></S.CloseIcon>
+              </S.Close>
               <S.DescriptionsContainer>
                 <S.TextContainerLeft>
                   <S.Info variant="overline">Level:</S.Info>

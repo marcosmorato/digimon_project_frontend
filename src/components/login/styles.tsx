@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Button, TextField, Typography, Modal, Paper } from "@mui/material";
 import FeedbackIcon from '@mui/icons-material/Feedback';
+import { theme } from '../../utils/globalStyles/theme'
 
 export const Container = styled.div`
   width: 582px;
@@ -61,7 +62,7 @@ export const Input = styled.div`
   
   & .MuiTypography-root {
     font-family: fantasy;
-    color: #000000ee;
+    color: ${theme.colors.text};
     font-size: 18px;
     margin-top: 10px;
   }
@@ -87,21 +88,21 @@ export const InputBox = styled.div`
   }
   label {
     width: 110px;
-    color: #000000ee;
+    color: ${theme.colors.text};
     font-family: fantasy;
     text-align: left;
   }
   & .MuiInputBase-input {
     font-family: fantasy;
-    color: #000000ee;
-    border-color: #000000ee;
+    color: ${theme.colors.text};
+    border-color: ${theme.colors.black};
     border-radius: 4px;
-    background-image: linear-gradient(180deg, #fff, #acf);
+    background-image: linear-gradient(180deg, ${theme.colors.primary}, ${theme.colors.secondary});
   }
   
   .MuiOutlinedInput-root {
     &.Mui-focused fieldset {
-      border-color: #000000ee;
+      border-color: ${theme.colors.black};
     }
   }
   
@@ -126,17 +127,16 @@ export const ButtonBox = styled.div`
   align-items: center;
   margin-top: 20px;
   & .MuiButton-root{
-    background-image: linear-gradient(180deg, #fff, #acf);
-    color: #000000ee;
-    border: 1px solid #000000ee;
+    background-image: linear-gradient(180deg, ${theme.colors.secondary}, ${theme.colors.primary});
+    color: ${theme.colors.text};
+    border: 1px solid ${theme.colors.black};
     font-family: fantasy;
     text-transform: none;
     &:hover {
-      background-image: linear-gradient(180deg, #000000ee, #acf);
-      color: #fff !important;
-      border: 1px solid #fff;
-  }
-  
+      background-image: linear-gradient(180deg, ${theme.colors.black}, ${theme.colors.primary});
+      color: ${theme.colors.white} !important;
+      border: 1px solid ${theme.colors.white};
+    }
   }
   @media (max-width: 426px) {
       margin-top: 12px;
@@ -156,7 +156,7 @@ export const Login = styled(Button)`
 `;
 
 export const ModalUi = styled(Modal)`
-  background-color: rgba(1, 3, 45, 0.9);
+  background-color: ${theme.colors.tertiary};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -171,16 +171,15 @@ export const PaperInfo = styled(Paper)`
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-image: linear-gradient(180deg, #040024, #000000 );
-  border: 2px solid #000;
+  background-image: linear-gradient(180deg, ${theme.colors.primary}, ${theme.colors.secondary});
+  border: 2px solid ${theme.colors.black};
   background-size: cover;
-  box-shadow: 1px 1px 4px 4px #acf !important;
+  box-shadow: 1px 1px 4px 4px ${theme.colors.primary} !important;
   padding: 16px;
   
   & .MuiTypography-root {
     font-family: fantasy;
-    color: #acf;
-    -webkit-text-stroke: 1px #000000ee;
+    color: ${theme.colors.text};
     font-size: 18px;
     margin-top: 10px;
     text-align: center;
@@ -191,15 +190,29 @@ export const PaperInfo = styled(Paper)`
     height: 50px;
   }
   
+  & .MuiButton-root{
+    background-image: linear-gradient(180deg, ${theme.colors.secondary}, ${theme.colors.primary});
+    color: ${theme.colors.text};
+    border: 1px solid ${theme.colors.black};
+    font-family: fantasy;
+    text-transform: none;
+    margin: 16px 0px 6px 0px;
+    &:hover {
+      background-image: linear-gradient(180deg, ${theme.colors.black}, ${theme.colors.primary});
+      color: ${theme.colors.white} !important;
+      border: 1px solid ${theme.colors.white};
+    }
+  }
+  
   @media (max-width: 426px) {
     width: 352px;
-    height: 780px;
-    top: 20px;
-    left: 36px;
-    justify-content: flex-start;
+    height: 330px;
+    top: center;
+    left: center;
+    justify-content: center;
     background-position: left;
     padding: 12px;
-    background-image: linear-gradient(90deg, #040024, #000000 );
+    background-image: linear-gradient(180deg, ${theme.colors.primary}, ${theme.colors.secondary});
     & .MuiTypography-h2 {
       font-size: 2rem;
     }
@@ -208,8 +221,6 @@ export const PaperInfo = styled(Paper)`
 
 export const FeedbackIconMui = styled(FeedbackIcon)`
   z-index: 1;
-  color: #fff;
-  /* width: 50px !important;
-  height: 50px !important; */
+  color: ${theme.colors.text};
 
 `

@@ -5,6 +5,7 @@ import {
   Pagination,
   Stack,
 } from "@mui/material";
+import { theme } from '../../utils/globalStyles/theme'
 
 export const PaginationContainer = styled(Box)`
   width: 784px;
@@ -27,7 +28,7 @@ export const NameContainer = styled(Box)`
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  color: #000000ee;
+  color: ${theme.colors.text};
   margin-top: 8px;
   & .MuiButton-root {
     display: flow;
@@ -35,24 +36,24 @@ export const NameContainer = styled(Box)`
     text-overflow: ellipsis;
     text-transform: none;
     margin: 0 16px;
-    border: 2px solid #000000ee;
+    border: 2px solid ${theme.colors.black};
     font-family: fantasy;
-    color: #000000ee;
-    background-image: linear-gradient(180deg, #fff, #acf);
+    color: ${theme.colors.text};
+    background-image: linear-gradient(180deg, ${theme.colors.secondary}, ${theme.colors.primary});
     font-size: 16px;
 
     
     &:hover {
-      background-image: linear-gradient(180deg, #000000ee, #acf);
-      color: #fff !important;
-      -webkit-text-stroke: 1px #000000ee;
-      border: 2px solid #fff;
+      background-image: linear-gradient(180deg, ${theme.colors.black}, ${theme.colors.primary});
+      color: ${theme.colors.white} !important;
+      -webkit-text-stroke: 1px ${theme.colors.text};
+      border: 2px solid ${theme.colors.secondary};
       opacity: 1 !important;
     }
   }
      
   & .Mui-disabled {
-    color: #ff0000cc !important;
+    color: ${theme.colors.error} !important;
   }
   
   @media (max-width: 426px) {
@@ -88,22 +89,22 @@ export const StackUi = styled(Stack)`
 
 export const PaginationUi = styled(Pagination)`
   & .MuiPaginationItem-root {
-    background-image: linear-gradient(180deg, #fff, #acf);
-    color: #000000ee;
-    border: 1px solid #000000ee;
+    background-image: linear-gradient(180deg, ${theme.colors.secondary}, ${theme.colors.primary});
+    color: ${theme.colors.text};
+    border: 1px solid ${theme.colors.black};
     font-family: fantasy;
     text-transform: none;
 
     &.Mui-selected {
-      background-image: linear-gradient(180deg, #000000ee, #acf);
-      color: #fff !important;
-      border: 1px solid #fff;
+      background-image: linear-gradient(180deg, ${theme.colors.black}, ${theme.colors.primary});
+      color: ${theme.colors.white} !important;
+      border: 1px solid ${theme.colors.secondary};
     }
 
     &:hover {
-      background-image: linear-gradient(180deg, #000000ee, #acf);
-      color: #fff !important;
-      border: 1px solid #fff;
+      background-image: linear-gradient(180deg, ${theme.colors.black}, ${theme.colors.primary});
+      color: ${theme.colors.white} !important;
+      border: 1px solid ${theme.colors.secondary};
     }
   }
 `;

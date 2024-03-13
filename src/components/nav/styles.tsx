@@ -5,6 +5,7 @@ import {
   ListItemIcon,
   ListItemText,
 } from "@mui/material";
+import { theme } from '../../utils/globalStyles/theme'
 
 export const ListMui = styled(List)`
   width: 210px;
@@ -21,7 +22,7 @@ export const ListItemButtonMui = styled(ListItemButton)`
   
   &:hover {
     & .MuiTypography-root {
-      color: #fff;
+      color: ${theme.colors.white};
     }
   }
   
@@ -43,7 +44,7 @@ export const ListItemTextMui = styled(ListItemText)`
 
   & .MuiTypography-root {
     font-family: fantasy;
-    color: #000000ee;
+    color: ${theme.colors.text};
     font-size: 20px;
   }
   

@@ -6,8 +6,8 @@ import {
   Card,
   CardContent,
   CardMedia,
-  Typography
 } from "@mui/material";
+import { theme } from '../../utils/globalStyles/theme'
 
 import AspectRatioIcon from "@mui/icons-material/AspectRatio";
 
@@ -36,22 +36,22 @@ export const StackUi = styled(Stack)`
 
 export const PaginationUi = styled(Pagination)`
   & .MuiPaginationItem-root {
-    background-image: linear-gradient(180deg, #fff, #acf);
-    color: #000000ee;
-    border: 1px solid #000000ee;
+    background-image: linear-gradient(180deg, ${theme.colors.secondary}, ${theme.colors.primary});
+    color: ${theme.colors.text};
+    border: 1px solid ${theme.colors.black};
     font-family: fantasy;
     text-transform: none;
 
     &.Mui-selected {
-      background-image: linear-gradient(180deg, #000000ee, #acf);
-      color: #fff !important;
-      border: 1px solid #fff;
+      background-image: linear-gradient(180deg, ${theme.colors.black}, ${theme.colors.primary});
+      color: ${theme.colors.white} !important;
+      border: 1px solid ${theme.colors.secondary};
     }
 
     &:hover {
-      background-image: linear-gradient(180deg, #000000ee, #acf);
-      color: #fff !important;
-      border: 1px solid #fff;
+      background-image: linear-gradient(180deg, ${theme.colors.black}, ${theme.colors.primary});
+      color: ${theme.colors.white} !important;
+      border: 1px solid ${theme.colors.secondary};
     }
   }
 `;
@@ -89,25 +89,21 @@ export const CardMui = styled(Card)`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: linear-gradient(180deg, #fff, #acf);
+  background-image: linear-gradient(180deg, ${theme.colors.secondary}, ${theme.colors.primary});
   border-radius: 8px;
-  border: 1px solid #000;
-  box-shadow: 1px 1px 4px 4px #acf !important;
+  border: 1px solid ${theme.colors.black};
+  box-shadow: 1px 1px 4px 4px ${theme.colors.primary} !important;
   & .MuiCardMedia-root {
     background-size: contain;
   }
   & .MuiTypography-overline {
     overflow: hidden;
-    /* text-overflow: ellipsis; */
     text-transform: none;
-    /* white-space: nowrap; */
     -webkit-text-stroke: 0px;
-    color: #000000ee;
+    color: ${theme.colors.text};
     line-height: 1.66rem;
     font-size: 16px;
-  
   }
-  
   & .MuiCardContent-root:last-child {
     padding: 4px;
   }
@@ -123,20 +119,17 @@ export const CardMui = styled(Card)`
 export const CardMediaMui = styled(CardMedia)`
   height: 130px;
   width: 130px;
-  border-bottom: 1px solid #000000ee;
+  border-bottom: 1px solid ${theme.colors.black};
   border-radius: 8px;
   @media (max-width: 426px) {
     width: 160px;
     height: 160px;
-    /* margin: 2px 0px; */
-    /* align-items: center;
-    justify-content: center; */
   }
 `;
 
 export const MaximizeIcon = styled(AspectRatioIcon)`
   width: 16px;
   height: 16px;
-  color: #000000ee;
-  box-shadow: 1px 1px 1px 1px #000000ee;
+  color: ${theme.colors.text};
+  box-shadow: 1px 1px 1px 1px ${theme.colors.black};
 `;

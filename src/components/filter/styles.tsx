@@ -5,18 +5,19 @@ import {
   TextField,
   Typography
 } from "@mui/material";
+import { theme } from '../../utils/globalStyles/theme'
 
 export const FormBox = styled(Box)`
   width: 210px;
   height: 454px;
-  color: #000000ee;
+  color: ${theme.colors.text};
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-image: linear-gradient(180deg, #fff, #acf);
+  background-image: linear-gradient(180deg, ${theme.colors.secondary}, ${theme.colors.primary});
     border-radius: 8px;
-    border: 2px solid #000000ee;
-    box-shadow: 1px 1px 4px 4px #acf;
+    border: 2px solid ${theme.colors.black};
+    box-shadow: 1px 1px 4px 4px ${theme.colors.primary};
   @media (max-width: 426px) {
     height: 424px;
     width: 325px;
@@ -27,7 +28,7 @@ export const FormBox = styled(Box)`
 
 export const Label = styled(Typography)`
 font-family: fantasy !important;
-color: #000000 !important;
+color: ${theme.colors.text} !important;
 font-size: 18px !important;
 margin-top: 10px !important;
 `
@@ -75,16 +76,16 @@ export const inputBox = styled.div`
   }
   & .MuiInputBase-input {
     font-family: fantasy;
-    color: #000000ee;
-    border-color: #000000ee;
+    color: ${theme.colors.text};
+    border-color: ${theme.colors.black};
     border-radius: 4px;
-    background-image: linear-gradient(180deg, #fff, #acf);
+    background-image: linear-gradient(180deg, ${theme.colors.secondary}, ${theme.colors.primary});
     
   }
 
   .MuiOutlinedInput-root {
     &.Mui-focused fieldset {
-      border-color: #000000ee;
+      border-color: ${theme.colors.black};
     }
   }
   
@@ -113,15 +114,15 @@ export const Buttons = styled.div`
   align-items: center;
   
   & .MuiButton-root{
-    background-image: linear-gradient(180deg, #fff, #acf);
-    color: #000000ee;
-    border: 1px solid #000000ee;
+    background-image: linear-gradient(180deg, ${theme.colors.secondary}, ${theme.colors.primary});
+    color: ${theme.colors.text};
+    border: 1px solid ${theme.colors.black};
     font-family: fantasy;
     text-transform: none;
     &:hover {
-      background-image: linear-gradient(180deg, #000000ee, #acf);
-      color: #fff !important;
-      border: 1px solid #fff;
+      background-image: linear-gradient(180deg, ${theme.colors.black}, ${theme.colors.primary});
+      color: ${theme.colors.white} !important;
+      border: 1px solid ${theme.colors.secondary};
   }
   
   }

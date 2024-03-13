@@ -5,7 +5,7 @@ body {
     "Helvetica", "Arial", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  position: fixed; /* Define a posição como fixa */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -35,7 +35,7 @@ body::before {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  z-index: -1; /* Certifique-se de que o pseudo-elemento fique por trás do conteúdo */
+  z-index: -1;
 }
 
 code {

@@ -29,7 +29,6 @@ const WikipediaReducer: Reducer<IDigimonReducer, UpdateWikipediaAction> = (
       return action.newState;
     case RESET_FILTERS:
       if (initialSetAllDigimonState !== null) {
-        // Se o estado inicial estiver disponível, redefina para ele
         return { ...initialSetAllDigimonState };
       }
       return state;

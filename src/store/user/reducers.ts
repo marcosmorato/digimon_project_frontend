@@ -79,16 +79,3 @@ const UsersReducer: Reducer<UsersState, UpdateUsersAction> = (
 };
 
 export default UsersReducer;
-
-/* case LOGIN_FAILED:
-      return {
-        ...state,
-        loggedUser: action.payload.loggedUser, // Atualiza os dados do usuário logado
-        isLogged: false, // Define isLogged como true
-      };
-    case LOGIN_SUCCESS:
-      return {
-        ...state,
-        loggedUser: action.payload.loggedUser, // Atualiza os dados do usuário logado
-        isLogged: true, // Define isLogged como true
-      }; */

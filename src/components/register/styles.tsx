@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Button, TextField, Typography } from "@mui/material";
+import { theme } from '../../utils/globalStyles/theme'
 
 export const Container = styled.div`
   width: 582px;
@@ -31,8 +32,8 @@ export const Form = styled.form`
   & button {
     &:hover {
       cursor: pointer;
-      background-color: #000000ee;
-      box-shadow: 0.1em 0.1em 0.2em #acf;
+      background-color: ${theme.colors.black};
+      box-shadow: 0.1em 0.1em 0.2em ${theme.colors.primary};
       
     }
   }
@@ -66,7 +67,7 @@ export const Input = styled.div`
   
   & .MuiTypography-root {
     font-family: fantasy;
-    color: #000000ee;
+    color: ${theme.colors.text};
     font-size: 18px;
     margin-top: 10px;
   }
@@ -92,21 +93,21 @@ export const InputBox = styled.div`
   label {
     width: 110px;
     font-family: fantasy;
-    color: #000000ee;
+    color: ${theme.colors.text};
     text-align: left;
   }
   
   & .MuiInputBase-input {
     font-family: fantasy;
-    color: #000000ee;
-    border-color: #000000ee;
+    color: ${theme.colors.text};
+    border-color: ${theme.colors.black};
     border-radius: 4px;
-    background-image: linear-gradient(180deg, #fff, #acf);
+    background-image: linear-gradient(180deg, ${theme.colors.secondary}, ${theme.colors.primary});
   }
   
   .MuiOutlinedInput-root {
     &.Mui-focused fieldset {
-      border-color: #000000ee;
+      border-color: ${theme.colors.black};
     }
   }
     
@@ -120,14 +121,14 @@ export const InputBox = styled.div`
 
 export const InputText = styled(TextField)`
   & .MuiInputBase-input {
-    color: #000000ee;
+    color: ${theme.colors.text};
     font-family: fantasy;
-    background-image: linear-gradient(180deg, #fff, #acf);
+    background-image: linear-gradient(180deg, ${theme.colors.secondary}, ${theme.colors.primary});
   }
   
   & .Mui-focused {
     color: #1976d2;
-    border-color: #000 !important;
+    border-color: ${theme.colors.black} !important;
   }
 `;
   
@@ -138,15 +139,15 @@ export const ButtonBox = styled.div`
   justify-content: center;
   align-items: center;
   & .MuiButton-root{
-    background-image: linear-gradient(180deg, #fff, #acf);
-    color: #000000ee;
-    border: 1px solid #000000ee;
+    background-image: linear-gradient(180deg, ${theme.colors.secondary}, ${theme.colors.primary});
+    color: ${theme.colors.text};
+    border: 1px solid ${theme.colors.black};
     font-family: fantasy;
     text-transform: none;
     &:hover {
-      background-image: linear-gradient(180deg, #000000ee, #acf);
-      color: #fff !important;
-      border: 1px solid #fff;
+      background-image: linear-gradient(180deg, ${theme.colors.black}, ${theme.colors.primary});
+      color: ${theme.colors.white} !important;
+      border: 1px solid ${theme.colors.secondary};
   }
   }
    @media (max-width: 426px) {

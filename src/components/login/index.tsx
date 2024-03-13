@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import * as S from "./styles";
@@ -37,6 +37,7 @@ const Login: React.FC = () => {
     try {
       const response = await dispatch(loginUserThunk(formData));
       navigate("/home");
+      console.log('Success Login', response)
       return
     } catch (error) {
       setLoginFailed({message: "E-mail or password invalid", failLogin: true})

@@ -6,30 +6,32 @@ import {
   Modal,
   Typography,
 } from "@mui/material";
+import { theme } from '../../utils/globalStyles/theme'
 
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import CancelIcon from '@mui/icons-material/Cancel';
 
 export const ModalUi = styled(Modal)`
-  background-color: rgba(1, 3, 45, 0.9);
-  
+  background-color: ${theme.colors.tertiary};
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const PaperInfo = styled(Paper)`
   width: 1100px;
   height: 700px;
-  top: 88px;
-  left: 170px;
   position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   overflow: hidden;
-  background-image: linear-gradient(180deg, #acf, #fff );
-  border: 2px solid #000;
+  background-image: linear-gradient(180deg, ${theme.colors.primary}, ${theme.colors.secondary} );
+  border: 2px solid ${theme.colors.black};
   background-size: cover;
-  box-shadow: 1px 1px 4px 4px #acf !important;
+  box-shadow: 1px 1px 4px 4px ${theme.colors.primary} !important;
   padding: 16px;
   & .MuiTypography-h2 {
       font-family: fantasy;
@@ -37,28 +39,57 @@ export const PaperInfo = styled(Paper)`
   
   @media (max-width: 426px) {
     width: 352px;
-    height: 780px;
+    height: 810px;
     top: 20px;
     left: 36px;
     justify-content: flex-start;
     background-position: left;
     padding: 12px;
-    background-image: linear-gradient(180deg, #acf, #fff );
+    background-image: linear-gradient(180deg, ${theme.colors.primary}, ${theme.colors.secondary} );
     & .MuiTypography-h2 {
       font-size: 2rem;
     }
   }
 `;
 
+export const Close = styled.div`
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 1;
+  
+  & :hover {
+    cursor: pointer;
+  }
+  @media (max-width: 426px) {
+    top: 8px;
+    right: 12px;
+  }
+`
+
+export const CloseIcon = styled(CancelIcon)`
+  z-index: 1;
+  color: ${theme.colors.white};
+  opacity: 0.9;
+  width: 24px;
+  height: 23px;
+  z-index: 1;
+  background-color: ${theme.colors.primary};
+  border: 1px solid ${theme.colors.black};
+  box-shadow: 1px 1px 1px 1px ${theme.colors.black};
+  border-radius: 6px;
+`;
+
 export const Name = styled(Typography)`
   width: 1060px;
-  color: #000000ee;
-  -webkit-text-stroke: 1px #fff;
+  color: ${theme.colors.text};
+  -webkit-text-stroke: 1px ${theme.colors.secondary};
   text-align: center;
   
   @media (max-width: 426px) {
-    width: 310px;
+    width: 290px;
     max-height: 75px;
+    margin-top: 30px !important;
   }
 `;
 
@@ -71,7 +102,7 @@ export const InfoContainer = styled(Box)`
   
   @media (max-width: 426px) {
     width: 310px;
-    height: 720px;
+    height: 760px;
     flex-direction: column;
     justify-content: flex-start;
   }
@@ -93,8 +124,7 @@ export const DescriptionsContainer = styled(Box)`
 export const TextContainerRight = styled(Box)`
   width: 300px;
   height: 120px;
-  color: #000000ee;
-  /* -webkit-text-stroke: 1px #fff; */
+  color: ${theme.colors.text};
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -114,7 +144,7 @@ export const TextContainerRight = styled(Box)`
 export const TextContainerLeft = styled(Box)`
   width: 300px;
   height: 120px;
-  color: #000000ee;
+  color: ${theme.colors.text};
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -128,13 +158,13 @@ export const TextContainerLeft = styled(Box)`
 export const ImageContainer = styled(Box)`
   width: 320px;
   height: 320px;
-  color: #000000ee;
+  color: ${theme.colors.text};
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  box-shadow: 1px 1px 4px 4px rgba(1, 3, 45, 1);
+  box-shadow: 1px 1px 4px 4px ${theme.colors.tertiary};
   border-radius: 10px;
   & .MuiSvgIcon-root {
     width: 24px;
@@ -177,7 +207,7 @@ export const SelectContainer = styled.div`
 
 export const detailsMobile = styled.div`
   overflow-y: auto;
-  height: 350px;
+  height: 380px;
   width: 310px;
   display: flex;
   flex-direction: column;
@@ -187,7 +217,7 @@ export const detailsMobile = styled.div`
 export const infoContainerMobile = styled(Box)`
   width: 310px;
   height: 75px;
-  color: #000000ee;
+  color: ${theme.colors.text};
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -207,7 +237,7 @@ export const infoContainerMobile = styled(Box)`
 export const SelectContainerMobile = styled(Box)`
   width: 310px;
   height: 120px;
-  color: white;
+  color: ${theme.colors.white};
   display: flex;
   justify-content: center;
   margin-top: 50px;
@@ -224,11 +254,11 @@ export const FavoriteIconMui = styled(FavoriteIcon)`
   top: 10px;
   right: 10px;
   z-index: 1;
-  color: #ff4646;
-  background-color: #acf;
+  color: ${theme.colors.error};
+  background-color: ${theme.colors.primary};
   border-radius: 6px;
-  border: 1px solid #000000ee;
-  box-shadow: 1px 1px 1px 1px #000000ee;
+  border: 1px solid ${theme.colors.black};
+  box-shadow: 1px 1px 1px 1px ${theme.colors.black};
 `;
 
 export const FavoriteBorderIconMui = styled(FavoriteBorderIcon)`
@@ -236,10 +266,10 @@ export const FavoriteBorderIconMui = styled(FavoriteBorderIcon)`
   top: 10px;
   right: 10px;
   z-index: 1;
-  color: #fff;
-  background-color: #acf;
-  border: 1px solid #000000ee;
-  box-shadow: 1px 1px 1px 1px #000000ee;
+  color: ${theme.colors.white};
+  background-color: ${theme.colors.primary};
+  border: 1px solid ${theme.colors.black};
+  box-shadow: 1px 1px 1px 1px ${theme.colors.black};
   border-radius: 6px;
 `;
 
@@ -278,14 +308,14 @@ export const DescriptionContainer = styled(Box)`
   height: 180px;
   margin-top: 20px;
   border-radius: 10px;
-  color: #000000ee;
+  color: ${theme.colors.text};
   display: flex;
   flex-direction: column;
   padding: 12px;
-  background-image: linear-gradient(180deg, #fff, #acf);
-  box-shadow: 1px 1px 4px 4px rgba(1, 3, 45, 1);
+  background-image: linear-gradient(180deg, ${theme.colors.secondary}, ${theme.colors.primary});
+  box-shadow: 1px 1px 4px 4px ${theme.colors.tertiary};
   @media (max-width: 426px) {
-    width: 300px;
+    width: 296px;
     height: 310px;
     padding: 12px;
     margin-top: 10px;
@@ -301,11 +331,11 @@ export const DescriptionNav = styled(Box)`
   display: flex;
   margin-bottom: 10px;
   & .Mui-disabled {
-  background-image: linear-gradient(180deg, #acf, #000) !important;
-  color: #fff !important;
+  background-image: linear-gradient(180deg, ${theme.colors.primary}, ${theme.colors.black}) !important;
+  color: ${theme.colors.white} !important;
   }
   @media (max-width: 426px) {
-    width: 276px;
+    width: 270px;
     height: 20px;
   }
 `;
@@ -314,10 +344,10 @@ export const ButtonLanguage = styled(Button)`
   width: 193px;
   height: 18px;
   font-family: fantasy !important;
-  color: #acf !important;
-  background-image: linear-gradient(180deg, #fff, #fff) !important;
+  color: ${theme.colors.primary} !important;
+  background-image: linear-gradient(180deg, ${theme.colors.secondary}, ${theme.colors.secondary}) !important;
   @media (max-width: 426px) {
-    width: 138px;
+    width: 135px;
     height: 18px;
   }
 `;
@@ -332,14 +362,14 @@ export const DescriptionText = styled(Typography)`
   @media (max-width: 426px) {
     height: 240px;
     margin-top: 10px;
-    width: 276px;
+    width: 270px;
   }
 `;
 
 export const FieldsContainer = styled(Box)`
   max-width: 260px;
   height: 40px;
-  color: #000000ee;
+  color: ${theme.colors.text};
   position: relative;
   display: flex;
   justify-content: space-around;

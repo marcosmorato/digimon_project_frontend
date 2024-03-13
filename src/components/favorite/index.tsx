@@ -70,7 +70,6 @@ const Favorite: React.FC<IFavorite> = ({
         {isDetailOpen && selectedDetail ? (
           <DetailScreen
             selectedDetail={selectedDetail}
-            isDetailOpen={isDetailOpen}
             onClose={onClose}
             userToken={userToken}
           />
@@ -115,7 +114,6 @@ const Favorite: React.FC<IFavorite> = ({
         {isDetailOpen && selectedDetail ? (
           <DetailScreen
             selectedDetail={selectedDetail}
-            isDetailOpen={isDetailOpen}
             onClose={onClose}
             userToken={userToken}
           />

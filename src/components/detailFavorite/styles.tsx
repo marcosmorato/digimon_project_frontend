@@ -4,6 +4,7 @@ import {
   Button,
   Typography
 } from "@mui/material";
+import { theme } from '../../utils/globalStyles/theme'
 
 import CancelIcon from '@mui/icons-material/Cancel';
 import { typography } from "@mui/system";
@@ -11,19 +12,40 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 export const Close = styled.div`
-  position: absolute; /* Define o posicionamento absoluto */
-  top: 14px; /* Posição em relação ao topo do container pai */
-  left: 4px; /* Posição em relação à direita do container pai */
-  z-index: 1; /* Garante que o botão de fechar esteja acima do conteúdo */
+  position: absolute;
+  top: 14px;
+  left: 4px;
+  z-index: 1;
   
   & :hover {
     cursor: pointer;
   }
+  
   @media (max-width: 426px) {
-    margin: 4px 0px 10px 0px;
-    width: 280px;
+    top: 10px;
+    left: 10px;
   }
 `
+
+export const CloseIcon = styled(CancelIcon)`
+  position: absolute;
+  color: ${theme.colors.white};
+  opacity: 0.9;
+  width: 24px;
+  height: 24px;
+  top: 10px;
+  left: 6px;
+  z-index: 1;
+  background-color: ${theme.colors.primary};
+  border: 1px solid ${theme.colors.black};
+  box-shadow: 1px 1px 1px 1px ${theme.colors.black};
+  border-radius: 6px;
+    
+  @media (max-width: 426px) {
+    top: 6px;
+    left: 12px;
+  }
+`;
 
 export const FavoriteIconMui = styled(FavoriteIcon)`
   position: absolute;
@@ -32,11 +54,15 @@ export const FavoriteIconMui = styled(FavoriteIcon)`
   top: 10px;
   right: 10px;
   z-index: 1;
-  color: #ff4646;
-  background-color: #acf;
+  color: ${theme.colors.error};
+  background-color: ${theme.colors.primary};
   border-radius: 6px;
-  border: 1px solid #000000ee;
-  box-shadow: 1px 1px 1px 1px #000000ee;
+  border: 1px solid ${theme.colors.black};
+  box-shadow: 1px 1px 1px 1px ${theme.colors.black};
+  @media (max-width: 426px) {
+    top: 6px;
+    right: 12px;
+  }
 `;
 
 export const FavoriteBorderIconMui = styled(FavoriteBorderIcon)`
@@ -44,39 +70,30 @@ export const FavoriteBorderIconMui = styled(FavoriteBorderIcon)`
   top: 10px;
   right: 10px;
   z-index: 1;
-  color: #fff;
-  background-color: #acf;
-  border: 1px solid #000000ee;
-  box-shadow: 1px 1px 1px 1px #000000ee;
+  color: ${theme.colors.secondary};
+  background-color: ${theme.colors.primary};
   border-radius: 6px;
+  border: 1px solid ${theme.colors.black};
+  box-shadow: 1px 1px 1px 1px ${theme.colors.black};
+  @media (max-width: 426px) {
+    top: 6px;
+    right: 12px;
+  }
 `;
 
 export const Description = styled(Typography)`
   height: 32px;
   width: 310px;
-
   font-family: fantasy !important;
   display: flex;
-
+  justify-content: flex-start;
   word-wrap: break-word;
-
   @media (max-width: 426px) {
     height: 40px;
+    width: 280px;
   }
 `;
 
-export const CloseIcon = styled(CancelIcon)`
-  z-index: 1;
-  color: #fff;
-  opacity: 0.9;
-  width: 24px;
-  height: 23px;
-  z-index: 1;
-  background-color: #acf;
-  border: 1px solid #000000ee;
-  box-shadow: 1px 1px 1px 1px #000000ee;
-  border-radius: 6px;
-`;
 
 export const Container = styled(Box)`
   width: 1062px;
@@ -84,20 +101,18 @@ export const Container = styled(Box)`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: linear-gradient(180deg, #acf, #fff);
-  box-shadow: 1px 1px 4px 4px #acf;
-  border: 1px solid black;
+  background-image: linear-gradient(180deg, ${theme.colors.primary}, ${theme.colors.secondary});
+  box-shadow: 1px 1px 4px 4px ${theme.colors.primary};
+  border: 1px solid ${theme.colors.black};
   border-radius: 8px;
   @media (max-width: 426px) {
     height: 764px;
-    
     width: 325px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    
     justify-content: center;
-    background-image: linear-gradient(180deg, #fff, #acf);
+    background-image: linear-gradient(180deg, ${theme.colors.secondary}, ${theme.colors.primary});
   }
 `;
 
@@ -119,14 +134,14 @@ export const ContainerLeft = styled(Box)`
   border-radius: 8px;
   justify-content: center;
   align-items: center;
-  border-right: 1px solid #000000ee;
+  border-right: 1px solid ${theme.colors.black};
   & .MuiTypography-subtitle1 {
     overflow: hidden;
     text-overflow: ellipsis;
     text-transform: none;
     white-space: nowrap;
     -webkit-text-stroke: 0px;
-    color: #000000ee;
+    color: ${theme.colors.text};
   }
   & .MuiTypography-h6 {
     overflow: hidden;
@@ -134,7 +149,7 @@ export const ContainerLeft = styled(Box)`
     text-transform: none;
     white-space: nowrap;
     -webkit-text-stroke: 0px;
-    color: #000000ee;
+    color: ${theme.colors.text};
   }
   @media (max-width: 426px) {
     height: 432px;
@@ -168,7 +183,7 @@ export const ContainerRight = styled(Box)`
 
 export const ImageContainer = styled(Box)`
   position: relative;
-  color: #000000ee;
+  color: ${theme.colors.text};
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -177,7 +192,7 @@ export const ImageContainer = styled(Box)`
   @media (max-width: 426px) {
     width: 280px;
     height: 280px;
-    margin-bottom: 16px;
+    margin: 48px 0px 16px 0px;
   }
 `;
 
@@ -189,7 +204,7 @@ export const Image = styled(Box)<{ digimonImage: string }>`
   background-repeat: no-repeat;
   background-size: cover;
   overflow: hidden;
-  box-shadow: 1px 1px 4px 4px rgba(1, 3, 45, 1);
+  box-shadow: 1px 1px 4px 4px ${theme.colors.tertiary};
   border-radius: 10px;
   @media (max-width: 426px) {
     width: 280px;
@@ -199,8 +214,7 @@ export const Image = styled(Box)<{ digimonImage: string }>`
 
 export const Name = styled(Typography)`
   width: 300px;
-  color: #000000ee;
-  
+  color: ${theme.colors.text};
   text-align: center;
   
   @media (max-width: 426px) {
@@ -213,7 +227,7 @@ export const Name = styled(Typography)`
 `;
 
 export const descriptionBox = styled.div`
-  border-bottom: 1px solid #000000ee;
+  border-bottom: 1px solid ${theme.colors.black};
   width: 310px;
   & .MuiTypography-subtitle1 {
     text-align: left;
@@ -223,6 +237,9 @@ export const descriptionBox = styled.div`
   }
   @media (max-width: 426px) {
     width: 280px;
+    & .MuiTypography-subtitle1 {
+      text-align: start;
+  }
   }
 `
 export const evolutionBox = styled.div`
@@ -242,7 +259,7 @@ export const evolutionContainer = styled.div`
   font-family: fantasy;
   height: 80px;
   overflow-y: auto;
-  border: 1px solid black;
+  border: 1px solid ${theme.colors.black};
   border-radius: 4px;
   margin-bottom: 4px;
   padding: 4px;
@@ -278,18 +295,17 @@ export const ShowInfo = styled(Button)`
   text-transform: none !important;
   white-space: nowrap;
   margin: 0 20px !important;
-  border: 2px solid #000000ee !important;
-  box-shadow: 1px 1px 4px 4px #acf !important;
-
+  border: 2px solid ${theme.colors.black} !important;
+  box-shadow: 1px 1px 4px 4px ${theme.colors.primary} !important;
   font-family: fantasy !important;
-  color: #000000ee !important;
-  background-color: white !important;
+  color: ${theme.colors.text} !important;
+  background-color: ${theme.colors.secondary} !important;
   font-size: 16px !important;
   opacity: 0.9;
   &:hover {
     opacity: 1;
-    background-color: #000000ee !important;
-    color: white !important;
+    background-color: ${theme.colors.black} !important;
+    color: ${theme.colors.white} !important;
   }
 `;
 
@@ -308,9 +324,9 @@ export const DescriptionContainer = styled.div`
 export const DescriptionBox = styled(Box)`
   width: 310px;
   height: 40%;
-  box-shadow: 1px 1px 4px 4px #000000ee;
+  box-shadow: 1px 1px 4px 4px ${theme.colors.black};
   border-radius: 10px;
-  color: #000000ee;
+  color: ${theme.colors.text};
   display: flex;
   flex-direction: column;
   padding: 5px;
@@ -330,18 +346,17 @@ export const DescriptionNav = styled(Box)`
   display: flex;
 
   & .Mui-disabled {
-    color: #fff !important;
-    background-color: #000000ee !important;
+    color: ${theme.colors.white} !important;
+    background-color: ${theme.colors.black} !important;
   }
 `;
 
 export const ButtonLanguage = styled(Button)`
   width: 100%;
   height: 26px;
-  background-color: white !important;
+  background-color: ${theme.colors.white} !important;
   font-family: fantasy !important;
-  background-color: #fff !important;
-  color: #000000ee !important;
+  color: ${theme.colors.text} !important;
 `;
 
 export const DescriptionText = styled(Typography)`

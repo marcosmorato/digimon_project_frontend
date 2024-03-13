@@ -8,18 +8,15 @@ import * as GS from "../../utils/globalStyles/styles";
 
 interface DetailScreenProps {
   onClose: () => void;
-  isDetailOpen: boolean;
   selectedDetail: IDigimonFavorite;
   userToken: string;
 }
 
 const DetailScreen: React.FC<DetailScreenProps> = ({
-  isDetailOpen,
   onClose,
   selectedDetail,
   userToken,
 }) => {
-  const openClass = "open";
   const [languageDescription, setLanguageDescription] = useState('jap')
   const [favorite, setFavorite] = useState<boolean>(true)
   const isMobile = window.innerWidth <= 426;
@@ -43,12 +40,11 @@ const DetailScreen: React.FC<DetailScreenProps> = ({
       {isMobile ? (
       <>
         <S.ContainerLeft>
-          <S.Close>
             <S.CloseIcon onClick={onClose}>Fechar</S.CloseIcon>
-          </S.Close>
-          {favorite ? (
-            
-            <div>teste</div>
+          {favorite ? ( 
+            <S.FavoriteIconMui
+              onClick={() => changeFavorite()}
+            ></S.FavoriteIconMui>
           ) : (
             <S.FavoriteBorderIconMui
               onClick={() => changeFavorite()}
@@ -78,7 +74,7 @@ const DetailScreen: React.FC<DetailScreenProps> = ({
         <S.ContainerInfoMb>
           <S.descriptionBox>
             <GS.DescriptionText gutterBottom variant="subtitle1">
-              Atributo(s):
+              Attribute:
             </GS.DescriptionText>
             <GS.DescriptionText gutterBottom variant="h6">
               {selectedDetail.attributes.join(", ")}
@@ -86,7 +82,7 @@ const DetailScreen: React.FC<DetailScreenProps> = ({
           </S.descriptionBox>
           <S.descriptionBox>
             <GS.DescriptionText gutterBottom variant="subtitle1">
-                Data de Lançamento:
+              Release Date:
             </GS.DescriptionText>
             <GS.DescriptionText gutterBottom variant="h6">
                 {selectedDetail.releaseDate}
@@ -94,15 +90,15 @@ const DetailScreen: React.FC<DetailScreenProps> = ({
           </S.descriptionBox>
           <S.descriptionBox>
             <GS.DescriptionText gutterBottom variant="subtitle1">
-              Anticorpo - X / X-Antibody:
+              X-Antibody:
             </GS.DescriptionText>
             <GS.DescriptionText gutterBottom variant="h6">
-              {selectedDetail.xAntibody ? 'Sim' : 'Não'}
+              {selectedDetail.xAntibody ? "Infected" : "Not Affected"}
             </GS.DescriptionText>
           </S.descriptionBox>
           <S.descriptionBox>
             <GS.DescriptionText gutterBottom variant="subtitle1">
-              Level(s):
+              Level:
             </GS.DescriptionText>
             <GS.DescriptionText gutterBottom variant="h6">
               {selectedDetail.levels.join(", ")}
@@ -110,7 +106,7 @@ const DetailScreen: React.FC<DetailScreenProps> = ({
           </S.descriptionBox>
           <S.descriptionBox>
             <S.Description gutterBottom variant="subtitle1">
-              Campo[s]:
+              Field:
             </S.Description>
             {selectedDetail.fields.length > 0 ? (
               <S.IconContainter>
@@ -127,13 +123,13 @@ const DetailScreen: React.FC<DetailScreenProps> = ({
               </S.IconContainter>
             ) : (
               <GS.DescriptionText gutterBottom variant="h6">
-                Sem Dados.
+                Undefined
               </GS.DescriptionText>
             )}
           </S.descriptionBox>
           <S.descriptionBox>
             <GS.DescriptionText gutterBottom variant="subtitle1">
-              Tipo(S):
+              Type:
             </GS.DescriptionText>
             <GS.DescriptionText gutterBottom variant="h6">
               {selectedDetail.types.join(', ')}
@@ -141,7 +137,7 @@ const DetailScreen: React.FC<DetailScreenProps> = ({
           </S.descriptionBox>
           <S.DescriptionContainer>
             <GS.DescriptionText gutterBottom variant="subtitle1">
-            Descrição:
+              Description:
             </GS.DescriptionText>
             <S.DescriptionBox>
               {selectedDetail.descriptions ?
@@ -154,18 +150,18 @@ const DetailScreen: React.FC<DetailScreenProps> = ({
                 el.language === languageDescription ? <S.DescriptionText>{el.description}</S.DescriptionText> : null
               )}
               </>
-              : <div>Sem Dados</div>}
+              : <div>No informations</div>}
             </S.DescriptionBox>
           </S.DescriptionContainer>
           <S.evolutionBox>
             <GS.DescriptionText gutterBottom variant="subtitle1">
-              Pre-Evolução:
+              After-Evolution:
             </GS.DescriptionText>
             <S.evolutionContainer>
               {previousEvolutionsName?.map((el) => <div>{el}</div>)}
             </S.evolutionContainer>
             <GS.DescriptionText gutterBottom variant="subtitle1">
-              Pos-Evolução:
+              Next-Evolution:
             </GS.DescriptionText>
             <S.evolutionContainer>
               {nextEvolutionsName?.map((el) => <div>{el}</div>)}
@@ -174,9 +170,9 @@ const DetailScreen: React.FC<DetailScreenProps> = ({
         </S.ContainerInfoMb>
       </>) : (<>
         <S.ContainerLeft>
-          <S.Close>
+
             <S.CloseIcon onClick={onClose}>Fechar</S.CloseIcon>
-          </S.Close>
+
           {favorite ? (
             <S.FavoriteIconMui
               onClick={() => changeFavorite()}
@@ -186,7 +182,6 @@ const DetailScreen: React.FC<DetailScreenProps> = ({
               onClick={() => changeFavorite()}
             ></S.FavoriteBorderIconMui>
           )}
-          
           <S.ImageContainer>
             <S.descriptionBox>
             <S.Name gutterBottom variant="h4">
@@ -206,109 +201,107 @@ const DetailScreen: React.FC<DetailScreenProps> = ({
             ) : (
               <></>
             )}
-          </S.ImageContainer>
-          
+          </S.ImageContainer> 
         </S.ContainerLeft>
-      <S.ContainerRight>
-        <S.descriptionBox>
-          <S.Description gutterBottom variant="subtitle1">
-            Atributo(s):
-          </S.Description>
-        <S.Description gutterBottom variant="h6">
-          {selectedDetail.attributes.join(", ")}
-        </S.Description>
-        </S.descriptionBox>
-        
-        <S.descriptionBox>
-          <S.Description gutterBottom variant="subtitle1">
-              Data de Lançamento:
-          </S.Description>
-          <S.Description gutterBottom variant="h6">
-              {selectedDetail.releaseDate}
-          </S.Description>
-        </S.descriptionBox>
-        <S.descriptionBox>
-          <S.Description gutterBottom variant="subtitle1">
-            Anticorpo - X / X-Antibody:
-          </S.Description>
-          <S.Description gutterBottom variant="h6">
-            {selectedDetail.xAntibody ? 'Sim' : 'Não'}
-          </S.Description>
-        </S.descriptionBox>
-        <S.Description gutterBottom variant="subtitle1">
-          Descrição:
-        </S.Description>
-        <S.DescriptionBox>
-          {selectedDetail.descriptions ?
-          <>
-          <S.DescriptionNav>
-            <S.ButtonLanguage disabled={languageDescription === 'jap' ? true : false} onClick={() => setLanguageDescription('jap')}>JP</S.ButtonLanguage>
-            <S.ButtonLanguage disabled={languageDescription === 'en_us' ? true : false} onClick={() => setLanguageDescription('en_us')}>EN</S.ButtonLanguage>
-          </S.DescriptionNav>
-          {selectedDetail.descriptions.map((el) => 
-            el.language === languageDescription ? <S.DescriptionText>{el.description}</S.DescriptionText> : null
-          )}
-          </>
-          : <div>Inexistente</div>}
-        </S.DescriptionBox>
-      </S.ContainerRight>    
-      <S.ContainerRight>
-        <S.descriptionBox>
-          <S.Description gutterBottom variant="subtitle1">
-            Level(s):
-          </S.Description>
-          <S.Description gutterBottom variant="h6">
-            {selectedDetail.levels.join(", ")}
-          </S.Description>
-        </S.descriptionBox>
-        <S.descriptionBox>
-          <S.Description gutterBottom variant="subtitle1">
-            Campo[s]:
-          </S.Description>
-          {selectedDetail.fields.length > 0 ? (
-            <S.IconContainter>
-              {selectedDetail.fields.map((ele) => (
-                <S.Field
-                src={
-                  ele.image
-                    .replace(/_/g, " ")
-                    .replace(/ /g, "%20")
-                    .replace(/\(/g, "%28")
-                    .replace(/\)/g, "%29") as string
-                }
-              ></S.Field>
-              ))}
-            </S.IconContainter>
-          ) : (
-            <S.Description gutterBottom variant="h6">
-            Sem dados.
+        <S.ContainerRight>
+          <S.descriptionBox>
+            <S.Description gutterBottom variant="subtitle1">
+              Attribute:
             </S.Description>
-        )}
-        </S.descriptionBox>
-        <S.descriptionBox>
+          <S.Description gutterBottom variant="h6">
+            {selectedDetail.attributes.join(", ")}
+          </S.Description>
+          </S.descriptionBox>
+          <S.descriptionBox>
+            <S.Description gutterBottom variant="subtitle1">
+              Release Date:
+            </S.Description>
+            <S.Description gutterBottom variant="h6">
+              {selectedDetail.releaseDate}
+            </S.Description>
+          </S.descriptionBox>
+          <S.descriptionBox>
           <S.Description gutterBottom variant="subtitle1">
-            Tipo(S):
+            X-Antibody:
           </S.Description>
           <S.Description gutterBottom variant="h6">
-            {selectedDetail.types.join(', ')}
+            {selectedDetail.xAntibody ? "Infected" : "Not Affected"}
           </S.Description>
-        </S.descriptionBox>
-        <S.evolutionBox>
+          </S.descriptionBox>
           <S.Description gutterBottom variant="subtitle1">
-            Pre-Evolução:
+            Description:
           </S.Description>
-          <S.evolutionContainer>
-            {previousEvolutionsName?.map((el) => <div>{el}</div>)}
-          </S.evolutionContainer>
-          <S.Description gutterBottom variant="subtitle1">
-            Pos-Evolução:
-          </S.Description>
-          <S.evolutionContainer>
-            {nextEvolutionsName?.map((el) => <div>{el}</div>)}
-          </S.evolutionContainer>
-        </S.evolutionBox>
-      </S.ContainerRight>
-      
+          <S.DescriptionBox>
+            {selectedDetail.descriptions ?
+            <>
+              <S.DescriptionNav>
+                <S.ButtonLanguage disabled={languageDescription === 'jap' ? true : false} onClick={() => setLanguageDescription('jap')}>JP</S.ButtonLanguage>
+                <S.ButtonLanguage disabled={languageDescription === 'en_us' ? true : false} onClick={() => setLanguageDescription('en_us')}>EN</S.ButtonLanguage>
+              </S.DescriptionNav>
+              {selectedDetail.descriptions.map((el) => 
+              el.language === languageDescription ? <S.DescriptionText>{el.description}</S.DescriptionText> : null
+              )}
+            </>
+          : 
+            <div>Undefined</div>}
+          </S.DescriptionBox>
+        </S.ContainerRight>    
+        <S.ContainerRight>
+          <S.descriptionBox>
+            <S.Description gutterBottom variant="subtitle1">
+              Level:
+            </S.Description>
+            <S.Description gutterBottom variant="h6">
+              {selectedDetail.levels.join(", ")}
+            </S.Description>
+          </S.descriptionBox>
+          <S.descriptionBox>
+            <S.Description gutterBottom variant="subtitle1">
+              Field:
+            </S.Description>
+            {selectedDetail.fields.length > 0 ? (
+              <S.IconContainter>
+                {selectedDetail.fields.map((ele) => (
+                  <S.Field
+                  src={
+                    ele.image
+                      .replace(/_/g, " ")
+                      .replace(/ /g, "%20")
+                      .replace(/\(/g, "%28")
+                      .replace(/\)/g, "%29") as string
+                  }
+                  />
+                ))}
+              </S.IconContainter>
+            ) : (
+              <S.Description gutterBottom variant="h6">
+                No informations
+              </S.Description>
+            )}
+          </S.descriptionBox>
+          <S.descriptionBox>
+            <S.Description gutterBottom variant="subtitle1">
+              Type:
+            </S.Description>
+            <S.Description gutterBottom variant="h6">
+              {selectedDetail.types.join(', ')}
+            </S.Description>
+          </S.descriptionBox>
+          <S.evolutionBox>
+            <S.Description gutterBottom variant="subtitle1">
+              After-Evolution:
+            </S.Description>
+            <S.evolutionContainer>
+              {previousEvolutionsName?.map((el) => <div>{el}</div>)}
+            </S.evolutionContainer>
+            <S.Description gutterBottom variant="subtitle1">
+              Next-Evolution:
+            </S.Description>
+            <S.evolutionContainer>
+              {nextEvolutionsName?.map((el) => <div>{el}</div>)}
+            </S.evolutionContainer>
+          </S.evolutionBox>
+        </S.ContainerRight>
       </>)}
     </S.Container>
   );

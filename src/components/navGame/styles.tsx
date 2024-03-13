@@ -30,7 +30,7 @@ import FavoriteOutlinedIcon from '@mui/icons-material/FavoriteOutlined';
 
 
 export const HomeIcon = styled(HomeOutlinedIcon)`
-    z-index: 1; /* Para garantir que os ícones estejam acima da imagem */
+    z-index: 1;
     color: #b8bbbf;
     opacity: 0.9;
     width: 24px;
@@ -41,7 +41,7 @@ export const HomeIcon = styled(HomeOutlinedIcon)`
 `;
 
 export const BagIcon = styled(BusinessCenterOutlinedIcon)`
-    z-index: 1; /* Para garantir que os ícones estejam acima da imagem */
+    z-index: 1;
     color: #b8bbbf;
     opacity: 0.9;
     width: 24px;
@@ -52,7 +52,7 @@ export const BagIcon = styled(BusinessCenterOutlinedIcon)`
 `;
 
 export const DigiStorageIcon = styled(WarehouseOutlinedIcon)`
-    z-index: 1; /* Para garantir que os ícones estejam acima da imagem */
+    z-index: 1;
     color: #b8bbbf;
     opacity: 0.9;
     width: 24px;
@@ -63,7 +63,7 @@ export const DigiStorageIcon = styled(WarehouseOutlinedIcon)`
 `;
 
 export const IncubatorIcon = styled(EggOutlinedIcon)`
-    z-index: 1; /* Para garantir que os ícones estejam acima da imagem */
+    z-index: 1;
     color: #b8bbbf;
     opacity: 0.9;
     width: 24px;
@@ -74,7 +74,7 @@ export const IncubatorIcon = styled(EggOutlinedIcon)`
 `;
 
 export const ExplorationIcon = styled(DirectionsSubwayFilledOutlinedIcon)`
-    z-index: 1; /* Para garantir que os ícones estejam acima da imagem */
+    z-index: 1;
     color: #b8bbbf;
     opacity: 0.9;
     width: 24px;
@@ -85,7 +85,7 @@ export const ExplorationIcon = styled(DirectionsSubwayFilledOutlinedIcon)`
 `
 
 export const TrainingIcon = styled(FitnessCenterOutlinedIcon)`
-    z-index: 1; /* Para garantir que os ícones estejam acima da imagem */
+    z-index: 1;
     color: #b8bbbf;
     opacity: 0.9;
     width: 24px;
@@ -96,7 +96,7 @@ export const TrainingIcon = styled(FitnessCenterOutlinedIcon)`
 `;
 
 export const DigicodeIcon = styled(MemoryOutlinedIcon)`
-    z-index: 1; /* Para garantir que os ícones estejam acima da imagem */
+    z-index: 1;
     color: #b8bbbf;
     opacity: 0.9;
     width: 24px;
@@ -107,7 +107,7 @@ export const DigicodeIcon = styled(MemoryOutlinedIcon)`
 `;
 
 export const heartIcon = styled(FavoriteOutlinedIcon)`
-    z-index: 1; /* Para garantir que os ícones estejam acima da imagem */
+    z-index: 1;
     color: #b8bbbf;
     opacity: 0.9;
     top: 10px;
@@ -143,8 +143,6 @@ export const ListSubheaderMui = styled(ListSubheader)`
 
 export const ListItemButtonMui = styled(ListItemButton)`
     width: 100%;
-    /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    border-radius: 16px !important; */
   &:hover {
     color: white;
     border-radius: 16px !important; 
@@ -163,7 +161,6 @@ export const ListItemIconMui = styled(ListItemIcon)`
 `;
 
 export const ListItemTextMui = styled(ListItemText)`
-  /* font-family: fantasy !important; */
   width: 100%;
   height: 100%;
 
@@ -174,8 +171,6 @@ export const ListItemTextMui = styled(ListItemText)`
     text-align: left;
     text-decoration: none;
     outline: 0;
-    /* color: #12a5ff; */
-    /* background-color: #13151e; */
    
     color: #b8bbbf;
     &:hover {

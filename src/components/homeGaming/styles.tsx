@@ -8,13 +8,9 @@ import GroupWorkOutlinedIcon from '@mui/icons-material/GroupWorkOutlined';
 export const HomeContainer = styled(Box)`
   width: 710px;
   height: 86vh;
-  /* box-shadow: 1px 1px 4px 4px #393A3B !important; */
-  /* border: 2px solid #000000ee; */
-  /* border-radius: 10px; */
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* background-color: #222430 !important; */
 
   @media (max-width: 426px) {
     height: 800px;

@@ -3,6 +3,7 @@ import {
   Box,
   Typography,
 } from "@mui/material";
+import { theme } from '../../utils/globalStyles/theme'
 
 export const GamingContainer = styled.div`
 background-color: #13151e;
@@ -18,8 +19,8 @@ flex-direction: column;
 export const ContainerSide = styled(Box)`
   width: 250px;
   height: 550px;
-  box-shadow: 1px 1px 4px 4px #acf;
-  border: 2px solid #000000ee;
+  box-shadow: 1px 1px 4px 4px ${theme.colors.primary};
+  border: 2px solid ${theme.colors.black};
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -35,25 +36,25 @@ export const ContainerSide = styled(Box)`
   
   & .MuiList-root {
     font-size: 16px;
-    background-image: linear-gradient(180deg, #fff, #acf);
+    background-image: linear-gradient(180deg, ${theme.colors.secondary}, ${theme.colors.primary});
     border-radius: 8px;
-    border: 2px solid #000000ee;
-    box-shadow: 1px 1px 4px 4px #acf;
+    border: 2px solid ${theme.colors.black};
+    box-shadow: 1px 1px 4px 4px ${theme.colors.primary};
     padding: 0;
 
     & .MuiListItemButton-root {
       &:hover {
-        background-image: linear-gradient(180deg, #000000ee, #acf);
-        -webkit-text-stroke: 1px #000000ee;
+        background-image: linear-gradient(180deg, ${theme.colors.black}, ${theme.colors.primary});
+        -webkit-text-stroke: 1px ${theme.colors.text};
       }
     }
     
     & .Mui-disabled {
-      background-image: linear-gradient(180deg, #000000ee, #acf);
-      -webkit-text-stroke: 1px #000000ee;
+      background-image: linear-gradient(180deg, ${theme.colors.black}, ${theme.colors.primary});
+      -webkit-text-stroke: 1px ${theme.colors.text};
       opacity: 1;
       & .MuiTypography-root {
-        color: #fff;
+        color: ${theme.colors.white};
       }
     }
   }
@@ -83,7 +84,6 @@ export const ContainerNavGame = styled(Box)`
   padding: 16px;
   margin-right: 28px;
   & .MuiTypography-h3 {
-    /* font-family: fantasy; */
     text-align: center;
   }
   
@@ -101,10 +101,10 @@ export const ContainerNavGame = styled(Box)`
 export const ContainerFilter = styled(Box)`
   width: 250px;
   height: 550px;
-  box-shadow: 1px 1px 4px 4px #acf !important;
-  border: 2px solid #000000ee;
+  box-shadow: 1px 1px 4px 4px ${theme.colors.primary} !important;
+  border: 2px solid ${theme.colors.black};
   border-radius: 10px;
-  color: #000000ee;
+  color: ${theme.colors.text};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -129,10 +129,10 @@ export const ContainerFilter = styled(Box)`
 export const ContainerCenter = styled(Box)`
   width: 820px;
   height: 550px;
-  box-shadow: 1px 1px 4px 4px #acf !important;
-  border: 2px solid #000000ee;
+  box-shadow: 1px 1px 4px 4px ${theme.colors.primary} !important;
+  border: 2px solid ${theme.colors.black};
   border-radius: 10px;
-  color: #000000ee;
+  color: ${theme.colors.text};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -157,10 +157,10 @@ export const ContainerCenter = styled(Box)`
 export const ContainerExtra = styled(Box)`
   width: 1098px;
   height: 550px;
-  box-shadow: 1px 1px 4px 4px #acf !important;
-  border: 2px solid #000000ee;
+  box-shadow: 1px 1px 4px 4px ${theme.colors.primary} !important;
+  border: 2px solid ${theme.colors.black};
   border-radius: 10px;
-  color: #000000ee;
+  color: ${theme.colors.text};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -212,23 +212,16 @@ export const ContainerBody = styled.div`
 export const AccountTitle = styled(Typography)`
   height: 70px;
   width: 90%;
-  color: #000000;
-  -webkit-text-stroke: 1px #acf;
-  
-  /* @media (max-width: 426px) {
-    height: 70px;
-  } */
+  color: ${theme.colors.text};
+  -webkit-text-stroke: 1px ${theme.colors.primary};
+
 `;
 
 export const TitleBox = styled(Typography)`
   height: 60px;
   width: 90%;
-  color: #000000ee;
-  -webkit-text-stroke: 1px #acf;
-  
-  /* @media (max-width: 426px) {
-    height: 70px;
-  } */
+  color: ${theme.colors.text};
+  -webkit-text-stroke: 1px ${theme.colors.primary};
 `;
 
 export const DescriptionText = styled(Typography)`
@@ -243,5 +236,7 @@ export const DescriptionText = styled(Typography)`
 
   @media (max-width: 426px) {
     height: 40px;
+    width: 280px;
+    justify-content: flex-start !important;
   }
 `;
