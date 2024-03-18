@@ -60,6 +60,7 @@ const DetailScreen: React.FC<DetailScreenProps> = ({
                     .replace(/\(/g, "%28")
                     .replace(/\)/g, "%29") as string
                 }
+                key={selectedDetail.name}
               ></S.Image>
             ) : (
               <></>

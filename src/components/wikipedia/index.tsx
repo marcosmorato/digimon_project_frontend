@@ -48,13 +48,12 @@ const Wikipedia: React.FC<IWikipedia> = ({
     setShowModal(false);
   };
 
-
   return (
     <GS.ContainerCenter>
       <GS.TitleBox variant="h3">Wikipedia</GS.TitleBox>
       <S.PaginationContainer>
         <S.NameContainer>
-          {itemsToShow.length !== 0 ? itemsToShow.map((el) => (
+          {itemsToShow.length !== 0 && digimonsName[0].name !== ""? itemsToShow.map((el) => (
             <S.ShowInfo
               onClick={() => {
                 if (el.name) {
@@ -67,7 +66,7 @@ const Wikipedia: React.FC<IWikipedia> = ({
                 >
                   {el.name}
             </S.ShowInfo>
-          )) : <S.ShowInfo disabled>Digimon not found!</S.ShowInfo>}
+          )) : <S.Loading></S.Loading>}
         </S.NameContainer>
         {itemsToShow.length !== 0 && 
           <S.StackUi spacing={2}>

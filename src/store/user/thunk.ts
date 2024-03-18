@@ -59,7 +59,7 @@ export const loginUserThunk = (
 
     } catch (error) {
       console.log(error, "error ao fazer a requisição");
-      let users = {
+      /* let users = {
         loggedUser: {
           user: {
             name: "",
@@ -67,7 +67,7 @@ export const loginUserThunk = (
           },
         },
         isLogged: false,
-      };
+      }; */
       throw error;
     }
   };

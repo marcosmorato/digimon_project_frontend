@@ -6,6 +6,7 @@ import {
   Stack,
 } from "@mui/material";
 import { theme } from '../../utils/globalStyles/theme'
+import CircularProgress from '@mui/material/CircularProgress';
 
 export const PaginationContainer = styled(Box)`
   width: 784px;
@@ -109,3 +110,4 @@ export const PaginationUi = styled(Pagination)`
   }
 `;
 
+export const Loading = styled(CircularProgress)``

@@ -8,6 +8,8 @@ import { AppDispatch, RootState } from "../../store/store";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { IDigimonReducer } from "../../utils/interfaces/digimons/index";
+import { useNavigate } from "react-router-dom";
+import { resetUsers } from "../../store/user/actions";
 
 import { wikipediaThunk } from "../../store/wikipedia/thunk";
 
@@ -19,6 +21,7 @@ const Wikipedia: React.FC = () => {
 
   const user = useSelector((state: RootState) => state.user.loggedUser.user);
   const dispatch = useDispatch<AppDispatch>();
+  const navigate = useNavigate();
 
   useEffect(() => {
     setDigimonFilters(digimonsName);
@@ -26,7 +29,13 @@ const Wikipedia: React.FC = () => {
 
   useEffect(() => {
     if (user.token !== "") {
-      dispatch(wikipediaThunk(user.token, setShowWikipedia));
+      dispatch(wikipediaThunk(user.token, setShowWikipedia)).catch((error) => {
+          console.log('Erro ao executar o thunk:', error);
+          dispatch(resetUsers())
+          navigate("/account")
+        });
+    } else {
+      navigate("/account")
     }
   }, [dispatch, setShowWikipedia, user.token]);
   

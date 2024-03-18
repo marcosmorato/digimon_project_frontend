@@ -48,7 +48,7 @@ const Favorite: React.FC = () => {
     };
 
     fetchData();
-  }, [user.token, digimonFavorite]);
+  }, [user.token]);
 
   return (
     <GS.ContainerPage>

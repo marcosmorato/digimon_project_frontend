@@ -10,6 +10,7 @@ import {
 import { theme } from '../../utils/globalStyles/theme'
 
 import AspectRatioIcon from "@mui/icons-material/AspectRatio";
+import CircularProgress from '@mui/material/CircularProgress';
 
 export const PaginationContainer = styled(Box)`
   width: 1066px;
@@ -133,3 +134,5 @@ export const MaximizeIcon = styled(AspectRatioIcon)`
   color: ${theme.colors.text};
   box-shadow: 1px 1px 1px 1px ${theme.colors.black};
 `;
+
+export const Loading = styled(CircularProgress)``

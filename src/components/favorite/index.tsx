@@ -78,7 +78,7 @@ const Favorite: React.FC<IFavorite> = ({
             <GS.TitleBox variant="h3">Favorites</GS.TitleBox>
             <S.PaginationContainer>
             {!showFavorite && digimonsData.length > 0 ? (
-              <GS.TitleBox>Carregando...</GS.TitleBox>
+              <S.Loading></S.Loading>
             ) : (
               <>
                 <S.ContainerFavorite>

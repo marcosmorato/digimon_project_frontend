@@ -7,7 +7,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { schemaRegister } from "../../utils/yup/index";
 import { AppDispatch, RootState } from "../../store/store";
 import { registerUserThunk } from "../../store/user/thunk";
-import { useSelector } from "react-redux";
 
 interface FormData {
   email: string;
@@ -18,7 +17,6 @@ interface FormData {
 }
 
 const Register: React.FC = () => {
-  const usersState = useSelector((state: RootState) => state);
   const [registerSuccess, setRegisterSuccess] = useState(false);
   const [registerFailed, setRegisterFailed] = useState(false);
   const {

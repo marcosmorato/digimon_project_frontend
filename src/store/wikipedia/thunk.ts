@@ -4,7 +4,6 @@ import { filterDigimons, wikipediaSetAllDigimons } from "./actions";
 import { ThunkAction, ThunkDispatch } from "redux-thunk";
 import { RootState, AppDispatch } from "../store";
 import { AxiosResponse } from "axios";
-import { SetStateAction } from "react";
 import { IDigimonFilter } from "../../utils/interfaces/digimons";
 
 interface IFilters {
@@ -18,7 +17,7 @@ const loginFailure = (error: any): AnyAction => ({
 
 export const wikipediaThunk = (
   authToken: string,
-  setStateFilter: (e: boolean) => void
+  setShowWikipedia: (e: boolean) => void
 ): ThunkAction<Promise<void>, RootState, unknown, AnyAction> => {
   return async (
     dispatch: ThunkDispatch<RootState, unknown, AnyAction>,
@@ -34,17 +33,15 @@ export const wikipediaThunk = (
           headers,
         })
         .then((res) => {
-          setStateFilter(true);
+          setShowWikipedia(true);
           dispatch(wikipediaSetAllDigimons({ digimonsFilters: res.data }));
         })
         .catch((error) => {
-          console.log(error, "error ao fazer a requisição");
-          setStateFilter(false);
-          return error;
+          throw error;
         });
     } catch (error) {
       console.error(error);
-      dispatch(loginFailure(error));
+      throw error;
     }
   };
 };
@@ -57,7 +54,6 @@ export const wikipediaFilterThunk = (
     getState: () => RootState
   ) => {
     const digimons = getState().wikipedia;
-    const searchString = "Agumon";
     const filteredDigimons = digimons.digimonsFilters.filter((el) => {
       const lowerCaseName = el.name.toLowerCase();
       const loewCaseSearchString = filters.name.toLowerCase();
@@ -79,10 +75,10 @@ export const wikipediaModalThunk = async (
       "x-access-token": authToken,
     };
 
-    const teste = name.replace(/[^\w\s()\-]/gi, "").replace(/ /g, "%20");
+    const digimonName = name.replace(/[^\w\s()\-]/gi, "").replace(/ /g, "%20");
 
     const response = await api
-      .get(`/digimon/filter?name=${teste}`, {
+      .get(`/digimon/filter?name=${digimonName}`, {
         headers,
       })
       .then((res: AxiosResponse<IDigimonFilter>) => {
