@@ -1,4 +1,4 @@
-import React, { useEffect, useState, ChangeEvent } from "react";
+import React, { useState, ChangeEvent } from "react";
 import { useForm } from "react-hook-form";
 import * as S from "./styles";
 import * as GS from "../../utils/globalStyles/styles";

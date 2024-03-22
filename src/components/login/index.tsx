@@ -37,7 +37,6 @@ const Login: React.FC = () => {
     try {
       const response = await dispatch(loginUserThunk(formData));
       navigate("/home");
-      console.log('Success Login', response)
       return
     } catch (error) {
       setLoginFailed({message: "E-mail or password invalid", failLogin: true})

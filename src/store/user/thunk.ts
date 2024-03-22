@@ -1,18 +1,11 @@
 import { api } from "../../services/api/index";
-import { AnyAction, Dispatch, Action } from "redux";
+import { AnyAction } from "redux";
 import {
-  updateUsers,
-  loginFailed,
   loginSuccess,
   updateFavorite,
 } from "./actions";
 import { ThunkAction, ThunkDispatch } from "redux-thunk";
-import { RootState, AppDispatch } from "../store";
-
-interface CustomAction<T = any> extends Action {
-  type: string;
-  payload?: T;
-}
+import { RootState } from "../store";
 
 interface loginUserData {
   email: string;
@@ -29,10 +22,6 @@ interface registerUserData {
   nickname: string;
   name: string;
   password_confirmation: string;
-}
-
-interface IFavorite {
-  favorite: string[];
 }
 
 export const loginUserThunk = (
@@ -59,15 +48,6 @@ export const loginUserThunk = (
 
     } catch (error) {
       console.log(error, "error ao fazer a requisição");
-      /* let users = {
-        loggedUser: {
-          user: {
-            name: "",
-            nickname: "",
-          },
-        },
-        isLogged: false,
-      }; */
       throw error;
     }
   };

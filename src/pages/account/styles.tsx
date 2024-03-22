@@ -10,7 +10,6 @@ export const SignContainer = styled.div`
   align-items: center;
   justify-content: center;
   background-image: linear-gradient(180deg, ${theme.colors.secondary}, ${theme.colors.primary});
-  box-shadow: 1px 1px 4px 4px ${theme.colors.tertiary};
   @media (max-width: 426px) {
     flex-direction: column;
     & .MuiTypography-h3 {

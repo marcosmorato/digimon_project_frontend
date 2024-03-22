@@ -1,19 +1,14 @@
 import { api } from "../../services/api/index";
-import { AnyAction, Dispatch, Action } from "redux";
+import { AnyAction } from "redux";
 import { filterDigimons, wikipediaSetAllDigimons } from "./actions";
 import { ThunkAction, ThunkDispatch } from "redux-thunk";
-import { RootState, AppDispatch } from "../store";
+import { RootState } from "../store";
 import { AxiosResponse } from "axios";
 import { IDigimonFilter } from "../../utils/interfaces/digimons";
 
 interface IFilters {
   name: string;
 }
-
-const loginFailure = (error: any): AnyAction => ({
-  type: "LOGIN_FAILURE",
-  payload: error,
-});
 
 export const wikipediaThunk = (
   authToken: string,
@@ -28,7 +23,7 @@ export const wikipediaThunk = (
         "Content-Type": "application/json",
         "x-access-token": authToken,
       };
-      const response = await api
+      await api
         .get(`/digimon/all`, {
           headers,
         })
@@ -75,7 +70,7 @@ export const wikipediaModalThunk = async (
       "x-access-token": authToken,
     };
 
-    const digimonName = name.replace(/[^\w\s()\-]/gi, "").replace(/ /g, "%20");
+    const digimonName = name.replace(/[^\w\s()-]/gi, "").replace(/ /g, "%20");
 
     const response = await api
       .get(`/digimon/filter?name=${digimonName}`, {
